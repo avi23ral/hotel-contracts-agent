@@ -49,11 +49,14 @@ def test_pdf_printed_prices_appear_in_text():
             assert f"{r.price:g}" in text, r
 
 
-def test_schema_rejects_overlapping_seasons():
+def test_validator_flags_overlapping_seasons():
+    # Step 3 moved this check from the schema (hard error) to validators.py (soft flag).
+    from contract_agent.validators import validate_contract
     g = json.loads((ROOT / "data/gold/001_sol_de_marina_contract.json").read_text())
     g["contract"]["seasons"][1]["date_from"] = "2027-06-10"   # overlaps Low
-    with pytest.raises(ValueError, match="overlap"):
-        Contract.model_validate(g["contract"])
+    issues = validate_contract(Contract.model_validate(g["contract"]))
+    overlap = [i for i in issues if i.rule == "season_overlap"]
+    assert overlap and "seasons[Low].date_to" in overlap[0].paths
 
 
 def test_offer_rows():

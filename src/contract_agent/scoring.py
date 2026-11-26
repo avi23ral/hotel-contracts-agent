@@ -3,23 +3,50 @@
 Lists are keyed by meaning, not position: rates by season|room|board,
 rooms by code, etc. So a correct rate listed in a different order still
 counts as correct.
+
+Step 3 fixes two kinds of false miss found in the first eval:
+- Season labels: "Season A" and "A" are the same season. Labels are
+  canonicalised before they are used as keys or compared.
+- Amendment keys: an offer change was keyed by its stay dates, so when the
+  model left the dates out (they live in the existing contract) every field
+  of the change counted as missing AND extra. Offer changes are now keyed
+  by change type + offer type, and the dates are scored as ordinary values.
 """
 from __future__ import annotations
 
+import re
 from typing import Any
 
 from pydantic import BaseModel
 
+_SEASON_WORD = re.compile(r"^\s*season\s+|\s+season\s*$", re.I)
+
+
+def canonical_season(name: Any) -> str:
+    """'Season A' -> 'A', 'high season' -> 'High', ' Low ' -> 'Low'."""
+    s = _SEASON_WORD.sub("", str(name or "")).strip()
+    return s[:1].upper() + s[1:].lower() if s else s
+
+
+def _change_key(x: dict) -> str:
+    ct = x.get("change_type")
+    offer = x.get("offer") or {}
+    if ct in ("offer_added", "offer_changed") and offer.get("type"):
+        return f"{ct}|{offer['type']}"
+    return f"{ct}|{x.get('date_from')}"
+
+
 LIST_KEYS = {
     "rooms": lambda x: x.get("code"),
-    "seasons": lambda x: x.get("name"),
-    "rates": lambda x: f'{x.get("season")}|{x.get("room_code")}|{x.get("board")}',
+    "seasons": lambda x: canonical_season(x.get("name")),
+    "rates": lambda x: f'{canonical_season(x.get("season"))}|{x.get("room_code")}|{x.get("board")}',
     "child_policy": lambda x: f'{float(x.get("age_from", 0)):g}',
     "cancellation": lambda x: str(x.get("days_from")),
     "special_offers": lambda x: f'{x.get("type")}|{x.get("stay_from")}',
-    "changes": lambda x: f'{x.get("change_type")}|{x.get("date_from") or (x.get("offer") or {}).get("stay_from")}',
+    "changes": _change_key,
 }
 SKIP = {"name", "supplier_email", "payment_terms", "note", "destination"}  # free text: judged later, not exact-matched
+CANON_VALUES = {"season": canonical_season}   # leaf values normalised before comparison
 
 
 def flatten(obj: Any, prefix: str = "") -> dict[str, Any]:
@@ -30,6 +57,8 @@ def flatten(obj: Any, prefix: str = "") -> dict[str, Any]:
         for k, v in obj.items():
             if k in SKIP and prefix:   # keep top-level hotel name etc. out of exact match
                 continue
+            if k in CANON_VALUES and isinstance(v, str):
+                v = CANON_VALUES[k](v)
             out.update(flatten(v, f"{prefix}.{k}" if prefix else k))
     elif isinstance(obj, list):
         field = prefix.rsplit(".", 1)[-1]
@@ -47,8 +76,8 @@ def flatten(obj: Any, prefix: str = "") -> dict[str, Any]:
 def _equal(a: Any, b: Any) -> bool:
     if isinstance(a, (int, float)) and isinstance(b, (int, float)) and not isinstance(a, bool):
         return abs(float(a) - float(b)) < 0.01
-    if isinstance(a, str) and isinstance(b, str):
-        return a.strip().lower() == b.strip().lower()
+    if isinstance(a, str) and isinstance(b, str):   # case, spaces and a trailing full stop don't matter
+        return a.strip().rstrip(".").lower() == b.strip().rstrip(".").lower()
     return a == b
 
 
@@ -72,6 +101,20 @@ class FieldScore(BaseModel):
     def f1(self) -> float:
         p, r = self.precision, self.recall
         return 2 * p * r / (p + r) if p + r else 0.0
+
+    def outcome(self, path: str) -> str:
+        """correct | wrong | extra for a predicted field (used for calibration)."""
+        if path in self._correct_set:
+            return "correct"
+        return "extra" if path in self._extra_set else "wrong"
+
+    @property
+    def _correct_set(self):
+        return set(self.correct)
+
+    @property
+    def _extra_set(self):
+        return set(self.extra)
 
 
 def score_fields(pred: Any, gold: Any) -> FieldScore:

@@ -12,9 +12,14 @@ Plan: see the "Hotel contract-to-offer agent: build plan" doc in the project.
 - `data/inputs/`: synthetic inputs (PDF, .eml, chat .txt)
 - `data/gold/`: hand-labelled expected outputs
 - `data/offers/gold_offers.csv`: offer rows generated from the gold contracts
-- `src/contract_agent/extract.py`: baseline extractor (one Claude call, structured output)
+- `src/contract_agent/extract.py`: one Claude call, structured output, evidence notes per field
+- `src/contract_agent/pipeline.py`: step 3 flow: two passes, normalise, validate, check evidence, score
+- `src/contract_agent/evidence.py`: checks each quote is really in the source and holds the value
+- `src/contract_agent/validators.py`: deterministic business rules (seasons, cancellation, prices...)
+- `src/contract_agent/confidence.py`: combined confidence score, per-field thresholds, cost weights
 - `src/contract_agent/scoring.py`: field-by-field comparison against gold
-- `evals/run_eval.py`: eval runner, saves results to `evals/results/`
+- `evals/run_eval.py`: eval runner, saves results to `evals/results/` (`--rescore` re-scores an old run)
+- `evals/calibration.py`: calibration chart and threshold trade-off (`evals/results/calibration.png`)
 - `scripts/`: `make_pdf_contract.py` builds the PDF, `build_gold.py` writes the gold JSON
 - `notes/`: concept notes for interviews
 
@@ -24,9 +29,10 @@ pip install -r requirements.txt
 cp .env.example .env        # then paste your key after HOTEL_AGENT_API_KEY=
 python -m pytest -q         # offline checks, no key needed
 python evals/run_eval.py    # runs Claude on all inputs and scores against gold
+python evals/calibration.py # chart from all saved step 3 runs
 ```
 
 ## Progress
 - [x] Step 1: schema, 3 synthetic inputs, gold labels, offer rows
 - [x] Step 2: baseline extractor and eval harness (first run: mean F1 0.675, intent 3/3)
-- [ ] Step 3: evidence checks and confidence scoring
+- [x] Step 3: evidence checks, validators, per-field confidence and calibration (see notes/03)

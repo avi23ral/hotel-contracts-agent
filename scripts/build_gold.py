@@ -8,6 +8,8 @@ Labelling conventions (these will later live in the RAG playbook):
 - "Free" child = discount_pct 100.
 - Room codes are OUR codes (DBL, DSV, FAM, STD, JSU), not the hotel's names.
 - Year is inferred from the contract period when the source omits it.
+- Both contracts guarantee rooms per night, so their rooms are "allotment".
+  The default for new hotels is "free_sale" (see schema.py).
 """
 import json
 import sys
@@ -48,11 +50,11 @@ g001 = {
         "pricing_basis": "per_room_per_night",
         "rooms": [
             {"code": "DBL", "name": "Double Standard", "min_adults": 1, "max_adults": 2, "max_children": 1,
-             "max_occupancy": 3, "allotment": 10},
+             "max_occupancy": 3, "inventory": "allotment", "allotment": 10},
             {"code": "DSV", "name": "Double Sea View", "min_adults": 1, "max_adults": 2, "max_children": 1,
-             "max_occupancy": 3, "allotment": 4},
+             "max_occupancy": 3, "inventory": "allotment", "allotment": 4},
             {"code": "FAM", "name": "Family Room", "min_adults": 2, "max_adults": 4, "max_children": 2,
-             "max_occupancy": 4, "allotment": 6},
+             "max_occupancy": 4, "inventory": "allotment", "allotment": 6},
         ],
         "seasons": [
             {"name": "Low", "date_from": "2027-05-01", "date_to": "2027-06-14", "min_stay_nights": 3},
@@ -101,9 +103,9 @@ g002 = {
         "pricing_basis": "per_person_per_night",
         "rooms": [
             {"code": "STD", "name": "Standard Double", "min_adults": 2, "max_adults": 3, "max_children": 1,
-             "max_occupancy": 3, "allotment": 8},
+             "max_occupancy": 3, "inventory": "allotment", "allotment": 8},
             {"code": "JSU", "name": "Junior Suite", "min_adults": 2, "max_adults": 3, "max_children": 2,
-             "max_occupancy": 4, "allotment": 3},
+             "max_occupancy": 4, "inventory": "allotment", "allotment": 3},
         ],
         "seasons": [
             {"name": "A", "date_from": "2027-05-15", "date_to": "2027-06-30", "min_stay_nights": 3},

@@ -1,7 +1,10 @@
-"""Step 2: baseline extractor. One Claude call, structured output.
+"""Extractor: one Claude call, structured output.
 
-This is deliberately the simplest thing that could work, so later steps
-(confidence, routing, RAG, ReAct) can be measured against it.
+Step 2 made this the baseline. Step 3 keeps the single call but asks for
+evidence notes keyed by the same field paths the eval uses, so every field
+can be checked against the source (see pipeline.py). The baseline's
+"trust the model's own confidence" logic is kept as baseline_meta() so the
+two policies can be compared on the same run.
 """
 from __future__ import annotations
 
@@ -11,14 +14,17 @@ from pydantic import BaseModel, Field
 
 from .ingest import SourceDoc, load_source
 from .llm import EXTRACT_MODEL, get_client
-from .schema import ChangeSet, Contract, ExtractionResult, FieldMeta, Intent, Status
+from .schema import ChangeSet, Contract, Intent, Status
 
 
 class FieldNote(BaseModel):
-    """The model's own evidence and confidence for one field."""
-    path: str = Field(description='Field path, e.g. "rates[season=High,room=DBL,board=HB].price" or "release_days"')
-    evidence: str = Field(description="Exact quote copied from the source text that supports the value")
+    """The model's own evidence and confidence for one or more fields."""
+    paths: list[str] = Field(description='Field paths or item prefixes, e.g. ["rates[High|DBL|HB]"], '
+                                         '["seasons[Low].date_from", "seasons[Low].date_to"], ["release_days"]')
+    evidence: str = Field(description="Exact quote copied character for character from the source text")
     confidence: float = Field(description="0 to 1: how sure you are the value is correct")
+    derived: bool = Field(default=False, description="True if the value was computed (supplement added, "
+                                                     "year inferred, per-person converted), not copied")
 
 
 class LLMExtraction(BaseModel):
@@ -42,14 +48,32 @@ changes terms of an existing contract (stop sales, offer changes, rate changes);
 Standard Double=STD, Junior Suite=JSU. Otherwise make a short uppercase code.
 - Board codes: RO, BB, HB, FB, AI. If a board price is given as a supplement, compute the full price.
 - Dates are ISO (YYYY-MM-DD). If a year is missing, infer it from the contract period.
+- Season names: use the short label only ("A", not "Season A"; "High", not "High season").
+- Our default terms are net, per room per night. If the hotel quotes per person or commissionable, \
+record exactly what they quote; do not convert.
+- Rooms: inventory is "allotment" if the hotel guarantees a number of rooms per night, \
+"on_request" if each booking needs confirmation, otherwise "free_sale". Only allotment rooms have \
+an allotment count. Leave hotel_id and giata_id null (they come from our property master).
+- A special offer valid on all boards has boards = [] (empty means all).
 - A free child band is discount_pct 100.
 - Never invent values. If something isn't stated, leave it null.
-- For every important field (prices, dates, release, cancellation, offers), add a field_note \
-with an exact quote from the source and your confidence.
+
+Evidence (field_notes): every value you return must be covered by a field_note. Paths use this format:
+- top-level fields: "release_days", "contract_start", "currency"
+- list items are keyed in square brackets: rooms[DBL], seasons[High], rates[High|DBL|HB] \
+(season|room|board), child_policy[2] (age_from), cancellation[15] (days_from), \
+special_offers[early_booking|2027-05-01] (type|stay_from), changes[stop_sale|2027-08-10] \
+(change_type|date_from), changes[offer_changed|early_booking] (change_type|offer type)
+- a sub-field: rates[High|DBL|HB].price, seasons[Low].date_to, changes[stop_sale|2027-08-10].room_codes
+A note on an item or list covers all of its sub-fields. Give one note per item; add a separate note \
+for a sub-field only when its evidence is different. The evidence must be an exact, contiguous quote \
+from the source (you may join two quotes with " ... "). Set derived=true when you computed the value. \
+Be honest with confidence: use below 0.9 whenever you had to infer, convert or choose between messages.
 - Return your answer by calling the record_extraction tool exactly once."""
 
 
-def extract(doc: SourceDoc, model: str = EXTRACT_MODEL) -> tuple[ExtractionResult, dict]:
+def call_model(doc: SourceDoc, model: str = EXTRACT_MODEL) -> tuple[LLMExtraction, dict]:
+    """One extraction pass. Returns the raw model output and token usage."""
     client = get_client()
     # Strict structured outputs (messages.parse) rejected this schema: "compiled
     # grammar is too large". So we use a non-strict tool call and validate
@@ -66,24 +90,20 @@ def extract(doc: SourceDoc, model: str = EXTRACT_MODEL) -> tuple[ExtractionResul
         # and tell it to call the tool. A reply without the tool call is an error.
         tool_choice={"type": "auto"},
     )
-    usage = {"model": model, "input_tokens": response.usage.input_tokens,
+    usage = {"input_tokens": response.usage.input_tokens,
              "output_tokens": response.usage.output_tokens, "stop_reason": response.stop_reason}
     block = next((b for b in response.content if b.type == "tool_use"), None)
     if block is None:
         raise RuntimeError(f"No structured output for {doc.path}: stop_reason={response.stop_reason}")
-    out = LLMExtraction.model_validate(block.input)
+    return LLMExtraction.model_validate(block.input), usage
 
-    # Baseline: trust the model's own confidence. Step 3 replaces this with a
-    # combined score (evidence check + validators + agreement).
-    meta = {
-        n.path: FieldMeta(confidence=n.confidence, evidence=n.evidence,
-                          status=Status.auto_accept if n.confidence >= 0.8 else Status.needs_review)
-        for n in out.field_notes
-    }
-    result = ExtractionResult(source_file=doc.path, intent=out.intent, contract=out.contract,
-                              change_set=out.change_set, field_meta=meta)
-    return result, usage
+
+def baseline_status(model_conf: float | None) -> Status:
+    """Step 2 policy: one global bar on the model's own confidence."""
+    return Status.auto_accept if (model_conf or 0) >= 0.8 else Status.needs_review
 
 
 def extract_file(path: Path, model: str = EXTRACT_MODEL):
-    return extract(load_source(path), model=model)
+    """Full step 3 pipeline (two passes, checks, confidence). See pipeline.py."""
+    from .pipeline import run_pipeline
+    return run_pipeline(load_source(path), model=model)
