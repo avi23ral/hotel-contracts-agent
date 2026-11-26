@@ -1,0 +1,28 @@
+{"id": "r01", "hotel_id": "H001", "field": "room", "message": "Please close the sea-facing doubles 10-12 Aug", "expected": "DSV", "why": "sea-facing = sea view, and it's a double"}
+{"id": "r02", "hotel_id": "H001", "field": "room", "message": "Family rooms are full for the first week of August", "expected": "FAM", "why": "exact name"}
+{"id": "r03", "hotel_id": "H001", "field": "room", "message": "We can give you 2 more of the standard doubles in June", "expected": "DBL", "why": "Double Standard"}
+{"id": "r04", "hotel_id": "H001", "field": "room", "message": "Doubles HB +5 EUR from 1 July", "expected": "flag", "why": "two rooms are doubles (Double Standard, Double Sea View): playbook says flag"}
+{"id": "r05", "hotel_id": "H005", "field": "room", "message": "The family suite is sold out 1-7 Aug", "expected": "flag", "why": "could be Family Room or Junior Suite"}
+{"id": "r06", "hotel_id": "H002", "field": "room", "message": "Suites now 10 EUR more in B season", "expected": "JSU", "why": "only one suite"}
+{"id": "r07", "hotel_id": "H003", "field": "room", "message": "Stop sale on the bungalows 3-9 July", "expected": "flag", "why": "the hotel has no bungalows"}
+{"id": "r08", "hotel_id": "H006", "field": "room", "message": "Sea view closed for the weekend of 14 Aug", "expected": "DSV", "why": "Sea View Room is the only sea view room"}
+{"id": "r09", "hotel_id": "H005", "field": "room", "message": "the juniors are full in August, sorry", "expected": "JSU", "why": "juniors = Junior Suite"}
+{"id": "r10", "hotel_id": "H001", "field": "board", "message": "Dinner included rate for doubles goes up 4 EUR in Shoulder", "expected": "HB", "why": "dinner included = HB"}
+{"id": "r11", "hotel_id": "H004", "field": "board", "message": "All-in for sea view doubles is now 230 in High", "expected": "AI", "why": "all-in = AI"}
+{"id": "r12", "hotel_id": "H005", "field": "board", "message": "Breakfast only rate for standard rooms: 95", "expected": "flag", "why": "H005 sells HB and AI only"}
+{"id": "r13", "hotel_id": "H003", "field": "board", "message": "Breakfast and dinner for the Garden Suite, +10 EUR from July", "expected": "HB", "why": "breakfast and dinner = HB"}
+{"id": "r14", "hotel_id": "H007", "field": "board", "message": "We can offer full board in Peak for 260", "expected": "flag", "why": "H007 sells HB only"}
+{"id": "r15", "hotel_id": "H007", "field": "dates", "message": "Please close sales 2-5 Feb, ski race weekend", "expected": "2028-02-02..2028-02-05", "why": "winter contract: February is 2028"}
+{"id": "r16", "hotel_id": "H007", "field": "dates", "message": "Stop sale from the 20th until end of Feb", "expected": "2028-02-20..2028-02-29", "why": "2028 is a leap year"}
+{"id": "r17", "hotel_id": "H001", "field": "dates", "message": "close 12-15 Aug, wedding block", "expected": "2027-08-12..2027-08-15", "why": "summer 2027 contract"}
+{"id": "r18", "hotel_id": "H001", "field": "dates", "message": "We need a stop sale 3-6 Nov", "expected": "flag", "why": "contract ends 31 Oct"}
+{"id": "r19", "hotel_id": "H007", "field": "dates", "message": "Full over new year, close 28 Dec to 3 Jan", "expected": "2027-12-28..2028-01-03", "why": "crosses the year end"}
+{"id": "r20", "hotel_id": "H004", "field": "dates", "message": "close sales 30 April to 2 May, staff training", "expected": "flag", "why": "contract starts 1 May: 30 April is outside"}
+{"id": "r21", "hotel_id": "H001", "field": "new_price", "message": "Sea view doubles on half board +6 EUR for High season", "expected": "206", "why": "DSV High HB 200 + 6"}
+{"id": "r22", "hotel_id": "H004", "field": "new_price", "message": "Minus 10% on all-inclusive Double Room in August", "expected": "178.2", "why": "DBL High AI 198 x 0.9 (August is all High)"}
+{"id": "r23", "hotel_id": "H003", "field": "new_price", "message": "Garden Suite BB up 5% for Mid season", "expected": "197.4", "why": "SUI Mid BB 188 x 1.05"}
+{"id": "r24", "hotel_id": "H007", "field": "new_price", "message": "Doubles +15 EUR for February", "expected": "233", "why": "DBL Peak HB 218 + 15 (only room called double, only board HB)"}
+{"id": "r25", "hotel_id": "H006", "field": "new_price", "message": "Sea view half board -20 EUR on 15 August", "expected": "250", "why": "DSV High HB 270 - 20"}
+{"id": "r26", "hotel_id": "H001", "field": "new_price", "message": "Family room BB +5% in July", "expected": "flag", "why": "July crosses Mid and High, two different base prices"}
+{"id": "r27", "hotel_id": "H006", "field": "release_days", "message": "We'd like to cut release to 7 days", "expected": "7", "why": "allotment hotel, release applies"}
+{"id": "r28", "hotel_id": "H003", "field": "release_days", "message": "Release is now 7 days please", "expected": "flag", "why": "free sale hotel: playbook says flag"}

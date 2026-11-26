@@ -1,0 +1,1990 @@
+{
+  "model": "claude-haiku-5-5",
+  "summary": {
+    "rules_only": {
+      "cases": 28,
+      "accuracy": 0.643,
+      "dangerous": 0,
+      "over_flag": 10,
+      "outcomes": {
+        "correct": 9,
+        "correct_flag": 9,
+        "over_flag": 10
+      },
+      "model_calls": 0,
+      "tool_calls": 14,
+      "usd": 0,
+      "usd_per_1000_fields": 0.0,
+      "median_seconds": 0.0
+    },
+    "one_shot": {
+      "cases": 28,
+      "accuracy": 0.857,
+      "dangerous": 2,
+      "over_flag": 2,
+      "outcomes": {
+        "correct": 17,
+        "correct_flag": 7,
+        "missed_flag": 2,
+        "over_flag": 2
+      },
+      "model_calls": 28,
+      "tool_calls": 0,
+      "usd": 0.00825,
+      "usd_per_1000_fields": 0.29,
+      "median_seconds": 2.12
+    },
+    "react": {
+      "cases": 28,
+      "accuracy": 0.964,
+      "dangerous": 0,
+      "over_flag": 1,
+      "outcomes": {
+        "correct": 18,
+        "correct_flag": 9,
+        "over_flag": 1
+      },
+      "model_calls": 74,
+      "tool_calls": 87,
+      "usd": 0.02423,
+      "usd_per_1000_fields": 0.87,
+      "median_seconds": 2.43
+    }
+  },
+  "rows": {
+    "rules_only": [
+      {
+        "id": "r01",
+        "field": "room",
+        "expected": "DSV",
+        "status": "resolved",
+        "value": "DSV",
+        "outcome": "correct",
+        "reason": "one best match",
+        "tool_calls": 1,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r02",
+        "field": "room",
+        "expected": "FAM",
+        "status": "resolved",
+        "value": "FAM",
+        "outcome": "correct",
+        "reason": "one best match",
+        "tool_calls": 1,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r03",
+        "field": "room",
+        "expected": "DBL",
+        "status": "resolved",
+        "value": "DBL",
+        "outcome": "correct",
+        "reason": "one best match",
+        "tool_calls": 1,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r04",
+        "field": "room",
+        "expected": "flag",
+        "status": "flag",
+        "value": null,
+        "outcome": "correct_flag",
+        "reason": "2 rooms match equally",
+        "tool_calls": 1,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r05",
+        "field": "room",
+        "expected": "flag",
+        "status": "flag",
+        "value": null,
+        "outcome": "correct_flag",
+        "reason": "2 rooms match equally",
+        "tool_calls": 1,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r06",
+        "field": "room",
+        "expected": "JSU",
+        "status": "resolved",
+        "value": "JSU",
+        "outcome": "correct",
+        "reason": "one best match",
+        "tool_calls": 1,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r07",
+        "field": "room",
+        "expected": "flag",
+        "status": "flag",
+        "value": null,
+        "outcome": "correct_flag",
+        "reason": "no room matches",
+        "tool_calls": 1,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r08",
+        "field": "room",
+        "expected": "DSV",
+        "status": "resolved",
+        "value": "DSV",
+        "outcome": "correct",
+        "reason": "one best match",
+        "tool_calls": 1,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r09",
+        "field": "room",
+        "expected": "JSU",
+        "status": "resolved",
+        "value": "JSU",
+        "outcome": "correct",
+        "reason": "one best match",
+        "tool_calls": 1,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r10",
+        "field": "board",
+        "expected": "HB",
+        "status": "resolved",
+        "value": "HB",
+        "outcome": "correct",
+        "reason": "phrase match",
+        "tool_calls": 1,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r11",
+        "field": "board",
+        "expected": "AI",
+        "status": "resolved",
+        "value": "AI",
+        "outcome": "correct",
+        "reason": "phrase match",
+        "tool_calls": 1,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r12",
+        "field": "board",
+        "expected": "flag",
+        "status": "flag",
+        "value": null,
+        "outcome": "correct_flag",
+        "reason": "no board match, or board not sold",
+        "tool_calls": 1,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r13",
+        "field": "board",
+        "expected": "HB",
+        "status": "resolved",
+        "value": "HB",
+        "outcome": "correct",
+        "reason": "phrase match",
+        "tool_calls": 1,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r14",
+        "field": "board",
+        "expected": "flag",
+        "status": "flag",
+        "value": null,
+        "outcome": "correct_flag",
+        "reason": "no board match, or board not sold",
+        "tool_calls": 1,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r15",
+        "field": "dates",
+        "expected": "2028-02-02..2028-02-05",
+        "status": "flag",
+        "value": null,
+        "outcome": "over_flag",
+        "reason": "needs judgement: sent to a human",
+        "tool_calls": 0,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r16",
+        "field": "dates",
+        "expected": "2028-02-20..2028-02-29",
+        "status": "flag",
+        "value": null,
+        "outcome": "over_flag",
+        "reason": "needs judgement: sent to a human",
+        "tool_calls": 0,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r17",
+        "field": "dates",
+        "expected": "2027-08-12..2027-08-15",
+        "status": "flag",
+        "value": null,
+        "outcome": "over_flag",
+        "reason": "needs judgement: sent to a human",
+        "tool_calls": 0,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r18",
+        "field": "dates",
+        "expected": "flag",
+        "status": "flag",
+        "value": null,
+        "outcome": "correct_flag",
+        "reason": "needs judgement: sent to a human",
+        "tool_calls": 0,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r19",
+        "field": "dates",
+        "expected": "2027-12-28..2028-01-03",
+        "status": "flag",
+        "value": null,
+        "outcome": "over_flag",
+        "reason": "needs judgement: sent to a human",
+        "tool_calls": 0,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r20",
+        "field": "dates",
+        "expected": "flag",
+        "status": "flag",
+        "value": null,
+        "outcome": "correct_flag",
+        "reason": "needs judgement: sent to a human",
+        "tool_calls": 0,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r21",
+        "field": "new_price",
+        "expected": "206",
+        "status": "flag",
+        "value": null,
+        "outcome": "over_flag",
+        "reason": "needs judgement: sent to a human",
+        "tool_calls": 0,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r22",
+        "field": "new_price",
+        "expected": "178.2",
+        "status": "flag",
+        "value": null,
+        "outcome": "over_flag",
+        "reason": "needs judgement: sent to a human",
+        "tool_calls": 0,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r23",
+        "field": "new_price",
+        "expected": "197.4",
+        "status": "flag",
+        "value": null,
+        "outcome": "over_flag",
+        "reason": "needs judgement: sent to a human",
+        "tool_calls": 0,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r24",
+        "field": "new_price",
+        "expected": "233",
+        "status": "flag",
+        "value": null,
+        "outcome": "over_flag",
+        "reason": "needs judgement: sent to a human",
+        "tool_calls": 0,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r25",
+        "field": "new_price",
+        "expected": "250",
+        "status": "flag",
+        "value": null,
+        "outcome": "over_flag",
+        "reason": "needs judgement: sent to a human",
+        "tool_calls": 0,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r26",
+        "field": "new_price",
+        "expected": "flag",
+        "status": "flag",
+        "value": null,
+        "outcome": "correct_flag",
+        "reason": "needs judgement: sent to a human",
+        "tool_calls": 0,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r27",
+        "field": "release_days",
+        "expected": "7",
+        "status": "flag",
+        "value": null,
+        "outcome": "over_flag",
+        "reason": "needs judgement: sent to a human",
+        "tool_calls": 0,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      },
+      {
+        "id": "r28",
+        "field": "release_days",
+        "expected": "flag",
+        "status": "flag",
+        "value": null,
+        "outcome": "correct_flag",
+        "reason": "needs judgement: sent to a human",
+        "tool_calls": 0,
+        "calls": [],
+        "seconds": 0.0,
+        "trace": []
+      }
+    ],
+    "one_shot": [
+      {
+        "id": "r01",
+        "field": "room",
+        "expected": "DSV",
+        "status": "resolved",
+        "value": "DSV",
+        "outcome": "correct",
+        "reason": "The hotel refers to sea-facing doubles. In this contract, DSV is Double Sea View, the only sea-view room. DBL is Double Standard, not sea-facing. Mapping is unambiguous, so the room code is DSV. Dates 10-12 Aug 2027 fall within the High season and the contract period, so the stop sale itself is valid, but the field asked is only the room code.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2155,
+            "output_tokens": 153,
+            "seconds": 2.29
+          }
+        ],
+        "seconds": 2.29,
+        "trace": []
+      },
+      {
+        "id": "r02",
+        "field": "room",
+        "expected": "FAM",
+        "status": "resolved",
+        "value": "FAM",
+        "outcome": "correct",
+        "reason": "The message refers to Family rooms, which map to FAM (Family Room) in the existing contract. The hotel name is unambiguous here, and the field is the room code. The stop sale is a stop sale for the named room type, which is FAM only. Only one room code fits, so the value is FAM with no ambiguity.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2148,
+            "output_tokens": 124,
+            "seconds": 2.12
+          }
+        ],
+        "seconds": 2.12,
+        "trace": []
+      },
+      {
+        "id": "r03",
+        "field": "room",
+        "expected": "DBL",
+        "status": "resolved",
+        "value": "DBL",
+        "outcome": "correct",
+        "reason": "The hotel says 'standard doubles', which maps to Double Standard (DBL) in the contract. DSV is Double Sea View and FAM is Family Room, so 'standard double' does not match either of them. The field asks for a room code, and this message only refers to one room type, so the code is DBL. The message refers to June, which is within the contract period 2027-05-01 to 2027-10-31. The field is a room code, so I do not need to flag the June date for this field. The hotel is H001, which matches the existing contract.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2152,
+            "output_tokens": 190,
+            "seconds": 2.34
+          }
+        ],
+        "seconds": 2.34,
+        "trace": []
+      },
+      {
+        "id": "r04",
+        "field": "room",
+        "expected": "flag",
+        "status": "flag",
+        "value": null,
+        "outcome": "correct_flag",
+        "reason": "The message says 'Doubles', which could match DBL (Double Standard) and DSV (Double Sea View). Both are double rooms in this contract, so the name matches two room codes. Playbook says to flag rather than guess.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2152,
+            "output_tokens": 92,
+            "seconds": 1.27
+          }
+        ],
+        "seconds": 1.27,
+        "trace": []
+      },
+      {
+        "id": "r05",
+        "field": "room",
+        "expected": "flag",
+        "status": "flag",
+        "value": null,
+        "outcome": "correct_flag",
+        "reason": "The hotel says 'family suite'. The contract has FAM = Family Room and JSU = Junior Suite. 'Family suite' could plausibly match either the Family Room (FAM) or the Junior Suite (JSU), since it mixes 'family' and 'suite' wording. The playbook says that when a name could match two rooms, flag the field instead of guessing. Dates 1-7 Aug 2027 are within the contract period, but the room mapping is ambiguous.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1946,
+            "output_tokens": 176,
+            "seconds": 4.87
+          }
+        ],
+        "seconds": 4.87,
+        "trace": []
+      },
+      {
+        "id": "r06",
+        "field": "room",
+        "expected": "JSU",
+        "status": "resolved",
+        "value": "JSU",
+        "outcome": "correct",
+        "reason": "The message refers to 'Suites', which could map to Junior Suite (JSU). The existing contract has only STD and JSU; JSU is the only suite-type room, so the mapping is unambiguous. The price change applies to B season for the suite. Field to resolve is room code: JSU.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1888,
+            "output_tokens": 117,
+            "seconds": 2.08
+          }
+        ],
+        "seconds": 2.08,
+        "trace": []
+      },
+      {
+        "id": "r07",
+        "field": "room",
+        "expected": "flag",
+        "status": "flag",
+        "value": null,
+        "outcome": "correct_flag",
+        "reason": "The hotel refers to 'bungalows', which does not match any room name in the contract. Contract rooms are DBL (Double Room) and SUI (Garden Suite). Mapping 'bungalows' to either code would be a guess, and the playbook says to flag when a name could match ambiguously or the room is not clearly in the contract. Flagging for review.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1843,
+            "output_tokens": 134,
+            "seconds": 2.38
+          }
+        ],
+        "seconds": 2.38,
+        "trace": []
+      },
+      {
+        "id": "r08",
+        "field": "room",
+        "expected": "DSV",
+        "status": "resolved",
+        "value": "DSV",
+        "outcome": "correct",
+        "reason": "Hotel H006 matches the contract. The message says 'Sea view' closed. Contract rooms: DBL Double Room and DSV Sea View Room. 'Sea view' maps to DSV by name; the only sea-view room in the contract is DSV, so there is no ambiguity between two sea-view rooms. Date 14 Aug 2027 falls within the contract period, but the field requested is only the room code, so the room is DSV.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1862,
+            "output_tokens": 169,
+            "seconds": 1.48
+          }
+        ],
+        "seconds": 1.48,
+        "trace": []
+      },
+      {
+        "id": "r09",
+        "field": "room",
+        "expected": "JSU",
+        "status": "resolved",
+        "value": "JSU",
+        "outcome": "correct",
+        "reason": "Hotel H005 matches the contract. The message refers to 'juniors', which maps to Junior Suite. In the contract, Junior Suite is JSU, and the room code is unambiguous. The message says 'full in August', so this is a stop sale for JSU, but the field asked for is only the room code, which is JSU.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1942,
+            "output_tokens": 128,
+            "seconds": 1.96
+          }
+        ],
+        "seconds": 1.96,
+        "trace": []
+      },
+      {
+        "id": "r10",
+        "field": "board",
+        "expected": "HB",
+        "status": "resolved",
+        "value": "HB",
+        "outcome": "correct",
+        "reason": "The field to resolve is the board code. The message says 'Dinner included' which the playbook defines as HB (half board). The message is about doubles, which maps to DBL or DSV, but the field asked is only board, and the board is unambiguously HB. The rate change itself (+4 EUR in Shoulder) is a separate field not being resolved here.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2172,
+            "output_tokens": 134,
+            "seconds": 2.05
+          }
+        ],
+        "seconds": 2.05,
+        "trace": []
+      },
+      {
+        "id": "r11",
+        "field": "board",
+        "expected": "AI",
+        "status": "resolved",
+        "value": "AI",
+        "outcome": "correct",
+        "reason": "The message says 'All-in' which maps to AI board code. The field to resolve is board only. 'Sea view doubles' maps to DSV, which exists in the contract with a High AI rate of 222. The new price 230 is a rate change, but the board field asks only for the board code, which is AI. Season High falls within the contract period 2027-07-15 to 2027-08-31, and the message gives no explicit year, so the year is inferred from the contract. No ambiguity in board: 'All-in' is AI per playbook.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1925,
+            "output_tokens": 192,
+            "seconds": 1.37
+          }
+        ],
+        "seconds": 1.37,
+        "trace": []
+      },
+      {
+        "id": "r12",
+        "field": "board",
+        "expected": "flag",
+        "status": "resolved",
+        "value": "BB",
+        "outcome": "missed_flag",
+        "reason": "The hotel message gives a rate for a breakfast-only plan. In the playbook, BB means bed and breakfast, which is the breakfast-only board code. The board field asks for the board code, and the message clearly names breakfast only, so BB maps directly. The hotel matches H005 and the message refers to standard rooms, which is STD. The price 95 is a separate field and is not part of this resolution. No ambiguity requires a flag for the board itself.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1958,
+            "output_tokens": 169,
+            "seconds": 1.45
+          }
+        ],
+        "seconds": 1.45,
+        "trace": []
+      },
+      {
+        "id": "r13",
+        "field": "board",
+        "expected": "HB",
+        "status": "resolved",
+        "value": "HB",
+        "outcome": "correct",
+        "reason": "The hotel message says 'Breakfast and dinner' for the Garden Suite, which is half board (BB plus dinner = HB per playbook: 'dinner included' is HB). The field asks for the board code, and the message clearly states breakfast and dinner, mapping to HB. The rate delta and date concern other fields; only board is being resolved. Hotel H003 matches the contract. Board HB is unambiguous.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1863,
+            "output_tokens": 162,
+            "seconds": 3.16
+          }
+        ],
+        "seconds": 3.16,
+        "trace": []
+      },
+      {
+        "id": "r14",
+        "field": "board",
+        "expected": "flag",
+        "status": "resolved",
+        "value": "FB",
+        "outcome": "missed_flag",
+        "reason": "The hotel offers full board in Peak for 260. The field is board code, and the hotel explicitly names full board, which maps to FB. The hotel matches H007 and the Peak season is in the contract. The price 260 is not the field being resolved, so only the board code is needed. Full board is FB; no ambiguity on the code itself, though the offer rate does not exist in the contract (contract has HB only for Peak). The field asked is only the board code, so FB resolves cleanly.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1799,
+            "output_tokens": 177,
+            "seconds": 2.37
+          }
+        ],
+        "seconds": 2.37,
+        "trace": []
+      },
+      {
+        "id": "r15",
+        "field": "dates",
+        "expected": "2028-02-02..2028-02-05",
+        "status": "resolved",
+        "value": "2028-02-02..2028-02-05",
+        "outcome": "correct",
+        "reason": "The hotel asks to close sales for 2-5 February, with no year given. Per the dates rule, infer the year from the contract period 2027-12-15 to 2028-04-10. February falls in 2028, so the dates are 2028-02-02 to 2028-02-05. The stop sale applies to all rooms since no room type is named, and the dates lie inside the contract. The value is the stay date range.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1816,
+            "output_tokens": 163,
+            "seconds": 1.27
+          }
+        ],
+        "seconds": 1.27,
+        "trace": []
+      },
+      {
+        "id": "r16",
+        "field": "dates",
+        "expected": "2028-02-20..2028-02-29",
+        "status": "flag",
+        "value": null,
+        "outcome": "over_flag",
+        "reason": "The stop sale is for stay dates from the 20th until end of February. Dates without a year are inferred from the contract period 2027-12-15 to 2028-04-10. The 20th falls in the contract: the only month-day 20th within the period that starts the stop sale through end of February is 2028-02-20 (the contract starts in December 2027, but a stop sale from 20 Dec 2027 to end Feb 2028 would also be possible, so the start is ambiguous). Dates from 'the 20th' could be 2027-12-20 or 2028-02-20 (or 2028-01-20), and the message gives no month for the start, so two readings fit equally. Per house rules, flag rather than guess.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1812,
+            "output_tokens": 245,
+            "seconds": 1.9
+          }
+        ],
+        "seconds": 1.9,
+        "trace": []
+      },
+      {
+        "id": "r17",
+        "field": "dates",
+        "expected": "2027-08-12..2027-08-15",
+        "status": "resolved",
+        "value": "2027-08-12..2027-08-15",
+        "outcome": "correct",
+        "reason": "Stop sale for 12-15 Aug. Year inferred from contract period 2027-05-01 to 2027-10-31, so Aug 12-15 2027. No room type named, so it applies to all rooms. Dates fall within contract. Stay dates as YYYY-MM-DD..YYYY-MM-DD: 2027-08-12..2027-08-15. The end date is taken as the stated end day, which is the natural reading of '12-15 Aug'.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2170,
+            "output_tokens": 187,
+            "seconds": 1.87
+          }
+        ],
+        "seconds": 1.87,
+        "trace": []
+      },
+      {
+        "id": "r18",
+        "field": "dates",
+        "expected": "flag",
+        "status": "flag",
+        "value": null,
+        "outcome": "correct_flag",
+        "reason": "Stop sale for 3-6 Nov with no year; infer year from contract 2027-05-01 to 2027-10-31. November 3-6 2027 falls outside the contract period (ends 2027-10-31), so the date must be flagged.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2171,
+            "output_tokens": 99,
+            "seconds": 0.99
+          }
+        ],
+        "seconds": 0.99,
+        "trace": []
+      },
+      {
+        "id": "r19",
+        "field": "dates",
+        "expected": "2027-12-28..2028-01-03",
+        "status": "resolved",
+        "value": "2027-12-28..2028-01-03",
+        "outcome": "correct",
+        "reason": "The message 'close 28 Dec to 3 Jan' is a stop sale over New Year, with no room type named, so it applies to all rooms. Dates without a year are inferred from the contract period 2027-12-15 to 2028-04-10. 28 Dec falls in 2027 and 3 Jan in 2028, both inside the contract. The field asks for stay dates as YYYY-MM-DD..YYYY-MM-DD, so the value is 2027-12-28..2028-01-03. The message says 'full over new year', which matches a stop sale on all rooms for those dates. The stop sale is clear, so the value resolves without a flag.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1816,
+            "output_tokens": 245,
+            "seconds": 1.56
+          }
+        ],
+        "seconds": 1.56,
+        "trace": []
+      },
+      {
+        "id": "r20",
+        "field": "dates",
+        "expected": "flag",
+        "status": "flag",
+        "value": null,
+        "outcome": "correct_flag",
+        "reason": "The message is a stop sale for 30 April to 2 May with no room type named, so it applies to all rooms. The contract period is 2027-05-01 to 2027-10-31. The stated dates fall partly or entirely outside the contract: 30 April is before the contract start, and 1-2 May are inside, so the range is not fully within the contract. Per house rules, a date outside the contract must be flagged rather than guessed. Year inference is clear (2027), but the range starts before the contract period, so flag.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1934,
+            "output_tokens": 181,
+            "seconds": 2.48
+          }
+        ],
+        "seconds": 2.48,
+        "trace": []
+      },
+      {
+        "id": "r21",
+        "field": "new_price",
+        "expected": "206",
+        "status": "resolved",
+        "value": "206",
+        "outcome": "correct",
+        "reason": "Hotel H001 matches the contract. The message gives a rate change for Sea View doubles (DSV, Double Sea View) on half board (HB) for High season, with a delta of +6 EUR. The existing DSV High HB rate is 200 EUR per room per night. New price = 200 + 6 = 206. Per playbook, the value is derived from the existing rate. The room mapping is unambiguous since the contract has only one sea view room type (DSV), so no flag is needed.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2165,
+            "output_tokens": 179,
+            "seconds": 1.79
+          }
+        ],
+        "seconds": 1.79,
+        "trace": []
+      },
+      {
+        "id": "r22",
+        "field": "new_price",
+        "expected": "178.2",
+        "status": "resolved",
+        "value": "178.2",
+        "outcome": "correct",
+        "reason": "Hotel H004 matches. August 2027 falls entirely in the High season (2027-07-15 to 2027-08-31), so the existing DBL High AI rate is 198 EUR. A 10% reduction gives 198 x 0.90 = 178.2 EUR per room per night. The new price is derived from the contract rate, not quoted by the hotel.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1927,
+            "output_tokens": 376,
+            "seconds": 3.42
+          }
+        ],
+        "seconds": 3.42,
+        "trace": []
+      },
+      {
+        "id": "r23",
+        "field": "new_price",
+        "expected": "197.4",
+        "status": "resolved",
+        "value": "197.4",
+        "outcome": "correct",
+        "reason": "Garden Suite is SUI. Mid BB existing rate is 188 EUR. A 5% increase gives 188 * 1.05 = 197.4 EUR. Rate change is a percentage, so compute new price and mark as derived. Hotel H003 matches the contract. Mid season dates fall inside the contract period (2027-06-15 to 2027-07-14).",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1854,
+            "output_tokens": 147,
+            "seconds": 2.28
+          }
+        ],
+        "seconds": 2.28,
+        "trace": []
+      },
+      {
+        "id": "r24",
+        "field": "new_price",
+        "expected": "233",
+        "status": "resolved",
+        "value": "233",
+        "outcome": "correct",
+        "reason": "Hotel H007 matches the contract. 'Doubles' maps to DBL (Double Room). February 2028 falls entirely within the Peak season (2028-01-07 to 2028-02-29), and the contract's only DBL board rate in Peak is HB at 218 EUR. Applying the +15 EUR delta gives 233 EUR per room per night. The value is derived from the existing contract rate.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1798,
+            "output_tokens": 533,
+            "seconds": 4.06
+          }
+        ],
+        "seconds": 4.06,
+        "trace": []
+      },
+      {
+        "id": "r25",
+        "field": "new_price",
+        "expected": "250",
+        "status": "resolved",
+        "value": "250",
+        "outcome": "correct",
+        "reason": "Hotel H006 matches the contract. 'Sea view' maps to DSV (Sea View Room), the only sea view room in the contract. 'Half board' is HB. 15 August 2027 falls in the High season (2027-07-15 to 2027-08-31), where the DSV HB rate is 270 EUR per room per night. Applying the -20 EUR delta gives 250 EUR, which is derived from the existing contract rate.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1872,
+            "output_tokens": 394,
+            "seconds": 2.47
+          }
+        ],
+        "seconds": 2.47,
+        "trace": []
+      },
+      {
+        "id": "r26",
+        "field": "new_price",
+        "expected": "flag",
+        "status": "flag",
+        "value": null,
+        "outcome": "correct_flag",
+        "reason": "The hotel matches H001 (Hotel Sol de Marina). The change is a +5% increase on Family Room BB, but July spans two seasons: Mid (2027-07-01 to 2027-07-14, base 185 EUR, giving 194.25) and High (2027-07-15 to 2027-07-31, base 240 EUR, giving 252). The message does not say which dates it covers, so two answers fit equally and the field must be flagged for review rather than guessed.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2156,
+            "output_tokens": 290,
+            "seconds": 2.26
+          }
+        ],
+        "seconds": 2.26,
+        "trace": []
+      },
+      {
+        "id": "r27",
+        "field": "release_days",
+        "expected": "7",
+        "status": "flag",
+        "value": null,
+        "outcome": "over_flag",
+        "reason": "The hotel asks to change release to 7 days. Per playbook, release days only apply to allotment rooms, and a change of release on a free sale hotel is suspicious and must be flagged. The contract's rooms section lists DBL and DSV as allotment rooms with release 14 days, so the message is about allotment rooms; however, the message names no room type, and the field asked for is a single release_days value. Changing release from 14 to 7 is a contract change requiring review, and the message does not specify which rooms, so the correct action is to flag rather than guess. Hotel identity H006 is given directly, so identity is not in doubt.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1858,
+            "output_tokens": 219,
+            "seconds": 2.41
+          }
+        ],
+        "seconds": 2.41,
+        "trace": []
+      },
+      {
+        "id": "r28",
+        "field": "release_days",
+        "expected": "flag",
+        "status": "flag",
+        "value": null,
+        "outcome": "correct_flag",
+        "reason": "The hotel asks to change release to 7 days. Per house rules, release days only apply to allotment rooms, and a change of release on a free sale hotel is suspicious and must be flagged. Villa Thalassa's rooms DBL and SUI are both free_sale, so the release change is suspicious and should be flagged rather than resolved.",
+        "tool_calls": 0,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1836,
+            "output_tokens": 130,
+            "seconds": 1.58
+          }
+        ],
+        "seconds": 1.58,
+        "trace": []
+      }
+    ],
+    "react": [
+      {
+        "id": "r01",
+        "field": "room",
+        "expected": "DSV",
+        "status": "resolved",
+        "value": "DSV",
+        "outcome": "correct",
+        "reason": "\"Sea-facing double\" matches only Double Sea View (DSV) clearly; the Double Standard (DBL) match is just on \"double\" and has no sea view.",
+        "tool_calls": 2,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1883,
+            "output_tokens": 132,
+            "seconds": 0.73
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2417,
+            "output_tokens": 232,
+            "seconds": 1.34
+          }
+        ],
+        "seconds": 2.07,
+        "trace": [
+          "act: lookup_room({\"hotel_id\": \"H001\", \"wording\": \"sea-facing double\"}) -> {\"wording\": \"sea-facing double\", \"candidates\": [{\"code\": \"DSV\", \"name\": \"Double Sea View\", \"matched_words\": [\"double\", \"sea\", \"view\"], \"score\": 3}, {\"code\": \"DBL\", \"name\": \"Double Standard\", \"matched_words\": [\"double\"], \"score\": 1}], \"verdict\": \"one best match\", \"all_rooms\": [\"DBL = Double Standard\"",
+          "act: get_rooms({\"hotel_id\": \"H001\"}) -> {\"hotel_id\": \"H001\", \"rooms\": [{\"code\": \"DBL\", \"name\": \"Double Standard\", \"inventory\": \"allotment\", \"max_adults\": 2, \"max_children\": 1}, {\"code\": \"DSV\", \"name\": \"Double Sea View\", \"inventory\": \"allotment\", \"max_adults\": 2, \"max_children\": 1}, {\"code\": \"FAM\", \"name\": \"Family Room\", \"inventory\": \"allo",
+          "submit: resolved DSV (\"Sea-facing double\" matches only Double Sea View (DSV) clearly; the Double Standard (DBL) match is just on \"double\" and has no sea view.)"
+        ]
+      },
+      {
+        "id": "r02",
+        "field": "room",
+        "expected": "FAM",
+        "status": "resolved",
+        "value": "FAM",
+        "outcome": "correct",
+        "reason": "\"Family rooms\" matches only the Family Room code FAM at H001, the sole family-type room in the hotel's room list.",
+        "tool_calls": 2,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1876,
+            "output_tokens": 131,
+            "seconds": 0.66
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2362,
+            "output_tokens": 208,
+            "seconds": 1.11
+          }
+        ],
+        "seconds": 1.77,
+        "trace": [
+          "act: lookup_room({\"hotel_id\": \"H001\", \"wording\": \"Family rooms\"}) -> {\"wording\": \"Family rooms\", \"candidates\": [{\"code\": \"FAM\", \"name\": \"Family Room\", \"matched_words\": [\"family\"], \"score\": 1}], \"verdict\": \"one best match\", \"all_rooms\": [\"DBL = Double Standard\", \"DSV = Double Sea View\", \"FAM = Family Room\"]}",
+          "act: get_rooms({\"hotel_id\": \"H001\"}) -> {\"hotel_id\": \"H001\", \"rooms\": [{\"code\": \"DBL\", \"name\": \"Double Standard\", \"inventory\": \"allotment\", \"max_adults\": 2, \"max_children\": 1}, {\"code\": \"DSV\", \"name\": \"Double Sea View\", \"inventory\": \"allotment\", \"max_adults\": 2, \"max_children\": 1}, {\"code\": \"FAM\", \"name\": \"Family Room\", \"inventory\": \"allo",
+          "submit: resolved FAM (\"Family rooms\" matches only the Family Room code FAM at H001, the sole family-type room in the hotel's room list.)"
+        ]
+      },
+      {
+        "id": "r03",
+        "field": "room",
+        "expected": "DBL",
+        "status": "resolved",
+        "value": "DBL",
+        "outcome": "correct",
+        "reason": "\"Standard double\" matches Double Standard (DBL) as the single best match, with Double Sea View ranked lower.",
+        "tool_calls": 2,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1880,
+            "output_tokens": 129,
+            "seconds": 1.07
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2405,
+            "output_tokens": 170,
+            "seconds": 1.16
+          }
+        ],
+        "seconds": 2.23,
+        "trace": [
+          "act: lookup_room({\"hotel_id\": \"H001\", \"wording\": \"standard double\"}) -> {\"wording\": \"standard double\", \"candidates\": [{\"code\": \"DBL\", \"name\": \"Double Standard\", \"matched_words\": [\"double\", \"standard\"], \"score\": 2}, {\"code\": \"DSV\", \"name\": \"Double Sea View\", \"matched_words\": [\"double\"], \"score\": 1}], \"verdict\": \"one best match\", \"all_rooms\": [\"DBL = Double Standard\", \"DS",
+          "act: get_rooms({\"hotel_id\": \"H001\"}) -> {\"hotel_id\": \"H001\", \"rooms\": [{\"code\": \"DBL\", \"name\": \"Double Standard\", \"inventory\": \"allotment\", \"max_adults\": 2, \"max_children\": 1}, {\"code\": \"DSV\", \"name\": \"Double Sea View\", \"inventory\": \"allotment\", \"max_adults\": 2, \"max_children\": 1}, {\"code\": \"FAM\", \"name\": \"Family Room\", \"inventory\": \"allo",
+          "think: The message refers to \"standard doubles,\" which matches the Double Standard room (DBL) as the single best match. I'll submit that.",
+          "submit: resolved DBL (\"Standard double\" matches Double Standard (DBL) as the single best match, with Double Sea View ranked lower.)"
+        ]
+      },
+      {
+        "id": "r04",
+        "field": "room",
+        "expected": "flag",
+        "status": "flag",
+        "value": null,
+        "outcome": "correct_flag",
+        "reason": "\"Doubles\" matches two rooms equally (DBL Double Standard and DSV Double Sea View), and the playbook says to flag ambiguous room wording rather than guess.",
+        "tool_calls": 3,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1880,
+            "output_tokens": 130,
+            "seconds": 0.67
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2408,
+            "output_tokens": 134,
+            "seconds": 0.81
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2719,
+            "output_tokens": 185,
+            "seconds": 0.95
+          }
+        ],
+        "seconds": 2.43,
+        "trace": [
+          "act: lookup_room({\"hotel_id\": \"H001\", \"wording\": \"Doubles\"}) -> {\"wording\": \"Doubles\", \"candidates\": [{\"code\": \"DBL\", \"name\": \"Double Standard\", \"matched_words\": [\"double\"], \"score\": 1}, {\"code\": \"DSV\", \"name\": \"Double Sea View\", \"matched_words\": [\"double\"], \"score\": 1}], \"verdict\": \"2 rooms match equally\", \"all_rooms\": [\"DBL = Double Standard\", \"DSV = Double Se",
+          "act: get_rooms({\"hotel_id\": \"H001\"}) -> {\"hotel_id\": \"H001\", \"rooms\": [{\"code\": \"DBL\", \"name\": \"Double Standard\", \"inventory\": \"allotment\", \"max_adults\": 2, \"max_children\": 1}, {\"code\": \"DSV\", \"name\": \"Double Sea View\", \"inventory\": \"allotment\", \"max_adults\": 2, \"max_children\": 1}, {\"code\": \"FAM\", \"name\": \"Family Room\", \"inventory\": \"allo",
+          "act: search_playbook({\"query\": \"room wording ambiguous double standard sea view\"}) -> {\"rules\": [\"## Room names to our codes\\nMap the hotel's room wording to the room codes in that hotel's existing contract. If a name could match two rooms (for example \\\"sea view\\\" when there is a Double Sea View and a Sea View Suite), flag the field for review instead of guessing.\", \"## Default comm",
+          "think: The playbook says to flag when a name matches two rooms, and \"Doubles\" matches both DBL and DSV equally.",
+          "submit: flag None (\"Doubles\" matches two rooms equally (DBL Double Standard and DSV Double Sea View), and the playbook says to flag ambiguous room wording rather than guess.)"
+        ]
+      },
+      {
+        "id": "r05",
+        "field": "room",
+        "expected": "flag",
+        "status": "flag",
+        "value": null,
+        "outcome": "correct_flag",
+        "reason": "\"Family suite\" matches two of our rooms equally: JSU (Junior Suite, on \"suite\") and FAM (Family Room, on \"family\"), and the playbook says to flag such cases for review.",
+        "tool_calls": 3,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1879,
+            "output_tokens": 129,
+            "seconds": 0.63
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2401,
+            "output_tokens": 175,
+            "seconds": 0.99
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2785,
+            "output_tokens": 204,
+            "seconds": 1.03
+          }
+        ],
+        "seconds": 2.65,
+        "trace": [
+          "act: lookup_room({\"hotel_id\": \"H005\", \"wording\": \"family suite\"}) -> {\"wording\": \"family suite\", \"candidates\": [{\"code\": \"JSU\", \"name\": \"Junior Suite\", \"matched_words\": [\"suite\"], \"score\": 1}, {\"code\": \"FAM\", \"name\": \"Family Room\", \"matched_words\": [\"family\"], \"score\": 1}], \"verdict\": \"2 rooms match equally\", \"all_rooms\": [\"STD = Standard Room\", \"JSU = Junior Suite\",",
+          "act: get_rooms({\"hotel_id\": \"H005\"}) -> {\"hotel_id\": \"H005\", \"rooms\": [{\"code\": \"STD\", \"name\": \"Standard Room\", \"inventory\": \"free_sale\", \"max_adults\": 2, \"max_children\": 1}, {\"code\": \"JSU\", \"name\": \"Junior Suite\", \"inventory\": \"free_sale\", \"max_adults\": 2, \"max_children\": 2}, {\"code\": \"FAM\", \"name\": \"Family Room\", \"inventory\": \"free_sale",
+          "act: search_playbook({\"query\": \"ambiguous room name mapping family suite\"}) -> {\"rules\": [\"## Room names to our codes\\nMap the hotel's room wording to the room codes in that hotel's existing contract. If a name could match two rooms (for example \\\"sea view\\\" when there is a Double Sea View and a Sea View Suite), flag the field for review instead of guessing.\", \"## Hotel identi",
+          "think: The playbook says to flag when a room name could match two rooms, and \"family suite\" matches both the Junior Suite (JSU) and the Family Room (FAM).",
+          "submit: flag None (\"Family suite\" matches two of our rooms equally: JSU (Junior Suite, on \"suite\") and FAM (Family Room, on \"family\"), and the playbook says to flag such cases for review.)"
+        ]
+      },
+      {
+        "id": "r06",
+        "field": "room",
+        "expected": "JSU",
+        "status": "resolved",
+        "value": "JSU",
+        "outcome": "correct",
+        "reason": "\"Suites\" matches only the Junior Suite (JSU) at H002, and season B (2027-07-01 to 2027-08-31) exists in the contract.",
+        "tool_calls": 3,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1877,
+            "output_tokens": 129,
+            "seconds": 0.67
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2300,
+            "output_tokens": 94,
+            "seconds": 0.65
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2561,
+            "output_tokens": 193,
+            "seconds": 0.93
+          }
+        ],
+        "seconds": 2.25,
+        "trace": [
+          "act: lookup_room({\"hotel_id\": \"H002\", \"wording\": \"Suites\"}) -> {\"wording\": \"Suites\", \"candidates\": [{\"code\": \"JSU\", \"name\": \"Junior Suite\", \"matched_words\": [\"suite\"], \"score\": 1}], \"verdict\": \"one best match\", \"all_rooms\": [\"STD = Standard Double\", \"JSU = Junior Suite\"]}",
+          "act: get_rooms({\"hotel_id\": \"H002\"}) -> {\"hotel_id\": \"H002\", \"rooms\": [{\"code\": \"STD\", \"name\": \"Standard Double\", \"inventory\": \"allotment\", \"max_adults\": 3, \"max_children\": 1}, {\"code\": \"JSU\", \"name\": \"Junior Suite\", \"inventory\": \"allotment\", \"max_adults\": 3, \"max_children\": 2}], \"boards_sold\": [\"AI\", \"HB\"], \"release_days\": 10}",
+          "think: The message maps to the Junior Suite (JSU), the only suite at this hotel. I'll confirm the B season exists.",
+          "act: get_seasons({\"hotel_id\": \"H002\"}) -> {\"contract_start\": \"2027-05-15\", \"contract_end\": \"2027-10-15\", \"seasons\": [{\"name\": \"A\", \"from\": \"2027-05-15\", \"to\": \"2027-06-30\", \"min_stay_nights\": 3}, {\"name\": \"B\", \"from\": \"2027-07-01\", \"to\": \"2027-08-31\", \"min_stay_nights\": 5}, {\"name\": \"C\", \"from\": \"2027-09-01\", \"to\": \"2027-10-15\", \"min_stay_n",
+          "think: The message refers to the Junior Suite (JSU), which is the only suite at this hotel, and season B exists in the contract. I'm submitting that room code.",
+          "submit: resolved JSU (\"Suites\" matches only the Junior Suite (JSU) at H002, and season B (2027-07-01 to 2027-08-31) exists in the contract.)"
+        ]
+      },
+      {
+        "id": "r07",
+        "field": "room",
+        "expected": "flag",
+        "status": "flag",
+        "value": null,
+        "outcome": "correct_flag",
+        "reason": "H003 has no bungalow room; its only rooms are DBL (Double Room) and SUI (Garden Suite), so the stop sale cannot be matched to a room code and needs clarification from the hotel.",
+        "tool_calls": 2,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1880,
+            "output_tokens": 130,
+            "seconds": 0.61
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2269,
+            "output_tokens": 192,
+            "seconds": 0.91
+          }
+        ],
+        "seconds": 1.52,
+        "trace": [
+          "act: get_rooms({\"hotel_id\": \"H003\"}) -> {\"hotel_id\": \"H003\", \"rooms\": [{\"code\": \"DBL\", \"name\": \"Double Room\", \"inventory\": \"free_sale\", \"max_adults\": 2, \"max_children\": 1}, {\"code\": \"SUI\", \"name\": \"Garden Suite\", \"inventory\": \"free_sale\", \"max_adults\": 3, \"max_children\": 1}], \"boards_sold\": [\"BB\", \"HB\"], \"release_days\": null}",
+          "act: lookup_room({\"hotel_id\": \"H003\", \"wording\": \"bungalow\"}) -> {\"wording\": \"bungalow\", \"candidates\": [], \"verdict\": \"no room matches\", \"all_rooms\": [\"DBL = Double Room\", \"SUI = Garden Suite\"]}",
+          "submit: flag None (H003 has no bungalow room; its only rooms are DBL (Double Room) and SUI (Garden Suite), so the stop sale cannot be matched to a room code and needs clarification from the hotel.)"
+        ]
+      },
+      {
+        "id": "r08",
+        "field": "room",
+        "expected": "DSV",
+        "status": "resolved",
+        "value": "DSV",
+        "outcome": "correct",
+        "reason": "\"Sea view\" matches only the Sea View Room, code DSV, at H006, which is the single room that fits the hotel's message.",
+        "tool_calls": 2,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1881,
+            "output_tokens": 130,
+            "seconds": 0.67
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2309,
+            "output_tokens": 214,
+            "seconds": 1.17
+          }
+        ],
+        "seconds": 1.84,
+        "trace": [
+          "act: lookup_room({\"hotel_id\": \"H006\", \"wording\": \"Sea view\"}) -> {\"wording\": \"Sea view\", \"candidates\": [{\"code\": \"DSV\", \"name\": \"Sea View Room\", \"matched_words\": [\"sea\", \"view\"], \"score\": 2}], \"verdict\": \"one best match\", \"all_rooms\": [\"DBL = Double Room\", \"DSV = Sea View Room\"]}",
+          "act: get_rooms({\"hotel_id\": \"H006\"}) -> {\"hotel_id\": \"H006\", \"rooms\": [{\"code\": \"DBL\", \"name\": \"Double Room\", \"inventory\": \"allotment\", \"max_adults\": 2, \"max_children\": 0}, {\"code\": \"DSV\", \"name\": \"Sea View Room\", \"inventory\": \"allotment\", \"max_adults\": 2, \"max_children\": 1}], \"boards_sold\": [\"BB\", \"HB\"], \"release_days\": 14}",
+          "submit: resolved DSV (\"Sea view\" matches only the Sea View Room, code DSV, at H006, which is the single room that fits the hotel's message.)"
+        ]
+      },
+      {
+        "id": "r09",
+        "field": "room",
+        "expected": "JSU",
+        "status": "resolved",
+        "value": "JSU",
+        "outcome": "correct",
+        "reason": "\"Juniors\" matches only the Junior Suite (JSU) among this hotel's rooms (STD, JSU, FAM), with no competing candidate.",
+        "tool_calls": 2,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1875,
+            "output_tokens": 129,
+            "seconds": 0.59
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2356,
+            "output_tokens": 197,
+            "seconds": 0.98
+          }
+        ],
+        "seconds": 1.57,
+        "trace": [
+          "act: lookup_room({\"hotel_id\": \"H005\", \"wording\": \"juniors\"}) -> {\"wording\": \"juniors\", \"candidates\": [{\"code\": \"JSU\", \"name\": \"Junior Suite\", \"matched_words\": [\"junior\"], \"score\": 1}], \"verdict\": \"one best match\", \"all_rooms\": [\"STD = Standard Room\", \"JSU = Junior Suite\", \"FAM = Family Room\"]}",
+          "act: get_rooms({\"hotel_id\": \"H005\"}) -> {\"hotel_id\": \"H005\", \"rooms\": [{\"code\": \"STD\", \"name\": \"Standard Room\", \"inventory\": \"free_sale\", \"max_adults\": 2, \"max_children\": 1}, {\"code\": \"JSU\", \"name\": \"Junior Suite\", \"inventory\": \"free_sale\", \"max_adults\": 2, \"max_children\": 2}, {\"code\": \"FAM\", \"name\": \"Family Room\", \"inventory\": \"free_sale",
+          "submit: resolved JSU (\"Juniors\" matches only the Junior Suite (JSU) among this hotel's rooms (STD, JSU, FAM), with no competing candidate.)"
+        ]
+      },
+      {
+        "id": "r10",
+        "field": "board",
+        "expected": "HB",
+        "status": "resolved",
+        "value": "HB",
+        "outcome": "correct",
+        "reason": "The hotel's \"dinner included\" wording maps to board code HB, which this hotel sells.",
+        "tool_calls": 1,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1900,
+            "output_tokens": 158,
+            "seconds": 0.89
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2117,
+            "output_tokens": 120,
+            "seconds": 0.59
+          }
+        ],
+        "seconds": 1.48,
+        "trace": [
+          "act: lookup_board({\"hotel_id\": \"H001\", \"wording\": \"Dinner included\"}) -> {\"wording\": \"Dinner included\", \"board_code\": \"HB\", \"boards_sold\": [\"AI\", \"BB\", \"HB\"], \"sold_by_hotel\": true}",
+          "submit: resolved HB (The hotel's \"dinner included\" wording maps to board code HB, which this hotel sells.)"
+        ]
+      },
+      {
+        "id": "r11",
+        "field": "board",
+        "expected": "AI",
+        "status": "resolved",
+        "value": "AI",
+        "outcome": "correct",
+        "reason": "\"All-in\" maps to board code AI, and H004 sells AI.",
+        "tool_calls": 2,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1891,
+            "output_tokens": 154,
+            "seconds": 0.7
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2297,
+            "output_tokens": 187,
+            "seconds": 1.01
+          }
+        ],
+        "seconds": 1.71,
+        "trace": [
+          "act: lookup_board({\"hotel_id\": \"H004\", \"wording\": \"All-in\"}) -> {\"wording\": \"All-in\", \"board_code\": \"AI\", \"boards_sold\": [\"AI\", \"BB\", \"HB\"], \"sold_by_hotel\": true}",
+          "act: lookup_room({\"hotel_id\": \"H004\", \"wording\": \"sea view double\"}) -> {\"wording\": \"sea view double\", \"candidates\": [{\"code\": \"DSV\", \"name\": \"Double Sea View\", \"matched_words\": [\"double\", \"sea\", \"view\"], \"score\": 3}, {\"code\": \"DBL\", \"name\": \"Double Room\", \"matched_words\": [\"double\"], \"score\": 1}], \"verdict\": \"one best match\", \"all_rooms\": [\"DBL = Double Room\", \"DSV = D",
+          "submit: resolved AI (\"All-in\" maps to board code AI, and H004 sells AI.)"
+        ]
+      },
+      {
+        "id": "r12",
+        "field": "board",
+        "expected": "flag",
+        "status": "flag",
+        "value": null,
+        "outcome": "correct_flag",
+        "reason": "\"Breakfast only\" maps to BB, but H005 does not sell BB (it sells only AI and HB), so the hotel's breakfast-only rate has no matching contract board and needs confirmation.",
+        "tool_calls": 2,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1891,
+            "output_tokens": 132,
+            "seconds": 0.63
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2319,
+            "output_tokens": 196,
+            "seconds": 0.97
+          }
+        ],
+        "seconds": 1.6,
+        "trace": [
+          "act: lookup_board({\"hotel_id\": \"H005\", \"wording\": \"Breakfast only\"}) -> {\"wording\": \"Breakfast only\", \"board_code\": \"BB\", \"boards_sold\": [\"AI\", \"HB\"], \"sold_by_hotel\": false}",
+          "act: get_rooms({\"hotel_id\": \"H005\"}) -> {\"hotel_id\": \"H005\", \"rooms\": [{\"code\": \"STD\", \"name\": \"Standard Room\", \"inventory\": \"free_sale\", \"max_adults\": 2, \"max_children\": 1}, {\"code\": \"JSU\", \"name\": \"Junior Suite\", \"inventory\": \"free_sale\", \"max_adults\": 2, \"max_children\": 2}, {\"code\": \"FAM\", \"name\": \"Family Room\", \"inventory\": \"free_sale",
+          "submit: flag None (\"Breakfast only\" maps to BB, but H005 does not sell BB (it sells only AI and HB), so the hotel's breakfast-only rate has no matching contract board and needs confirmation.)"
+        ]
+      },
+      {
+        "id": "r13",
+        "field": "board",
+        "expected": "HB",
+        "status": "resolved",
+        "value": "HB",
+        "outcome": "correct",
+        "reason": "\"Breakfast and dinner\" maps to board code HB (half board), which H003 sells; the Garden Suite is room SUI.",
+        "tool_calls": 2,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1900,
+            "output_tokens": 162,
+            "seconds": 0.69
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2280,
+            "output_tokens": 168,
+            "seconds": 0.96
+          }
+        ],
+        "seconds": 1.65,
+        "trace": [
+          "act: lookup_board({\"hotel_id\": \"H003\", \"wording\": \"Breakfast and dinner\"}) -> {\"wording\": \"Breakfast and dinner\", \"board_code\": \"HB\", \"boards_sold\": [\"BB\", \"HB\"], \"sold_by_hotel\": true}",
+          "act: lookup_room({\"hotel_id\": \"H003\", \"wording\": \"Garden Suite\"}) -> {\"wording\": \"Garden Suite\", \"candidates\": [{\"code\": \"SUI\", \"name\": \"Garden Suite\", \"matched_words\": [\"garden\", \"suite\"], \"score\": 2}], \"verdict\": \"one best match\", \"all_rooms\": [\"DBL = Double Room\", \"SUI = Garden Suite\"]}",
+          "think: Breakfast and dinner maps to HB, and the hotel sells HB. I'll submit that board code.",
+          "submit: resolved HB (\"Breakfast and dinner\" maps to board code HB (half board), which H003 sells; the Garden Suite is room SUI.)"
+        ]
+      },
+      {
+        "id": "r14",
+        "field": "board",
+        "expected": "flag",
+        "status": "flag",
+        "value": null,
+        "outcome": "correct_flag",
+        "reason": "Full board maps to FB, but H007 does not sell FB; its only sold board is HB (half board), so the hotel's offer does not match a board we hold.",
+        "tool_calls": 2,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1887,
+            "output_tokens": 128,
+            "seconds": 0.59
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2330,
+            "output_tokens": 240,
+            "seconds": 1.23
+          }
+        ],
+        "seconds": 1.82,
+        "trace": [
+          "act: lookup_board({\"hotel_id\": \"H007\", \"wording\": \"full board\"}) -> {\"wording\": \"full board\", \"board_code\": \"FB\", \"boards_sold\": [\"HB\"], \"sold_by_hotel\": false}",
+          "act: get_seasons({\"hotel_id\": \"H007\"}) -> {\"contract_start\": \"2027-12-15\", \"contract_end\": \"2028-04-10\", \"seasons\": [{\"name\": \"Xmas\", \"from\": \"2027-12-15\", \"to\": \"2028-01-06\", \"min_stay_nights\": 7}, {\"name\": \"Peak\", \"from\": \"2028-01-07\", \"to\": \"2028-02-29\", \"min_stay_nights\": 7}, {\"name\": \"Mid\", \"from\": \"2028-03-01\", \"to\": \"2028-03-25\", \"mi",
+          "submit: flag None (Full board maps to FB, but H007 does not sell FB; its only sold board is HB (half board), so the hotel's offer does not match a board we hold.)"
+        ]
+      },
+      {
+        "id": "r15",
+        "field": "dates",
+        "expected": "2028-02-02..2028-02-05",
+        "status": "resolved",
+        "value": "2028-02-02..2028-02-05",
+        "outcome": "correct",
+        "reason": "\"2-5 Feb\" resolves to 2028-02-02 and 2028-02-05, both inside the contract (2027-12-15 to 2028-04-10), and the playbook treats a \"please close\" message as a stop sale on the stated stay dates.",
+        "tool_calls": 3,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1904,
+            "output_tokens": 189,
+            "seconds": 0.76
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2359,
+            "output_tokens": 180,
+            "seconds": 0.96
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2780,
+            "output_tokens": 249,
+            "seconds": 1.14
+          }
+        ],
+        "seconds": 2.85,
+        "trace": [
+          "act: resolve_date({\"hotel_id\": \"H007\", \"day\": \"2\", \"month\": \"February\"}) -> {\"contract_start\": \"2027-12-15\", \"contract_end\": \"2028-04-10\", \"candidates\": [{\"date\": \"2027-02-02\", \"inside_contract\": false}, {\"date\": \"2028-02-02\", \"inside_contract\": true}], \"answer\": \"2028-02-02\", \"note\": \"inside the contract period\"}",
+          "act: resolve_date({\"hotel_id\": \"H007\", \"day\": \"5\", \"month\": \"February\"}) -> {\"contract_start\": \"2027-12-15\", \"contract_end\": \"2028-04-10\", \"candidates\": [{\"date\": \"2027-02-05\", \"inside_contract\": false}, {\"date\": \"2028-02-05\", \"inside_contract\": true}], \"answer\": \"2028-02-05\", \"note\": \"inside the contract period\"}",
+          "act: search_playbook({\"query\": \"close sales stay dates hotel message\"}) -> {\"rules\": [\"## Stop sales and re-opens\\nA stop sale closes sales for the stated room types and stay dates. If no room type is named, it applies to all rooms. \\\"Fully booked\\\", \\\"please close\\\" and a hotel closure are stop sales. \\\"Open again\\\" or \\\"you can sell again\\\" is an open_sale for the same r",
+          "submit: resolved 2028-02-02..2028-02-05 (\"2-5 Feb\" resolves to 2028-02-02 and 2028-02-05, both inside the contract (2027-12-15 to 2028-04-10), and the playbook treats a \"please close\" message as a stop sale on the stated stay dates.)"
+        ]
+      },
+      {
+        "id": "r16",
+        "field": "dates",
+        "expected": "2028-02-20..2028-02-29",
+        "status": "resolved",
+        "value": "2028-02-20..2028-02-29",
+        "outcome": "correct",
+        "reason": "The stop sale runs from 20 Feb to end of Feb, which falls inside the contract (ends 2028-04-10), so the year is 2028 and February 2028 has 29 days; no room type is named, so it applies to all rooms.",
+        "tool_calls": 4,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1900,
+            "output_tokens": 240,
+            "seconds": 0.95
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2645,
+            "output_tokens": 165,
+            "seconds": 0.8
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2998,
+            "output_tokens": 178,
+            "seconds": 0.94
+          }
+        ],
+        "seconds": 2.7,
+        "trace": [
+          "act: resolve_date({\"hotel_id\": \"H007\", \"day\": \"20\", \"month\": \"February\"}) -> {\"contract_start\": \"2027-12-15\", \"contract_end\": \"2028-04-10\", \"candidates\": [{\"date\": \"2027-02-20\", \"inside_contract\": false}, {\"date\": \"2028-02-20\", \"inside_contract\": true}], \"answer\": \"2028-02-20\", \"note\": \"inside the contract period\"}",
+          "act: resolve_date({\"hotel_id\": \"H007\", \"day\": \"last\", \"month\": \"February\"}) -> {\"contract_start\": \"2027-12-15\", \"contract_end\": \"2028-04-10\", \"candidates\": [{\"date\": \"2027-02-28\", \"inside_contract\": false}, {\"date\": \"2028-02-29\", \"inside_contract\": true}], \"answer\": \"2028-02-29\", \"note\": \"inside the contract period\"}",
+          "act: get_seasons({\"hotel_id\": \"H007\"}) -> {\"contract_start\": \"2027-12-15\", \"contract_end\": \"2028-04-10\", \"seasons\": [{\"name\": \"Xmas\", \"from\": \"2027-12-15\", \"to\": \"2028-01-06\", \"min_stay_nights\": 7}, {\"name\": \"Peak\", \"from\": \"2028-01-07\", \"to\": \"2028-02-29\", \"min_stay_nights\": 7}, {\"name\": \"Mid\", \"from\": \"2028-03-01\", \"to\": \"2028-03-25\", \"mi",
+          "act: search_playbook({\"query\": \"stop sale\"}) -> {\"rules\": [\"## Stop sales and re-opens\\nA stop sale closes sales for the stated room types and stay dates. If no room type is named, it applies to all rooms. \\\"Fully booked\\\", \\\"please close\\\" and a hotel closure are stop sales. \\\"Open again\\\" or \\\"you can sell again\\\" is an open_sale for the same r",
+          "submit: resolved 2028-02-20..2028-02-29 (The stop sale runs from 20 Feb to end of Feb, which falls inside the contract (ends 2028-04-10), so the year is 2028 and February 2028 has 29 days; no room type is named, so it applies to all rooms.)"
+        ]
+      },
+      {
+        "id": "r17",
+        "field": "dates",
+        "expected": "2027-08-12..2027-08-15",
+        "status": "resolved",
+        "value": "2027-08-12..2027-08-15",
+        "outcome": "correct",
+        "reason": "Both 12 and 15 August resolve to 2027, inside the contract period (2027-05-01 to 2027-10-31), and the playbook sets no checkout convention, so the closure is taken as the inclusive range 12 to 15 August.",
+        "tool_calls": 3,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1898,
+            "output_tokens": 189,
+            "seconds": 0.78
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2309,
+            "output_tokens": 157,
+            "seconds": 1.06
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2627,
+            "output_tokens": 261,
+            "seconds": 1.24
+          }
+        ],
+        "seconds": 3.08,
+        "trace": [
+          "act: resolve_date({\"hotel_id\": \"H001\", \"day\": \"12\", \"month\": \"August\"}) -> {\"contract_start\": \"2027-05-01\", \"contract_end\": \"2027-10-31\", \"candidates\": [{\"date\": \"2027-08-12\", \"inside_contract\": true}], \"answer\": \"2027-08-12\", \"note\": \"inside the contract period\"}",
+          "act: resolve_date({\"hotel_id\": \"H001\", \"day\": \"15\", \"month\": \"August\"}) -> {\"contract_start\": \"2027-05-01\", \"contract_end\": \"2027-10-31\", \"candidates\": [{\"date\": \"2027-08-15\", \"inside_contract\": true}], \"answer\": \"2027-08-15\", \"note\": \"inside the contract period\"}",
+          "act: search_playbook({\"query\": \"stay dates closing period end date checkout convention\"}) -> {\"rules\": [\"## Dates without a year\\nInfer the year from the contract period of the existing contract. A date that falls outside the contract period must be flagged.\", \"## Offer changes inherit the existing offer\\nWhen a hotel extends or changes an existing special offer (\\\"extend the early booking ",
+          "submit: resolved 2027-08-12..2027-08-15 (Both 12 and 15 August resolve to 2027, inside the contract period (2027-05-01 to 2027-10-31), and the playbook sets no checkout convention, so the closure is taken as the inclusive range 12 to 15 August.)"
+        ]
+      },
+      {
+        "id": "r18",
+        "field": "dates",
+        "expected": "flag",
+        "status": "flag",
+        "value": null,
+        "outcome": "correct_flag",
+        "reason": "The stop sale dates 3-6 November resolve to 2027-11-03..2027-11-06, which is outside the contract period (2027-05-01 to 2027-10-31), so it needs confirmation from the hotel.",
+        "tool_calls": 3,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1899,
+            "output_tokens": 246,
+            "seconds": 0.96
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2564,
+            "output_tokens": 208,
+            "seconds": 1.01
+          }
+        ],
+        "seconds": 1.97,
+        "trace": [
+          "act: resolve_date({\"hotel_id\": \"H001\", \"day\": \"3\", \"month\": \"November\"}) -> {\"contract_start\": \"2027-05-01\", \"contract_end\": \"2027-10-31\", \"candidates\": [{\"date\": \"2027-11-03\", \"inside_contract\": false}], \"answer\": null, \"note\": \"outside the contract period: flag it\"}",
+          "act: resolve_date({\"hotel_id\": \"H001\", \"day\": \"6\", \"month\": \"November\"}) -> {\"contract_start\": \"2027-05-01\", \"contract_end\": \"2027-10-31\", \"candidates\": [{\"date\": \"2027-11-06\", \"inside_contract\": false}], \"answer\": null, \"note\": \"outside the contract period: flag it\"}",
+          "act: search_playbook({\"query\": \"stop sale date range end date inclusive\"}) -> {\"rules\": [\"## Stop sales and re-opens\\nA stop sale closes sales for the stated room types and stay dates. If no room type is named, it applies to all rooms. \\\"Fully booked\\\", \\\"please close\\\" and a hotel closure are stop sales. \\\"Open again\\\" or \\\"you can sell again\\\" is an open_sale for the same r",
+          "think: The requested dates (3–6 November) fall outside the contract period (1 May to 31 October 2027), so I'm flagging rather than resolving.",
+          "submit: flag None (The stop sale dates 3-6 November resolve to 2027-11-03..2027-11-06, which is outside the contract period (2027-05-01 to 2027-10-31), so it needs confirmation from the hotel.)"
+        ]
+      },
+      {
+        "id": "r19",
+        "field": "dates",
+        "expected": "2027-12-28..2028-01-03",
+        "status": "resolved",
+        "value": "2027-12-28..2028-01-03",
+        "outcome": "correct",
+        "reason": "The closure \"28 Dec to 3 Jan\" resolves within the contract period (2027-12-15 to 2028-04-10) to 28 Dec 2027 through 3 Jan 2028, and the playbook treats a hotel closure as a stop sale on those stay dates.",
+        "tool_calls": 3,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1904,
+            "output_tokens": 403,
+            "seconds": 1.56
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2774,
+            "output_tokens": 321,
+            "seconds": 1.39
+          }
+        ],
+        "seconds": 2.95,
+        "trace": [
+          "act: resolve_date({\"hotel_id\": \"H007\", \"day\": \"28\", \"month\": \"December\"}) -> {\"contract_start\": \"2027-12-15\", \"contract_end\": \"2028-04-10\", \"candidates\": [{\"date\": \"2027-12-28\", \"inside_contract\": true}, {\"date\": \"2028-12-28\", \"inside_contract\": false}], \"answer\": \"2027-12-28\", \"note\": \"inside the contract period\"}",
+          "act: resolve_date({\"hotel_id\": \"H007\", \"day\": \"3\", \"month\": \"January\"}) -> {\"contract_start\": \"2027-12-15\", \"contract_end\": \"2028-04-10\", \"candidates\": [{\"date\": \"2027-01-03\", \"inside_contract\": false}, {\"date\": \"2028-01-03\", \"inside_contract\": true}], \"answer\": \"2028-01-03\", \"note\": \"inside the contract period\"}",
+          "act: search_playbook({\"query\": \"hotel closure dates stay dates interpretation\"}) -> {\"rules\": [\"## Stop sales and re-opens\\nA stop sale closes sales for the stated room types and stay dates. If no room type is named, it applies to all rooms. \\\"Fully booked\\\", \\\"please close\\\" and a hotel closure are stop sales. \\\"Open again\\\" or \\\"you can sell again\\\" is an open_sale for the same r",
+          "submit: resolved 2027-12-28..2028-01-03 (The closure \"28 Dec to 3 Jan\" resolves within the contract period (2027-12-15 to 2028-04-10) to 28 Dec 2027 through 3 Jan 2028, and the playbook treats a hotel closure as a stop sale on those stay dates.)"
+        ]
+      },
+      {
+        "id": "r20",
+        "field": "dates",
+        "expected": "flag",
+        "status": "flag",
+        "value": null,
+        "outcome": "correct_flag",
+        "reason": "The stop-sale start date 30 April 2027 falls outside the contract period (2027-05-01 to 2027-10-31); only 2 May 2027 is inside it, so the requested range needs confirmation from the hotel.",
+        "tool_calls": 3,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1900,
+            "output_tokens": 243,
+            "seconds": 0.96
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2626,
+            "output_tokens": 296,
+            "seconds": 1.49
+          }
+        ],
+        "seconds": 2.45,
+        "trace": [
+          "act: resolve_date({\"hotel_id\": \"H004\", \"day\": \"30\", \"month\": \"April\"}) -> {\"contract_start\": \"2027-05-01\", \"contract_end\": \"2027-10-31\", \"candidates\": [{\"date\": \"2027-04-30\", \"inside_contract\": false}], \"answer\": null, \"note\": \"outside the contract period: flag it\"}",
+          "act: resolve_date({\"hotel_id\": \"H004\", \"day\": \"2\", \"month\": \"May\"}) -> {\"contract_start\": \"2027-05-01\", \"contract_end\": \"2027-10-31\", \"candidates\": [{\"date\": \"2027-05-02\", \"inside_contract\": true}], \"answer\": \"2027-05-02\", \"note\": \"inside the contract period\"}",
+          "act: search_playbook({\"query\": \"close sales stop sell dates\"}) -> {\"rules\": [\"## Stop sales and re-opens\\nA stop sale closes sales for the stated room types and stay dates. If no room type is named, it applies to all rooms. \\\"Fully booked\\\", \\\"please close\\\" and a hotel closure are stop sales. \\\"Open again\\\" or \\\"you can sell again\\\" is an open_sale for the same r",
+          "think: The stop-sale range starts on 30 April, which is before the contract begins on 1 May 2027. The house rule says to flag when a date is outside the contract, so I'm flagging rather than trimming the range.",
+          "submit: flag None (The stop-sale start date 30 April 2027 falls outside the contract period (2027-05-01 to 2027-10-31); only 2 May 2027 is inside it, so the requested range needs confirmation from the hotel.)"
+        ]
+      },
+      {
+        "id": "r21",
+        "field": "new_price",
+        "expected": "206",
+        "status": "resolved",
+        "value": "206",
+        "outcome": "correct",
+        "reason": "Double Sea View (DSV) on half board (HB) High season rate was 200 EUR; applying the +6 EUR change gives 206 EUR (derived value).",
+        "tool_calls": 6,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1893,
+            "output_tokens": 236,
+            "seconds": 1.56
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2631,
+            "output_tokens": 177,
+            "seconds": 1.15
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 3140,
+            "output_tokens": 87,
+            "seconds": 0.87
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 3250,
+            "output_tokens": 143,
+            "seconds": 1.46
+          }
+        ],
+        "seconds": 5.04,
+        "trace": [
+          "think: I need to find the room code for \"Sea view double\", the board code for \"half board\", and the High season rate.",
+          "act: lookup_room({\"hotel_id\": \"H001\", \"wording\": \"Sea view double\"}) -> {\"wording\": \"Sea view double\", \"candidates\": [{\"code\": \"DSV\", \"name\": \"Double Sea View\", \"matched_words\": [\"double\", \"sea\", \"view\"], \"score\": 3}, {\"code\": \"DBL\", \"name\": \"Double Standard\", \"matched_words\": [\"double\"], \"score\": 1}], \"verdict\": \"one best match\", \"all_rooms\": [\"DBL = Double Standard\", ",
+          "act: lookup_board({\"hotel_id\": \"H001\", \"wording\": \"half board\"}) -> {\"wording\": \"half board\", \"board_code\": \"HB\", \"boards_sold\": [\"AI\", \"BB\", \"HB\"], \"sold_by_hotel\": true}",
+          "act: get_seasons({\"hotel_id\": \"H001\"}) -> {\"contract_start\": \"2027-05-01\", \"contract_end\": \"2027-10-31\", \"seasons\": [{\"name\": \"Low\", \"from\": \"2027-05-01\", \"to\": \"2027-06-14\", \"min_stay_nights\": 3}, {\"name\": \"Mid\", \"from\": \"2027-06-15\", \"to\": \"2027-07-14\", \"min_stay_nights\": 3}, {\"name\": \"High\", \"from\": \"2027-07-15\", \"to\": \"2027-08-31\", \"min",
+          "act: get_rate({\"hotel_id\": \"H001\", \"room_code\": \"DSV\", \"board\": \"HB\", \"season\": \"High\"}) -> {\"currency\": \"EUR\", \"pricing_basis\": \"per_room_per_night\", \"seasons\": [\"High\"], \"rates\": [{\"season\": \"High\", \"room_code\": \"DSV\", \"board\": \"HB\", \"price\": 200.0}], \"note\": \"one rate\"}",
+          "act: search_playbook({\"query\": \"supplement change rate increase rounding\"}) -> {\"rules\": [\"## Rate changes\\nA rate change states the room, board, dates and either the new price or a delta (\\\"+6 EUR\\\", \\\"-10%\\\"). Compute the new price from the existing contract rate and mark the value as derived. If the existing rate can't be found, flag the field.\", \"## Board codes\\nRO room on",
+          "think: Current High season rate for DSV/HB is 200 EUR. Applying the +6 EUR delta.",
+          "act: calculate({\"expression\": \"200 + 6\"}) -> {\"expression\": \"200 + 6\", \"result\": 206}",
+          "submit: resolved 206 (Double Sea View (DSV) on half board (HB) High season rate was 200 EUR; applying the +6 EUR change gives 206 EUR (derived value).)"
+        ]
+      },
+      {
+        "id": "r22",
+        "field": "new_price",
+        "expected": "178.2",
+        "status": "flag",
+        "value": null,
+        "outcome": "over_flag",
+        "reason": "\"Double Room\" matches two room codes equally (DBL \"Double Room\" and DSV \"Double Sea View\"), and the playbook says to flag ambiguous room wording rather than guess.",
+        "tool_calls": 4,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1893,
+            "output_tokens": 225,
+            "seconds": 0.95
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2609,
+            "output_tokens": 173,
+            "seconds": 0.88
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2991,
+            "output_tokens": 190,
+            "seconds": 0.9
+          }
+        ],
+        "seconds": 2.74,
+        "trace": [
+          "think: I need to identify the room, board, season and current price first.",
+          "act: lookup_room({\"hotel_id\": \"H004\", \"wording\": \"Double Room\"}) -> {\"wording\": \"Double Room\", \"candidates\": [{\"code\": \"DBL\", \"name\": \"Double Room\", \"matched_words\": [\"double\"], \"score\": 1}, {\"code\": \"DSV\", \"name\": \"Double Sea View\", \"matched_words\": [\"double\"], \"score\": 1}], \"verdict\": \"2 rooms match equally\", \"all_rooms\": [\"DBL = Double Room\", \"DSV = Double Sea Vi",
+          "act: lookup_board({\"hotel_id\": \"H004\", \"wording\": \"all-inclusive\"}) -> {\"wording\": \"all-inclusive\", \"board_code\": \"AI\", \"boards_sold\": [\"AI\", \"BB\", \"HB\"], \"sold_by_hotel\": true}",
+          "act: get_seasons({\"hotel_id\": \"H004\"}) -> {\"contract_start\": \"2027-05-01\", \"contract_end\": \"2027-10-31\", \"seasons\": [{\"name\": \"Low\", \"from\": \"2027-05-01\", \"to\": \"2027-06-14\", \"min_stay_nights\": 3}, {\"name\": \"Mid\", \"from\": \"2027-06-15\", \"to\": \"2027-07-14\", \"min_stay_nights\": 3}, {\"name\": \"High\", \"from\": \"2027-07-15\", \"to\": \"2027-08-31\", \"min",
+          "think: The room wording matches two codes equally, so I'll check the playbook before going further.",
+          "act: search_playbook({\"query\": \"ambiguous room wording Double Room match\"}) -> {\"rules\": [\"## Room names to our codes\\nMap the hotel's room wording to the room codes in that hotel's existing contract. If a name could match two rooms (for example \\\"sea view\\\" when there is a Double Sea View and a Sea View Suite), flag the field for review instead of guessing.\", \"## Hotel identi",
+          "think: The playbook says to flag when a room name matches two codes, so I'm flagging rather than guessing between DBL and DSV.",
+          "submit: flag None (\"Double Room\" matches two room codes equally (DBL \"Double Room\" and DSV \"Double Sea View\"), and the playbook says to flag ambiguous room wording rather than guess.)"
+        ]
+      },
+      {
+        "id": "r23",
+        "field": "new_price",
+        "expected": "197.4",
+        "status": "resolved",
+        "value": "197.4",
+        "outcome": "correct",
+        "reason": "Garden Suite (SUI) BB Mid season rate was 188.00 EUR; a 5% increase gives 197.40 EUR (derived value per playbook).",
+        "tool_calls": 6,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1891,
+            "output_tokens": 227,
+            "seconds": 0.95
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2567,
+            "output_tokens": 182,
+            "seconds": 0.83
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 3085,
+            "output_tokens": 54,
+            "seconds": 0.39
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 3166,
+            "output_tokens": 146,
+            "seconds": 0.87
+          }
+        ],
+        "seconds": 3.04,
+        "trace": [
+          "think: I need the room code, board code, and the current Mid season rate first.",
+          "act: lookup_room({\"hotel_id\": \"H003\", \"wording\": \"Garden Suite\"}) -> {\"wording\": \"Garden Suite\", \"candidates\": [{\"code\": \"SUI\", \"name\": \"Garden Suite\", \"matched_words\": [\"garden\", \"suite\"], \"score\": 2}], \"verdict\": \"one best match\", \"all_rooms\": [\"DBL = Double Room\", \"SUI = Garden Suite\"]}",
+          "act: lookup_board({\"hotel_id\": \"H003\", \"wording\": \"BB\"}) -> {\"wording\": \"BB\", \"board_code\": \"BB\", \"boards_sold\": [\"BB\", \"HB\"], \"sold_by_hotel\": true}",
+          "act: get_seasons({\"hotel_id\": \"H003\"}) -> {\"contract_start\": \"2027-05-01\", \"contract_end\": \"2027-10-31\", \"seasons\": [{\"name\": \"Low\", \"from\": \"2027-05-01\", \"to\": \"2027-06-14\", \"min_stay_nights\": 3}, {\"name\": \"Mid\", \"from\": \"2027-06-15\", \"to\": \"2027-07-14\", \"min_stay_nights\": 3}, {\"name\": \"High\", \"from\": \"2027-07-15\", \"to\": \"2027-08-31\", \"min",
+          "act: get_rate({\"hotel_id\": \"H003\", \"room_code\": \"SUI\", \"board\": \"BB\", \"season\": \"Mid\"}) -> {\"currency\": \"EUR\", \"pricing_basis\": \"per_room_per_night\", \"seasons\": [\"Mid\"], \"rates\": [{\"season\": \"Mid\", \"room_code\": \"SUI\", \"board\": \"BB\", \"price\": 188.0}], \"note\": \"one rate\"}",
+          "act: search_playbook({\"query\": \"percentage price increase rounding contract rate change\"}) -> {\"rules\": [\"## Rate changes\\nA rate change states the room, board, dates and either the new price or a delta (\\\"+6 EUR\\\", \\\"-10%\\\"). Compute the new price from the existing contract rate and mark the value as derived. If the existing rate can't be found, flag the field.\", \"## Board codes\\nRO room on",
+          "act: calculate({\"expression\": \"188 * 1.05\"}) -> {\"expression\": \"188 * 1.05\", \"result\": 197.4}",
+          "submit: resolved 197.4 (Garden Suite (SUI) BB Mid season rate was 188.00 EUR; a 5% increase gives 197.40 EUR (derived value per playbook).)"
+        ]
+      },
+      {
+        "id": "r24",
+        "field": "new_price",
+        "expected": "233",
+        "status": "resolved",
+        "value": "233",
+        "outcome": "correct",
+        "reason": "February falls in the Peak season (2028-01-07 to 2028-02-29); the Double Room (DBL) HB contract rate is 218 EUR, and +15 EUR gives 233 EUR per room per night (derived value).",
+        "tool_calls": 6,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1886,
+            "output_tokens": 237,
+            "seconds": 1.16
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2651,
+            "output_tokens": 251,
+            "seconds": 1.11
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 3238,
+            "output_tokens": 101,
+            "seconds": 0.61
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 3362,
+            "output_tokens": 164,
+            "seconds": 0.79
+          }
+        ],
+        "seconds": 3.67,
+        "trace": [
+          "act: get_rooms({\"hotel_id\": \"H007\"}) -> {\"hotel_id\": \"H007\", \"rooms\": [{\"code\": \"DBL\", \"name\": \"Double Room\", \"inventory\": \"free_sale\", \"max_adults\": 2, \"max_children\": 1}, {\"code\": \"JSU\", \"name\": \"Junior Suite\", \"inventory\": \"free_sale\", \"max_adults\": 2, \"max_children\": 2}], \"boards_sold\": [\"HB\"], \"release_days\": null}",
+          "act: get_seasons({\"hotel_id\": \"H007\"}) -> {\"contract_start\": \"2027-12-15\", \"contract_end\": \"2028-04-10\", \"seasons\": [{\"name\": \"Xmas\", \"from\": \"2027-12-15\", \"to\": \"2028-01-06\", \"min_stay_nights\": 7}, {\"name\": \"Peak\", \"from\": \"2028-01-07\", \"to\": \"2028-02-29\", \"min_stay_nights\": 7}, {\"name\": \"Mid\", \"from\": \"2028-03-01\", \"to\": \"2028-03-25\", \"mi",
+          "act: lookup_room({\"hotel_id\": \"H007\", \"wording\": \"Doubles\"}) -> {\"wording\": \"Doubles\", \"candidates\": [{\"code\": \"DBL\", \"name\": \"Double Room\", \"matched_words\": [\"double\"], \"score\": 1}], \"verdict\": \"one best match\", \"all_rooms\": [\"DBL = Double Room\", \"JSU = Junior Suite\"]}",
+          "act: get_rate({\"hotel_id\": \"H007\", \"room_code\": \"DBL\", \"board\": \"HB\", \"season\": \"Peak\"}) -> {\"currency\": \"EUR\", \"pricing_basis\": \"per_room_per_night\", \"seasons\": [\"Peak\"], \"rates\": [{\"season\": \"Peak\", \"room_code\": \"DBL\", \"board\": \"HB\", \"price\": 218.0}], \"note\": \"one rate\"}",
+          "act: search_playbook({\"query\": \"price change increase rule seasonal supplement\"}) -> {\"rules\": [\"## Board codes\\nRO room only, BB bed and breakfast, HB half board, FB full board, AI all inclusive. \\\"Half board\\\" or \\\"dinner included\\\" is HB. A board supplement (\\\"AI + 25\\\") means the full price is the base board price plus the supplement.\", \"## Rate changes\\nA rate change states the",
+          "act: calculate({\"expression\": \"218 + 15\"}) -> {\"expression\": \"218 + 15\", \"result\": 233}",
+          "submit: resolved 233 (February falls in the Peak season (2028-01-07 to 2028-02-29); the Double Room (DBL) HB contract rate is 218 EUR, and +15 EUR gives 233 EUR per room per night (derived value).)"
+        ]
+      },
+      {
+        "id": "r25",
+        "field": "new_price",
+        "expected": "250",
+        "status": "resolved",
+        "value": "250",
+        "outcome": "correct",
+        "reason": "Sea View Room (DSV) half board (HB) contract rate on 2027-08-15 is 270 EUR per night (High season); applying the -20 EUR change gives 250 (derived).",
+        "tool_calls": 6,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1891,
+            "output_tokens": 278,
+            "seconds": 1.92
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2485,
+            "output_tokens": 213,
+            "seconds": 1.24
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 3030,
+            "output_tokens": 100,
+            "seconds": 0.95
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 3153,
+            "output_tokens": 152,
+            "seconds": 1.33
+          }
+        ],
+        "seconds": 5.44,
+        "trace": [
+          "think: I need to find the room (sea view), the board (half board), and the base rate for the date of 15 August.",
+          "act: lookup_room({\"hotel_id\": \"H006\", \"wording\": \"Sea view\"}) -> {\"wording\": \"Sea view\", \"candidates\": [{\"code\": \"DSV\", \"name\": \"Sea View Room\", \"matched_words\": [\"sea\", \"view\"], \"score\": 2}], \"verdict\": \"one best match\", \"all_rooms\": [\"DBL = Double Room\", \"DSV = Sea View Room\"]}",
+          "act: lookup_board({\"hotel_id\": \"H006\", \"wording\": \"half board\"}) -> {\"wording\": \"half board\", \"board_code\": \"HB\", \"boards_sold\": [\"BB\", \"HB\"], \"sold_by_hotel\": true}",
+          "act: resolve_date({\"hotel_id\": \"H006\", \"day\": \"15\", \"month\": \"August\"}) -> {\"contract_start\": \"2027-05-01\", \"contract_end\": \"2027-10-31\", \"candidates\": [{\"date\": \"2027-08-15\", \"inside_contract\": true}], \"answer\": \"2027-08-15\", \"note\": \"inside the contract period\"}",
+          "act: get_rate({\"hotel_id\": \"H006\", \"room_code\": \"DSV\", \"board\": \"HB\", \"date_from\": \"2027-08-15\", \"date_to\": \"2027-08-15\"}) -> {\"currency\": \"EUR\", \"pricing_basis\": \"per_room_per_night\", \"seasons\": [\"High\"], \"rates\": [{\"season\": \"High\", \"room_code\": \"DSV\", \"board\": \"HB\", \"price\": 270.0}], \"note\": \"one rate\"}",
+          "act: search_playbook({\"query\": \"price change fixed amount reduction rules\"}) -> {\"rules\": [\"## Rate changes\\nA rate change states the room, board, dates and either the new price or a delta (\\\"+6 EUR\\\", \\\"-10%\\\"). Compute the new price from the existing contract rate and mark the value as derived. If the existing rate can't be found, flag the field.\", \"## Board codes\\nRO room on",
+          "think: The base rate is 270.0 EUR (DSV, HB, High season, 15 Aug 2027). Applying the -20 EUR delta.",
+          "act: calculate({\"expression\": \"270 - 20\"}) -> {\"expression\": \"270 - 20\", \"result\": 250}",
+          "submit: resolved 250 (Sea View Room (DSV) half board (HB) contract rate on 2027-08-15 is 270 EUR per night (High season); applying the -20 EUR change gives 250 (derived).)"
+        ]
+      },
+      {
+        "id": "r26",
+        "field": "new_price",
+        "expected": "flag",
+        "status": "flag",
+        "value": null,
+        "outcome": "correct_flag",
+        "reason": "\"July\" spans two contract seasons for Family Room BB (Mid 1-14 Jul at 185 EUR, High 15-31 Jul at 240 EUR), and the playbook has no rule for which applies, so the +5% result is ambiguous (194.25 vs 252.00).",
+        "tool_calls": 5,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1884,
+            "output_tokens": 250,
+            "seconds": 1.21
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2588,
+            "output_tokens": 214,
+            "seconds": 0.94
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2936,
+            "output_tokens": 132,
+            "seconds": 0.83
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 3080,
+            "output_tokens": 213,
+            "seconds": 1.13
+          }
+        ],
+        "seconds": 4.1,
+        "trace": [
+          "act: lookup_room({\"hotel_id\": \"H001\", \"wording\": \"Family room\"}) -> {\"wording\": \"Family room\", \"candidates\": [{\"code\": \"FAM\", \"name\": \"Family Room\", \"matched_words\": [\"family\"], \"score\": 1}], \"verdict\": \"one best match\", \"all_rooms\": [\"DBL = Double Standard\", \"DSV = Double Sea View\", \"FAM = Family Room\"]}",
+          "act: lookup_board({\"hotel_id\": \"H001\", \"wording\": \"BB\"}) -> {\"wording\": \"BB\", \"board_code\": \"BB\", \"boards_sold\": [\"AI\", \"BB\", \"HB\"], \"sold_by_hotel\": true}",
+          "act: get_seasons({\"hotel_id\": \"H001\"}) -> {\"contract_start\": \"2027-05-01\", \"contract_end\": \"2027-10-31\", \"seasons\": [{\"name\": \"Low\", \"from\": \"2027-05-01\", \"to\": \"2027-06-14\", \"min_stay_nights\": 3}, {\"name\": \"Mid\", \"from\": \"2027-06-15\", \"to\": \"2027-07-14\", \"min_stay_nights\": 3}, {\"name\": \"High\", \"from\": \"2027-07-15\", \"to\": \"2027-08-31\", \"min",
+          "act: get_rate({\"hotel_id\": \"H001\", \"room_code\": \"FAM\", \"board\": \"BB\", \"date_from\": \"2027-07-01\", \"date_to\": \"2027-07-31\"}) -> {\"currency\": \"EUR\", \"pricing_basis\": \"per_room_per_night\", \"seasons\": [\"Mid\", \"High\"], \"rates\": [{\"season\": \"Mid\", \"room_code\": \"FAM\", \"board\": \"BB\", \"price\": 185.0}, {\"season\": \"High\", \"room_code\": \"FAM\", \"board\": \"BB\", \"price\": 240.0}], \"note\": \"dates cross more than one season\"}",
+          "act: search_playbook({\"query\": \"percentage increase applied to a month that spans several seasons\"}) -> {\"rules\": []}",
+          "submit: flag None (\"July\" spans two contract seasons for Family Room BB (Mid 1-14 Jul at 185 EUR, High 15-31 Jul at 240 EUR), and the playbook has no rule for which applies, so the +5% result is ambiguous (194.25 vs 252.00).)"
+        ]
+      },
+      {
+        "id": "r27",
+        "field": "release_days",
+        "expected": "7",
+        "status": "resolved",
+        "value": "7",
+        "outcome": "correct",
+        "reason": "H006 is an allotment hotel (both DBL and DSV are allotment), so the free-sale suspicion rule does not apply, and the requested new release is 7 days (current contract release is 14).",
+        "tool_calls": 3,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1877,
+            "output_tokens": 167,
+            "seconds": 0.81
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2391,
+            "output_tokens": 158,
+            "seconds": 0.93
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2660,
+            "output_tokens": 202,
+            "seconds": 1.12
+          }
+        ],
+        "seconds": 2.86,
+        "trace": [
+          "act: get_rooms({\"hotel_id\": \"H006\"}) -> {\"hotel_id\": \"H006\", \"rooms\": [{\"code\": \"DBL\", \"name\": \"Double Room\", \"inventory\": \"allotment\", \"max_adults\": 2, \"max_children\": 0}, {\"code\": \"DSV\", \"name\": \"Sea View Room\", \"inventory\": \"allotment\", \"max_adults\": 2, \"max_children\": 1}], \"boards_sold\": [\"BB\", \"HB\"], \"release_days\": 14}",
+          "act: search_playbook({\"query\": \"release days change\"}) -> {\"rules\": [\"## Release and allotment\\nRelease days and allotment counts only apply to allotment rooms. A change of release on a free sale hotel is suspicious: flag it.\", \"## Rate changes\\nA rate change states the room, board, dates and either the new price or a delta (\\\"+6 EUR\\\", \\\"-10%\\\"). Compute ",
+          "act: search_playbook({\"query\": \"shorten release period reduce release days allotment approval\"}) -> {\"rules\": [\"## Release and allotment\\nRelease days and allotment counts only apply to allotment rooms. A change of release on a free sale hotel is suspicious: flag it.\", \"## Dates without a year\\nInfer the year from the contract period of the existing contract. A date that falls outside the contract",
+          "submit: resolved 7 (H006 is an allotment hotel (both DBL and DSV are allotment), so the free-sale suspicion rule does not apply, and the requested new release is 7 days (current contract release is 14).)"
+        ]
+      },
+      {
+        "id": "r28",
+        "field": "release_days",
+        "expected": "flag",
+        "status": "flag",
+        "value": null,
+        "outcome": "correct_flag",
+        "reason": "H003 has no allotment rooms (both DBL and SUI are free_sale, release_days is null), and house rules say a release change on a free-sale hotel is suspicious and must be flagged.",
+        "tool_calls": 2,
+        "calls": [
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 1873,
+            "output_tokens": 141,
+            "seconds": 0.86
+          },
+          {
+            "model": "claude-haiku-5-5",
+            "input_tokens": 2362,
+            "output_tokens": 187,
+            "seconds": 0.9
+          }
+        ],
+        "seconds": 1.76,
+        "trace": [
+          "act: search_playbook({\"query\": \"release days change\"}) -> {\"rules\": [\"## Release and allotment\\nRelease days and allotment counts only apply to allotment rooms. A change of release on a free sale hotel is suspicious: flag it.\", \"## Rate changes\\nA rate change states the room, board, dates and either the new price or a delta (\\\"+6 EUR\\\", \\\"-10%\\\"). Compute ",
+          "act: get_rooms({\"hotel_id\": \"H003\"}) -> {\"hotel_id\": \"H003\", \"rooms\": [{\"code\": \"DBL\", \"name\": \"Double Room\", \"inventory\": \"free_sale\", \"max_adults\": 2, \"max_children\": 1}, {\"code\": \"SUI\", \"name\": \"Garden Suite\", \"inventory\": \"free_sale\", \"max_adults\": 3, \"max_children\": 1}], \"boards_sold\": [\"BB\", \"HB\"], \"release_days\": null}",
+          "submit: flag None (H003 has no allotment rooms (both DBL and SUI are free_sale, release_days is null), and house rules say a release change on a free-sale hotel is suspicious and must be flagged.)"
+        ]
+      }
+    ]
+  },
+  "after_tool_fix": {
+    "case": "r22",
+    "issue": "lookup_room treated 'Double Room' (exact name of DBL) as tied with 'Double Sea View', so the agent correctly flagged per the playbook",
+    "fix": "exact room name wins outright in lookup_room",
+    "react_rerun": "resolved 178.2 (correct)",
+    "rules_only_rerun_accuracy": 0.643,
+    "rerun_usd": 0.0019
+  },
+  "step_total_usd": 0.0385
+}

@@ -48,8 +48,10 @@ class Routed(BaseModel):
 
 
 def route_doc(doc: SourceDoc, model: str = EXTRACT_MODEL, store: Store | None = None,
-              passes: int = 2) -> Routed:
-    """store: if given, amendments get the existing contract + playbook rules (step 5 RAG)."""
+              passes: int = 2, resolve: bool = False) -> Routed:
+    """store: if given, amendments get the existing contract + playbook rules (step 5 RAG).
+    resolve: if True (and the hotel is known), fields that fail a check against the existing
+    contract go to the step 6 ReAct resolver."""
     t0 = time.time()
     intent, calls = classify(doc.text)
     calls = [{**c, "step": "intent"} for c in calls]
@@ -85,6 +87,10 @@ def route_doc(doc: SourceDoc, model: str = EXTRACT_MODEL, store: Store | None = 
             evidence=f"property master {h.hotel_id}, matched by {found.hotel_match}", category="other",
             threshold=THRESHOLDS["other"], evidence_found=True,
             reasons=[] if sure else ["hotel matched by text similarity only"])
+        if resolve:
+            from .resolver import resolve_change_set
+            for entry in resolve_change_set(result, found.hotel_id, store, doc.text):
+                calls += [{**c, "step": f"resolve:{entry['path']}"} for c in entry["calls"]]
     return Routed(intent=intent, routes=[f for f, _ in paths], result=result, calls=calls,
                   retrieved=found, seconds=round(time.time() - t0, 1))
 
