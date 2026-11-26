@@ -1,0 +1,109 @@
+hotel,room_code,board,adults,children,date_from,date_to,min_stay_nights,price_per_night,currency,rate_type,offer_tags
+Hotel Sol de Marina,DBL,BB,1,0,2027-05-01,2027-06-14,3,95.0,EUR,net,early_booking
+Hotel Sol de Marina,DBL,BB,2,0,2027-05-01,2027-06-14,3,95.0,EUR,net,early_booking
+Hotel Sol de Marina,DBL,BB,1,0,2027-06-15,2027-07-14,3,120.0,EUR,net,early_booking
+Hotel Sol de Marina,DBL,BB,2,0,2027-06-15,2027-07-14,3,120.0,EUR,net,early_booking
+Hotel Sol de Marina,DBL,BB,1,0,2027-07-15,2027-08-31,5,155.0,EUR,net,early_booking
+Hotel Sol de Marina,DBL,BB,2,0,2027-07-15,2027-08-31,5,155.0,EUR,net,early_booking
+Hotel Sol de Marina,DBL,BB,1,0,2027-09-01,2027-10-31,3,105.0,EUR,net,early_booking
+Hotel Sol de Marina,DBL,BB,2,0,2027-09-01,2027-10-31,3,105.0,EUR,net,early_booking
+Hotel Sol de Marina,DBL,HB,1,0,2027-05-01,2027-06-14,3,125.0,EUR,net,early_booking
+Hotel Sol de Marina,DBL,HB,2,0,2027-05-01,2027-06-14,3,125.0,EUR,net,early_booking
+Hotel Sol de Marina,DBL,HB,1,0,2027-06-15,2027-07-14,3,150.0,EUR,net,early_booking
+Hotel Sol de Marina,DBL,HB,2,0,2027-06-15,2027-07-14,3,150.0,EUR,net,early_booking
+Hotel Sol de Marina,DBL,HB,1,0,2027-07-15,2027-08-31,5,185.0,EUR,net,early_booking
+Hotel Sol de Marina,DBL,HB,2,0,2027-07-15,2027-08-31,5,185.0,EUR,net,early_booking
+Hotel Sol de Marina,DBL,HB,1,0,2027-09-01,2027-10-31,3,135.0,EUR,net,early_booking
+Hotel Sol de Marina,DBL,HB,2,0,2027-09-01,2027-10-31,3,135.0,EUR,net,early_booking
+Hotel Sol de Marina,DSV,BB,1,0,2027-05-01,2027-06-14,3,110.0,EUR,net,early_booking
+Hotel Sol de Marina,DSV,BB,2,0,2027-05-01,2027-06-14,3,110.0,EUR,net,early_booking
+Hotel Sol de Marina,DSV,BB,1,0,2027-06-15,2027-07-14,3,135.0,EUR,net,early_booking
+Hotel Sol de Marina,DSV,BB,2,0,2027-06-15,2027-07-14,3,135.0,EUR,net,early_booking
+Hotel Sol de Marina,DSV,BB,1,0,2027-07-15,2027-08-31,5,170.0,EUR,net,early_booking
+Hotel Sol de Marina,DSV,BB,2,0,2027-07-15,2027-08-31,5,170.0,EUR,net,early_booking
+Hotel Sol de Marina,DSV,BB,1,0,2027-09-01,2027-10-31,3,120.0,EUR,net,early_booking
+Hotel Sol de Marina,DSV,BB,2,0,2027-09-01,2027-10-31,3,120.0,EUR,net,early_booking
+Hotel Sol de Marina,DSV,HB,1,0,2027-05-01,2027-06-14,3,140.0,EUR,net,early_booking
+Hotel Sol de Marina,DSV,HB,2,0,2027-05-01,2027-06-14,3,140.0,EUR,net,early_booking
+Hotel Sol de Marina,DSV,HB,1,0,2027-06-15,2027-07-14,3,165.0,EUR,net,early_booking
+Hotel Sol de Marina,DSV,HB,2,0,2027-06-15,2027-07-14,3,165.0,EUR,net,early_booking
+Hotel Sol de Marina,DSV,HB,1,0,2027-07-15,2027-08-31,5,200.0,EUR,net,early_booking
+Hotel Sol de Marina,DSV,HB,2,0,2027-07-15,2027-08-31,5,200.0,EUR,net,early_booking
+Hotel Sol de Marina,DSV,HB,1,0,2027-09-01,2027-10-31,3,150.0,EUR,net,early_booking
+Hotel Sol de Marina,DSV,HB,2,0,2027-09-01,2027-10-31,3,150.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,BB,2,0,2027-05-01,2027-06-14,3,150.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,BB,3,0,2027-05-01,2027-06-14,3,150.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,BB,4,0,2027-05-01,2027-06-14,3,150.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,BB,2,0,2027-06-15,2027-07-14,3,185.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,BB,3,0,2027-06-15,2027-07-14,3,185.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,BB,4,0,2027-06-15,2027-07-14,3,185.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,BB,2,0,2027-07-15,2027-08-31,5,240.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,BB,3,0,2027-07-15,2027-08-31,5,240.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,BB,4,0,2027-07-15,2027-08-31,5,240.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,BB,2,0,2027-09-01,2027-10-31,3,165.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,BB,3,0,2027-09-01,2027-10-31,3,165.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,BB,4,0,2027-09-01,2027-10-31,3,165.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,HB,2,0,2027-05-01,2027-06-14,3,200.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,HB,3,0,2027-05-01,2027-06-14,3,200.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,HB,4,0,2027-05-01,2027-06-14,3,200.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,HB,2,0,2027-06-15,2027-07-14,3,235.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,HB,3,0,2027-06-15,2027-07-14,3,235.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,HB,4,0,2027-06-15,2027-07-14,3,235.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,HB,2,0,2027-07-15,2027-08-31,5,290.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,HB,3,0,2027-07-15,2027-08-31,5,290.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,HB,4,0,2027-07-15,2027-08-31,5,290.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,HB,2,0,2027-09-01,2027-10-31,3,215.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,HB,3,0,2027-09-01,2027-10-31,3,215.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,HB,4,0,2027-09-01,2027-10-31,3,215.0,EUR,net,early_booking
+Hotel Sol de Marina,DBL,AI,1,0,2027-05-01,2027-06-14,3,195.0,EUR,net,early_booking
+Hotel Sol de Marina,DBL,AI,2,0,2027-05-01,2027-06-14,3,195.0,EUR,net,early_booking
+Hotel Sol de Marina,DBL,AI,1,0,2027-06-15,2027-07-14,3,220.0,EUR,net,early_booking
+Hotel Sol de Marina,DBL,AI,2,0,2027-06-15,2027-07-14,3,220.0,EUR,net,early_booking
+Hotel Sol de Marina,DBL,AI,1,0,2027-07-15,2027-08-31,5,255.0,EUR,net,early_booking
+Hotel Sol de Marina,DBL,AI,2,0,2027-07-15,2027-08-31,5,255.0,EUR,net,early_booking
+Hotel Sol de Marina,DBL,AI,1,0,2027-09-01,2027-10-31,3,205.0,EUR,net,early_booking
+Hotel Sol de Marina,DBL,AI,2,0,2027-09-01,2027-10-31,3,205.0,EUR,net,early_booking
+Hotel Sol de Marina,DSV,AI,1,0,2027-05-01,2027-06-14,3,210.0,EUR,net,early_booking
+Hotel Sol de Marina,DSV,AI,2,0,2027-05-01,2027-06-14,3,210.0,EUR,net,early_booking
+Hotel Sol de Marina,DSV,AI,1,0,2027-06-15,2027-07-14,3,235.0,EUR,net,early_booking
+Hotel Sol de Marina,DSV,AI,2,0,2027-06-15,2027-07-14,3,235.0,EUR,net,early_booking
+Hotel Sol de Marina,DSV,AI,1,0,2027-07-15,2027-08-31,5,270.0,EUR,net,early_booking
+Hotel Sol de Marina,DSV,AI,2,0,2027-07-15,2027-08-31,5,270.0,EUR,net,early_booking
+Hotel Sol de Marina,DSV,AI,1,0,2027-09-01,2027-10-31,3,220.0,EUR,net,early_booking
+Hotel Sol de Marina,DSV,AI,2,0,2027-09-01,2027-10-31,3,220.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,AI,2,0,2027-05-01,2027-06-14,3,310.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,AI,3,0,2027-05-01,2027-06-14,3,310.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,AI,4,0,2027-05-01,2027-06-14,3,310.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,AI,2,0,2027-06-15,2027-07-14,3,345.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,AI,3,0,2027-06-15,2027-07-14,3,345.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,AI,4,0,2027-06-15,2027-07-14,3,345.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,AI,2,0,2027-07-15,2027-08-31,5,400.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,AI,3,0,2027-07-15,2027-08-31,5,400.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,AI,4,0,2027-07-15,2027-08-31,5,400.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,AI,2,0,2027-09-01,2027-10-31,3,325.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,AI,3,0,2027-09-01,2027-10-31,3,325.0,EUR,net,early_booking
+Hotel Sol de Marina,FAM,AI,4,0,2027-09-01,2027-10-31,3,325.0,EUR,net,early_booking
+Aegean Breeze Resort,STD,HB,2,0,2027-05-15,2027-06-30,3,124.0,EUR,commissionable,free_nights
+Aegean Breeze Resort,STD,HB,3,0,2027-05-15,2027-06-30,3,186.0,EUR,commissionable,free_nights
+Aegean Breeze Resort,STD,HB,2,0,2027-07-01,2027-08-31,5,168.0,EUR,commissionable,free_nights
+Aegean Breeze Resort,STD,HB,3,0,2027-07-01,2027-08-31,5,252.0,EUR,commissionable,free_nights
+Aegean Breeze Resort,STD,HB,2,0,2027-09-01,2027-10-15,3,132.0,EUR,commissionable,free_nights
+Aegean Breeze Resort,STD,HB,3,0,2027-09-01,2027-10-15,3,198.0,EUR,commissionable,free_nights
+Aegean Breeze Resort,JSU,HB,2,0,2027-05-15,2027-06-30,3,184.0,EUR,commissionable,free_nights
+Aegean Breeze Resort,JSU,HB,3,0,2027-05-15,2027-06-30,3,276.0,EUR,commissionable,free_nights
+Aegean Breeze Resort,JSU,HB,2,0,2027-07-01,2027-08-31,5,224.0,EUR,commissionable,free_nights
+Aegean Breeze Resort,JSU,HB,3,0,2027-07-01,2027-08-31,5,336.0,EUR,commissionable,free_nights
+Aegean Breeze Resort,JSU,HB,2,0,2027-09-01,2027-10-15,3,192.0,EUR,commissionable,free_nights
+Aegean Breeze Resort,JSU,HB,3,0,2027-09-01,2027-10-15,3,288.0,EUR,commissionable,free_nights
+Aegean Breeze Resort,STD,AI,2,0,2027-05-15,2027-06-30,3,174.0,EUR,commissionable,free_nights
+Aegean Breeze Resort,STD,AI,3,0,2027-05-15,2027-06-30,3,261.0,EUR,commissionable,free_nights
+Aegean Breeze Resort,STD,AI,2,0,2027-07-01,2027-08-31,5,218.0,EUR,commissionable,free_nights
+Aegean Breeze Resort,STD,AI,3,0,2027-07-01,2027-08-31,5,327.0,EUR,commissionable,free_nights
+Aegean Breeze Resort,STD,AI,2,0,2027-09-01,2027-10-15,3,182.0,EUR,commissionable,free_nights
+Aegean Breeze Resort,STD,AI,3,0,2027-09-01,2027-10-15,3,273.0,EUR,commissionable,free_nights
+Aegean Breeze Resort,JSU,AI,2,0,2027-05-15,2027-06-30,3,234.0,EUR,commissionable,free_nights
+Aegean Breeze Resort,JSU,AI,3,0,2027-05-15,2027-06-30,3,351.0,EUR,commissionable,free_nights
+Aegean Breeze Resort,JSU,AI,2,0,2027-07-01,2027-08-31,5,274.0,EUR,commissionable,free_nights
+Aegean Breeze Resort,JSU,AI,3,0,2027-07-01,2027-08-31,5,411.0,EUR,commissionable,free_nights
+Aegean Breeze Resort,JSU,AI,2,0,2027-09-01,2027-10-15,3,242.0,EUR,commissionable,free_nights
+Aegean Breeze Resort,JSU,AI,3,0,2027-09-01,2027-10-15,3,363.0,EUR,commissionable,free_nights

@@ -1,0 +1,60 @@
+{
+  "source_file": "003_sol_de_marina_chat.txt",
+  "channel": "chat",
+  "difficulty": "hard",
+  "intent": "amendment",
+  "change_set": {
+    "hotel_name": "Hotel Sol de Marina",
+    "changes": [
+      {
+        "change_type": "stop_sale",
+        "room_codes": [
+          "DSV"
+        ],
+        "boards": [],
+        "date_from": "2027-08-10",
+        "date_to": "2027-08-17",
+        "note": "wedding group"
+      },
+      {
+        "change_type": "offer_changed",
+        "room_codes": [],
+        "boards": [],
+        "offer": {
+          "type": "early_booking",
+          "discount_pct": 10.0,
+          "book_by": "2027-02-28",
+          "stay_from": "2027-05-01",
+          "stay_to": "2027-10-31",
+          "boards": [],
+          "combinable": false
+        },
+        "note": "book-by extended from 31/01 to 28/02, same conditions"
+      },
+      {
+        "change_type": "offer_added",
+        "room_codes": [],
+        "boards": [],
+        "offer": {
+          "type": "discount",
+          "discount_pct": 15.0,
+          "book_from": "2027-09-01",
+          "stay_from": "2027-10-01",
+          "stay_to": "2027-10-31",
+          "boards": [
+            "HB"
+          ],
+          "combinable": false
+        },
+        "note": "book_from is ambiguous: 1 Sept 2027 assumed (offer is for Oct 2027 stays)"
+      }
+    ]
+  },
+  "tests_what": [
+    "intent = amendment, not new contract",
+    "three changes in one chat",
+    "clarifying Q&A narrows scope (sea view only)",
+    "needs existing contract (RAG) to map rooms",
+    "ignore small talk"
+  ]
+}

@@ -1,0 +1,1033 @@
+[
+  {
+    "file": "001_sol_de_marina_contract.pdf",
+    "difficulty": "easy",
+    "intent_ok": true,
+    "pred_intent": "new_contract",
+    "precision": 0.995,
+    "recall": 0.995,
+    "f1": 0.995,
+    "n_correct": 208,
+    "wrong": [
+      [
+        "special_offers[early_booking|2027-05-01].boards",
+        [
+          "AI",
+          "BB",
+          "HB"
+        ],
+        []
+      ]
+    ],
+    "missing": [],
+    "extra": [],
+    "seconds": 24.6,
+    "model": "claude-opus-5-5",
+    "input_tokens": 5667,
+    "output_tokens": 3635,
+    "stop_reason": "tool_use",
+    "prediction": {
+      "source_file": "001_sol_de_marina_contract.pdf",
+      "intent": "new_contract",
+      "contract": {
+        "hotel": {
+          "name": "Hotel Sol de Marina",
+          "destination": "Alc\u00fadia, Mallorca",
+          "country": "Spain",
+          "supplier_email": "contratos@soldemarina.example"
+        },
+        "contract_start": "2027-05-01",
+        "contract_end": "2027-10-31",
+        "currency": "EUR",
+        "rate_type": "net",
+        "pricing_basis": "per_room_per_night",
+        "rooms": [
+          {
+            "code": "DBL",
+            "name": "Double Standard",
+            "min_adults": 1,
+            "max_adults": 2,
+            "max_children": 1,
+            "max_occupancy": 3,
+            "allotment": 10
+          },
+          {
+            "code": "DSV",
+            "name": "Double Sea View",
+            "min_adults": 1,
+            "max_adults": 2,
+            "max_children": 1,
+            "max_occupancy": 3,
+            "allotment": 4
+          },
+          {
+            "code": "FAM",
+            "name": "Family Room",
+            "min_adults": 2,
+            "max_adults": 4,
+            "max_children": 2,
+            "max_occupancy": 4,
+            "allotment": 6
+          }
+        ],
+        "seasons": [
+          {
+            "name": "Low",
+            "date_from": "2027-05-01",
+            "date_to": "2027-06-14",
+            "min_stay_nights": 3
+          },
+          {
+            "name": "Mid",
+            "date_from": "2027-06-15",
+            "date_to": "2027-07-14",
+            "min_stay_nights": 3
+          },
+          {
+            "name": "High",
+            "date_from": "2027-07-15",
+            "date_to": "2027-08-31",
+            "min_stay_nights": 5
+          },
+          {
+            "name": "Shoulder",
+            "date_from": "2027-09-01",
+            "date_to": "2027-10-31",
+            "min_stay_nights": 3
+          }
+        ],
+        "rates": [
+          {
+            "season": "Low",
+            "room_code": "DBL",
+            "board": "BB",
+            "price": 95.0
+          },
+          {
+            "season": "Mid",
+            "room_code": "DBL",
+            "board": "BB",
+            "price": 120.0
+          },
+          {
+            "season": "High",
+            "room_code": "DBL",
+            "board": "BB",
+            "price": 155.0
+          },
+          {
+            "season": "Shoulder",
+            "room_code": "DBL",
+            "board": "BB",
+            "price": 105.0
+          },
+          {
+            "season": "Low",
+            "room_code": "DBL",
+            "board": "HB",
+            "price": 125.0
+          },
+          {
+            "season": "Mid",
+            "room_code": "DBL",
+            "board": "HB",
+            "price": 150.0
+          },
+          {
+            "season": "High",
+            "room_code": "DBL",
+            "board": "HB",
+            "price": 185.0
+          },
+          {
+            "season": "Shoulder",
+            "room_code": "DBL",
+            "board": "HB",
+            "price": 135.0
+          },
+          {
+            "season": "Low",
+            "room_code": "DBL",
+            "board": "AI",
+            "price": 195.0
+          },
+          {
+            "season": "Mid",
+            "room_code": "DBL",
+            "board": "AI",
+            "price": 220.0
+          },
+          {
+            "season": "High",
+            "room_code": "DBL",
+            "board": "AI",
+            "price": 255.0
+          },
+          {
+            "season": "Shoulder",
+            "room_code": "DBL",
+            "board": "AI",
+            "price": 205.0
+          },
+          {
+            "season": "Low",
+            "room_code": "DSV",
+            "board": "BB",
+            "price": 110.0
+          },
+          {
+            "season": "Mid",
+            "room_code": "DSV",
+            "board": "BB",
+            "price": 135.0
+          },
+          {
+            "season": "High",
+            "room_code": "DSV",
+            "board": "BB",
+            "price": 170.0
+          },
+          {
+            "season": "Shoulder",
+            "room_code": "DSV",
+            "board": "BB",
+            "price": 120.0
+          },
+          {
+            "season": "Low",
+            "room_code": "DSV",
+            "board": "HB",
+            "price": 140.0
+          },
+          {
+            "season": "Mid",
+            "room_code": "DSV",
+            "board": "HB",
+            "price": 165.0
+          },
+          {
+            "season": "High",
+            "room_code": "DSV",
+            "board": "HB",
+            "price": 200.0
+          },
+          {
+            "season": "Shoulder",
+            "room_code": "DSV",
+            "board": "HB",
+            "price": 150.0
+          },
+          {
+            "season": "Low",
+            "room_code": "DSV",
+            "board": "AI",
+            "price": 210.0
+          },
+          {
+            "season": "Mid",
+            "room_code": "DSV",
+            "board": "AI",
+            "price": 235.0
+          },
+          {
+            "season": "High",
+            "room_code": "DSV",
+            "board": "AI",
+            "price": 270.0
+          },
+          {
+            "season": "Shoulder",
+            "room_code": "DSV",
+            "board": "AI",
+            "price": 220.0
+          },
+          {
+            "season": "Low",
+            "room_code": "FAM",
+            "board": "BB",
+            "price": 150.0
+          },
+          {
+            "season": "Mid",
+            "room_code": "FAM",
+            "board": "BB",
+            "price": 185.0
+          },
+          {
+            "season": "High",
+            "room_code": "FAM",
+            "board": "BB",
+            "price": 240.0
+          },
+          {
+            "season": "Shoulder",
+            "room_code": "FAM",
+            "board": "BB",
+            "price": 165.0
+          },
+          {
+            "season": "Low",
+            "room_code": "FAM",
+            "board": "HB",
+            "price": 200.0
+          },
+          {
+            "season": "Mid",
+            "room_code": "FAM",
+            "board": "HB",
+            "price": 235.0
+          },
+          {
+            "season": "High",
+            "room_code": "FAM",
+            "board": "HB",
+            "price": 290.0
+          },
+          {
+            "season": "Shoulder",
+            "room_code": "FAM",
+            "board": "HB",
+            "price": 215.0
+          },
+          {
+            "season": "Low",
+            "room_code": "FAM",
+            "board": "AI",
+            "price": 310.0
+          },
+          {
+            "season": "Mid",
+            "room_code": "FAM",
+            "board": "AI",
+            "price": 345.0
+          },
+          {
+            "season": "High",
+            "room_code": "FAM",
+            "board": "AI",
+            "price": 400.0
+          },
+          {
+            "season": "Shoulder",
+            "room_code": "FAM",
+            "board": "AI",
+            "price": 325.0
+          }
+        ],
+        "child_policy": [
+          {
+            "age_from": 0.0,
+            "age_to": 1.99,
+            "discount_pct": 100.0,
+            "note": "Free of charge, cot on request; sharing with two full-paying adults"
+          },
+          {
+            "age_from": 2.0,
+            "age_to": 11.99,
+            "fixed_price": 25.0,
+            "note": "EUR 25 per night, sharing with two full-paying adults"
+          },
+          {
+            "age_from": 12.0,
+            "age_to": 17.99,
+            "fixed_price": 45.0,
+            "note": "EUR 45 per night, sharing with two full-paying adults"
+          }
+        ],
+        "release_days": 14,
+        "cancellation": [
+          {
+            "days_from": 31,
+            "charge_pct": 0.0
+          },
+          {
+            "days_from": 15,
+            "days_to": 30,
+            "charge_pct": 50.0
+          },
+          {
+            "days_from": 0,
+            "days_to": 14,
+            "charge_pct": 100.0
+          }
+        ],
+        "special_offers": [
+          {
+            "type": "early_booking",
+            "discount_pct": 10.0,
+            "book_by": "2027-01-31",
+            "stay_from": "2027-05-01",
+            "stay_to": "2027-10-31",
+            "boards": [
+              "BB",
+              "HB",
+              "AI"
+            ],
+            "combinable": false
+          }
+        ],
+        "local_tax": {
+          "included_in_rate": false,
+          "amount": 2.2,
+          "basis": "per_person_per_night"
+        },
+        "payment_terms": "Bank transfer within 30 days of guest departure"
+      },
+      "field_meta": {
+        "contract_start/contract_end": {
+          "confidence": 0.98,
+          "evidence": "Validity: 01/05/2027 to 31/10/2027",
+          "status": "auto_accept"
+        },
+        "rate_type/currency/pricing_basis": {
+          "confidence": 0.97,
+          "evidence": "All prices are NET in EURO, per room per night, including breakfast unless stated otherwise, and including VAT.",
+          "status": "auto_accept"
+        },
+        "seasons": {
+          "confidence": 0.95,
+          "evidence": "Low: 01/05 \u2013 14/06 Mid: 15/06 \u2013 14/07 High: 15/07 \u2013 31/08 Shoulder: 01/09 \u2013 31/10",
+          "status": "auto_accept"
+        },
+        "seasons.min_stay_nights": {
+          "confidence": 0.95,
+          "evidence": "Minimum stay: 3 nights. During High season the minimum stay is 5 nights.",
+          "status": "auto_accept"
+        },
+        "rates[room=DBL,board=BB]": {
+          "confidence": 0.97,
+          "evidence": "Double Standard \u2013 BB 95 120 155 105",
+          "status": "auto_accept"
+        },
+        "rates[room=DBL,board=HB]": {
+          "confidence": 0.97,
+          "evidence": "Double Standard \u2013 HB 125 150 185 135",
+          "status": "auto_accept"
+        },
+        "rates[room=DSV,board=BB]": {
+          "confidence": 0.97,
+          "evidence": "Double Sea View \u2013 BB 110 135 170 120",
+          "status": "auto_accept"
+        },
+        "rates[room=DSV,board=HB]": {
+          "confidence": 0.97,
+          "evidence": "Double Sea View \u2013 HB 140 165 200 150",
+          "status": "auto_accept"
+        },
+        "rates[room=FAM,board=BB]": {
+          "confidence": 0.97,
+          "evidence": "Family Room \u2013 BB 150 185 240 165",
+          "status": "auto_accept"
+        },
+        "rates[room=FAM,board=HB]": {
+          "confidence": 0.97,
+          "evidence": "Family Room \u2013 HB 200 235 290 215",
+          "status": "auto_accept"
+        },
+        "rates[board=AI]": {
+          "confidence": 0.85,
+          "evidence": "All Inclusive available on request at a supplement of EUR 70 per room per night over the HB rate (Family Room: EUR 110 per room per night).",
+          "status": "auto_accept"
+        },
+        "rooms.allotment": {
+          "confidence": 0.95,
+          "evidence": "The Hotel guarantees the following rooms per night: Double Standard 10, Double Sea View 4, Family Room 6.",
+          "status": "auto_accept"
+        },
+        "release_days": {
+          "confidence": 0.97,
+          "evidence": "Release period: 14 days prior to arrival; unsold rooms return to the Hotel.",
+          "status": "auto_accept"
+        },
+        "cancellation": {
+          "confidence": 0.93,
+          "evidence": "Cancellations received more than 30 days before arrival: no charge. 15 to 30 days: 50% of the total stay. 14 days or less, or no-show: 100%.",
+          "status": "auto_accept"
+        },
+        "child_policy": {
+          "confidence": 0.93,
+          "evidence": "Infants 0 \u2013 1.99 years: free of charge (cot on request). Children 2 \u2013 11.99 years: EUR 25 per night. Teens 12 \u2013 17.99 years: EUR 45 per night.",
+          "status": "auto_accept"
+        },
+        "special_offers[0]": {
+          "confidence": 0.95,
+          "evidence": "10% discount for bookings confirmed on or before 31/01/2027, valid for stays 01/05/2027 \u2013 31/10/2027, all boards. Not combinable with other offers.",
+          "status": "auto_accept"
+        },
+        "local_tax": {
+          "confidence": 0.96,
+          "evidence": "Balearic Sustainable Tourism Tax (EUR 2.20 per person per night) is NOT included and is payable by guests directly at the Hotel.",
+          "status": "auto_accept"
+        },
+        "payment_terms": {
+          "confidence": 0.95,
+          "evidence": "Payment: by bank transfer within 30 days of guest departure.",
+          "status": "auto_accept"
+        }
+      }
+    }
+  },
+  {
+    "file": "002_aegean_breeze_email.eml",
+    "difficulty": "medium",
+    "intent_ok": true,
+    "pred_intent": "new_contract",
+    "precision": 0.459,
+    "recall": 0.459,
+    "f1": 0.459,
+    "n_correct": 50,
+    "wrong": [
+      [
+        "rooms[STD].max_occupancy",
+        4,
+        3
+      ],
+      [
+        "payment_terms",
+        "50% deposit 30 days before arrival, balance 7 days after check-out.",
+        "50% deposit 30 days before arrival, balance 7 days after check-out"
+      ]
+    ],
+    "missing": [
+      "seasons[A].date_from",
+      "seasons[A].date_to",
+      "seasons[A].min_stay_nights",
+      "seasons[B].date_from",
+      "seasons[B].date_to",
+      "seasons[B].min_stay_nights",
+      "seasons[C].date_from",
+      "seasons[C].date_to",
+      "seasons[C].min_stay_nights",
+      "rates[A|STD|HB].season",
+      "rates[A|STD|HB].room_code",
+      "rates[A|STD|HB].board",
+      "rates[A|STD|HB].price",
+      "rates[B|STD|HB].season",
+      "rates[B|STD|HB].room_code",
+      "rates[B|STD|HB].board",
+      "rates[B|STD|HB].price",
+      "rates[C|STD|HB].season",
+      "rates[C|STD|HB].room_code",
+      "rates[C|STD|HB].board",
+      "rates[C|STD|HB].price",
+      "rates[A|JSU|HB].season",
+      "rates[A|JSU|HB].room_code",
+      "rates[A|JSU|HB].board",
+      "rates[A|JSU|HB].price",
+      "rates[B|JSU|HB].season",
+      "rates[B|JSU|HB].room_code",
+      "rates[B|JSU|HB].board",
+      "rates[B|JSU|HB].price",
+      "rates[C|JSU|HB].season",
+      "rates[C|JSU|HB].room_code",
+      "rates[C|JSU|HB].board",
+      "rates[C|JSU|HB].price",
+      "rates[A|STD|AI].season",
+      "rates[A|STD|AI].room_code",
+      "rates[A|STD|AI].board",
+      "rates[A|STD|AI].price",
+      "rates[B|STD|AI].season",
+      "rates[B|STD|AI].room_code",
+      "rates[B|STD|AI].board",
+      "rates[B|STD|AI].price",
+      "rates[C|STD|AI].season",
+      "rates[C|STD|AI].room_code",
+      "rates[C|STD|AI].board",
+      "rates[C|STD|AI].price",
+      "rates[A|JSU|AI].season",
+      "rates[A|JSU|AI].room_code",
+      "rates[A|JSU|AI].board",
+      "rates[A|JSU|AI].price",
+      "rates[B|JSU|AI].season",
+      "rates[B|JSU|AI].room_code",
+      "rates[B|JSU|AI].board",
+      "rates[B|JSU|AI].price",
+      "rates[C|JSU|AI].season",
+      "rates[C|JSU|AI].room_code",
+      "rates[C|JSU|AI].board",
+      "rates[C|JSU|AI].price"
+    ],
+    "extra": [
+      "seasons[Season A].date_from",
+      "seasons[Season A].date_to",
+      "seasons[Season A].min_stay_nights",
+      "seasons[Season B].date_from",
+      "seasons[Season B].date_to",
+      "seasons[Season B].min_stay_nights",
+      "seasons[Season C].date_from",
+      "seasons[Season C].date_to",
+      "seasons[Season C].min_stay_nights",
+      "rates[Season A|STD|HB].season",
+      "rates[Season A|STD|HB].room_code",
+      "rates[Season A|STD|HB].board",
+      "rates[Season A|STD|HB].price",
+      "rates[Season A|STD|AI].season",
+      "rates[Season A|STD|AI].room_code",
+      "rates[Season A|STD|AI].board",
+      "rates[Season A|STD|AI].price",
+      "rates[Season A|JSU|HB].season",
+      "rates[Season A|JSU|HB].room_code",
+      "rates[Season A|JSU|HB].board",
+      "rates[Season A|JSU|HB].price",
+      "rates[Season A|JSU|AI].season",
+      "rates[Season A|JSU|AI].room_code",
+      "rates[Season A|JSU|AI].board",
+      "rates[Season A|JSU|AI].price",
+      "rates[Season B|STD|HB].season",
+      "rates[Season B|STD|HB].room_code",
+      "rates[Season B|STD|HB].board",
+      "rates[Season B|STD|HB].price",
+      "rates[Season B|STD|AI].season",
+      "rates[Season B|STD|AI].room_code",
+      "rates[Season B|STD|AI].board",
+      "rates[Season B|STD|AI].price",
+      "rates[Season B|JSU|HB].season",
+      "rates[Season B|JSU|HB].room_code",
+      "rates[Season B|JSU|HB].board",
+      "rates[Season B|JSU|HB].price",
+      "rates[Season B|JSU|AI].season",
+      "rates[Season B|JSU|AI].room_code",
+      "rates[Season B|JSU|AI].board",
+      "rates[Season B|JSU|AI].price",
+      "rates[Season C|STD|HB].season",
+      "rates[Season C|STD|HB].room_code",
+      "rates[Season C|STD|HB].board",
+      "rates[Season C|STD|HB].price",
+      "rates[Season C|STD|AI].season",
+      "rates[Season C|STD|AI].room_code",
+      "rates[Season C|STD|AI].board",
+      "rates[Season C|STD|AI].price",
+      "rates[Season C|JSU|HB].season",
+      "rates[Season C|JSU|HB].room_code",
+      "rates[Season C|JSU|HB].board",
+      "rates[Season C|JSU|HB].price",
+      "rates[Season C|JSU|AI].season",
+      "rates[Season C|JSU|AI].room_code",
+      "rates[Season C|JSU|AI].board",
+      "rates[Season C|JSU|AI].price"
+    ],
+    "seconds": 19.0,
+    "model": "claude-opus-5-5",
+    "input_tokens": 5622,
+    "output_tokens": 2705,
+    "stop_reason": "tool_use",
+    "prediction": {
+      "source_file": "002_aegean_breeze_email.eml",
+      "intent": "new_contract",
+      "contract": {
+        "hotel": {
+          "name": "Aegean Breeze Resort",
+          "destination": "Kos",
+          "country": "Greece",
+          "supplier_email": "sales@aegeanbreeze.example"
+        },
+        "contract_start": "2027-05-15",
+        "contract_end": "2027-10-15",
+        "currency": "EUR",
+        "rate_type": "commissionable",
+        "commission_pct": 18.0,
+        "pricing_basis": "per_person_per_night",
+        "rooms": [
+          {
+            "code": "STD",
+            "name": "Standard Double",
+            "min_adults": 2,
+            "max_adults": 3,
+            "max_children": 1,
+            "max_occupancy": 4,
+            "allotment": 8
+          },
+          {
+            "code": "JSU",
+            "name": "Junior Suite",
+            "min_adults": 2,
+            "max_adults": 3,
+            "max_children": 2,
+            "max_occupancy": 4,
+            "allotment": 3
+          }
+        ],
+        "seasons": [
+          {
+            "name": "Season A",
+            "date_from": "2027-05-15",
+            "date_to": "2027-06-30",
+            "min_stay_nights": 3
+          },
+          {
+            "name": "Season B",
+            "date_from": "2027-07-01",
+            "date_to": "2027-08-31",
+            "min_stay_nights": 5
+          },
+          {
+            "name": "Season C",
+            "date_from": "2027-09-01",
+            "date_to": "2027-10-15",
+            "min_stay_nights": 3
+          }
+        ],
+        "rates": [
+          {
+            "season": "Season A",
+            "room_code": "STD",
+            "board": "HB",
+            "price": 62.0
+          },
+          {
+            "season": "Season A",
+            "room_code": "STD",
+            "board": "AI",
+            "price": 87.0
+          },
+          {
+            "season": "Season A",
+            "room_code": "JSU",
+            "board": "HB",
+            "price": 92.0
+          },
+          {
+            "season": "Season A",
+            "room_code": "JSU",
+            "board": "AI",
+            "price": 117.0
+          },
+          {
+            "season": "Season B",
+            "room_code": "STD",
+            "board": "HB",
+            "price": 84.0
+          },
+          {
+            "season": "Season B",
+            "room_code": "STD",
+            "board": "AI",
+            "price": 109.0
+          },
+          {
+            "season": "Season B",
+            "room_code": "JSU",
+            "board": "HB",
+            "price": 112.0
+          },
+          {
+            "season": "Season B",
+            "room_code": "JSU",
+            "board": "AI",
+            "price": 137.0
+          },
+          {
+            "season": "Season C",
+            "room_code": "STD",
+            "board": "HB",
+            "price": 66.0
+          },
+          {
+            "season": "Season C",
+            "room_code": "STD",
+            "board": "AI",
+            "price": 91.0
+          },
+          {
+            "season": "Season C",
+            "room_code": "JSU",
+            "board": "HB",
+            "price": 96.0
+          },
+          {
+            "season": "Season C",
+            "room_code": "JSU",
+            "board": "AI",
+            "price": 121.0
+          }
+        ],
+        "child_policy": [
+          {
+            "age_from": 0.0,
+            "age_to": 5.99,
+            "discount_pct": 100.0,
+            "note": "sharing with 2 adults"
+          },
+          {
+            "age_from": 6.0,
+            "age_to": 13.99,
+            "discount_pct": 50.0,
+            "note": "sharing with 2 adults"
+          }
+        ],
+        "release_days": 10,
+        "cancellation": [
+          {
+            "days_from": 21,
+            "charge_pct": 0.0
+          },
+          {
+            "days_from": 8,
+            "days_to": 20,
+            "charge_pct": 30.0
+          },
+          {
+            "days_from": 0,
+            "days_to": 7,
+            "charge_pct": 100.0
+          }
+        ],
+        "special_offers": [
+          {
+            "type": "free_nights",
+            "stay_nights": 7,
+            "pay_nights": 6,
+            "stay_from": "2027-05-15",
+            "stay_to": "2027-06-30",
+            "boards": [],
+            "combinable": false
+          },
+          {
+            "type": "free_nights",
+            "stay_nights": 7,
+            "pay_nights": 6,
+            "stay_from": "2027-09-01",
+            "stay_to": "2027-10-15",
+            "boards": [],
+            "combinable": false
+          }
+        ],
+        "local_tax": {
+          "included_in_rate": false,
+          "amount": 4.0,
+          "basis": "per_room_per_night"
+        },
+        "payment_terms": "50% deposit 30 days before arrival, balance 7 days after check-out."
+      },
+      "field_meta": {
+        "contract_start/contract_end": {
+          "confidence": 0.98,
+          "evidence": "summer 2027 (15 May \u2013 15 October 2027)",
+          "status": "auto_accept"
+        },
+        "currency/pricing_basis/commission_pct": {
+          "confidence": 0.98,
+          "evidence": "Prices are per person per night in EUR, commissionable at 18%.",
+          "status": "auto_accept"
+        },
+        "rates[season=Season A/C, board=HB]": {
+          "confidence": 0.95,
+          "evidence": "Half Board, pp/night:  STD  62 / 88 / 66     JSU  92 / 118 / 96",
+          "status": "auto_accept"
+        },
+        "rates[season=Season B,room=STD,board=HB].price": {
+          "confidence": 0.97,
+          "evidence": "for Season B we can do 84 on the Standard Double HB and 112 on the Junior Suite HB",
+          "status": "auto_accept"
+        },
+        "rates[season=Season B,room=JSU,board=HB].price": {
+          "confidence": 0.97,
+          "evidence": "for Season B we can do 84 on the Standard Double HB and 112 on the Junior Suite HB",
+          "status": "auto_accept"
+        },
+        "rates[board=AI].price": {
+          "confidence": 0.93,
+          "evidence": "All Inclusive: + EUR 25 pp/night on top of HB, all seasons, all rooms.",
+          "status": "auto_accept"
+        },
+        "release_days": {
+          "confidence": 0.95,
+          "evidence": "We also need release 10 days instead of 14, as agreed.",
+          "status": "auto_accept"
+        },
+        "cancellation": {
+          "confidence": 0.93,
+          "evidence": "Cancellation: free up to 21 days before arrival, 8-20 days 30%, 7 days or less 100%.",
+          "status": "auto_accept"
+        },
+        "child_policy": {
+          "confidence": 0.95,
+          "evidence": "Children sharing with 2 adults: 0-5.99 free, 6-13.99 50% discount.",
+          "status": "auto_accept"
+        },
+        "special_offers": {
+          "confidence": 0.93,
+          "evidence": "Special offer: Stay 7 pay 6 in Season A and Season C, not combinable.",
+          "status": "auto_accept"
+        },
+        "local_tax": {
+          "confidence": 0.95,
+          "evidence": "Climate resilience fee EUR 4.00 per room per night is not included, payable by the guest on arrival.",
+          "status": "auto_accept"
+        },
+        "seasons": {
+          "confidence": 0.96,
+          "evidence": "Season A 15/5-30/6 (min 3 nights) Season B 1/7-31/8 (min 5 nights) Season C 1/9-15/10 (min 3 nights)",
+          "status": "auto_accept"
+        },
+        "rooms[code=STD].allotment": {
+          "confidence": 0.95,
+          "evidence": "Standard Double (2-3 adults, max 1 child)  -> allotment 8 rooms",
+          "status": "auto_accept"
+        },
+        "rooms[code=STD].max_occupancy": {
+          "confidence": 0.4,
+          "evidence": "Standard Double (2-3 adults, max 1 child)",
+          "status": "needs_review"
+        },
+        "rooms[code=JSU]": {
+          "confidence": 0.95,
+          "evidence": "Junior Suite (2-3 adults, max 2 children, max 4 pax) -> allotment 3 rooms",
+          "status": "auto_accept"
+        },
+        "payment_terms": {
+          "confidence": 0.95,
+          "evidence": "Payment: 50% deposit 30 days before arrival, balance 7 days after check-out.",
+          "status": "auto_accept"
+        }
+      }
+    }
+  },
+  {
+    "file": "003_sol_de_marina_chat.txt",
+    "difficulty": "hard",
+    "intent_ok": true,
+    "pred_intent": "amendment",
+    "precision": 0.609,
+    "recall": 0.538,
+    "f1": 0.571,
+    "n_correct": 14,
+    "wrong": [
+      [
+        "hotel_name",
+        "Sol de Marina",
+        "Hotel Sol de Marina"
+      ],
+      [
+        "changes[offer_added|2027-10-01].boards",
+        [
+          "HB"
+        ],
+        []
+      ]
+    ],
+    "missing": [
+      "changes[offer_changed|2027-05-01].change_type",
+      "changes[offer_changed|2027-05-01].room_codes",
+      "changes[offer_changed|2027-05-01].boards",
+      "changes[offer_changed|2027-05-01].offer.type",
+      "changes[offer_changed|2027-05-01].offer.discount_pct",
+      "changes[offer_changed|2027-05-01].offer.book_by",
+      "changes[offer_changed|2027-05-01].offer.stay_from",
+      "changes[offer_changed|2027-05-01].offer.stay_to",
+      "changes[offer_changed|2027-05-01].offer.boards",
+      "changes[offer_changed|2027-05-01].offer.combinable"
+    ],
+    "extra": [
+      "changes[offer_changed|None].change_type",
+      "changes[offer_changed|None].room_codes",
+      "changes[offer_changed|None].boards",
+      "changes[offer_changed|None].offer.type",
+      "changes[offer_changed|None].offer.discount_pct",
+      "changes[offer_changed|None].offer.book_by",
+      "changes[offer_changed|None].offer.boards"
+    ],
+    "seconds": 9.5,
+    "model": "claude-opus-5-5",
+    "input_tokens": 5191,
+    "output_tokens": 1193,
+    "stop_reason": "tool_use",
+    "prediction": {
+      "source_file": "003_sol_de_marina_chat.txt",
+      "intent": "amendment",
+      "change_set": {
+        "hotel_name": "Sol de Marina",
+        "changes": [
+          {
+            "change_type": "stop_sale",
+            "room_codes": [
+              "DSV"
+            ],
+            "boards": [],
+            "date_from": "2027-08-10",
+            "date_to": "2027-08-17",
+            "note": "Sea view rooms only, taken by a wedding group. Standard doubles stay on sale."
+          },
+          {
+            "change_type": "offer_changed",
+            "room_codes": [],
+            "boards": [],
+            "offer": {
+              "type": "early_booking",
+              "discount_pct": 10.0,
+              "book_by": "2027-02-28",
+              "boards": []
+            },
+            "note": "Early booking 10% booking deadline moved from end of January to 28 February. Other conditions stay the same."
+          },
+          {
+            "change_type": "offer_added",
+            "room_codes": [],
+            "boards": [
+              "HB"
+            ],
+            "offer": {
+              "type": "discount",
+              "discount_pct": 15.0,
+              "book_from": "2027-09-01",
+              "stay_from": "2027-10-01",
+              "stay_to": "2027-10-31",
+              "boards": [
+                "HB"
+              ],
+              "combinable": false
+            },
+            "note": "Applies to all room types. Cannot be combined with the early booking offer. The year for book_from was inferred, not stated."
+          }
+        ]
+      },
+      "field_meta": {
+        "changes[0].room_codes": {
+          "confidence": 0.95,
+          "evidence": "only sea view. standards are fine",
+          "status": "auto_accept"
+        },
+        "changes[0].date_from/date_to": {
+          "confidence": 0.85,
+          "evidence": "we're full on sea view rooms 10 to 17 August, a wedding group took them. pls close sales for those dates",
+          "status": "auto_accept"
+        },
+        "changes[1].offer.book_by": {
+          "confidence": 0.85,
+          "evidence": "the early booking 10% \u2013 management agreed to extend it to end of Feb (28th) instead of end Jan. same conditions",
+          "status": "auto_accept"
+        },
+        "changes[1].offer.discount_pct": {
+          "confidence": 0.95,
+          "evidence": "the early booking 10%",
+          "status": "auto_accept"
+        },
+        "changes[2].offer.discount_pct": {
+          "confidence": 0.95,
+          "evidence": "15% off half board for stays 1-31 Oct",
+          "status": "auto_accept"
+        },
+        "changes[2].offer.stay_from/stay_to": {
+          "confidence": 0.8,
+          "evidence": "for stays 1-31 Oct",
+          "status": "auto_accept"
+        },
+        "changes[2].offer.book_from": {
+          "confidence": 0.6,
+          "evidence": "for bookings made from 1st September",
+          "status": "needs_review"
+        },
+        "changes[2].offer.combinable": {
+          "confidence": 0.95,
+          "evidence": "can't combine with the early booking",
+          "status": "auto_accept"
+        },
+        "changes[2].room_codes": {
+          "confidence": 0.9,
+          "evidence": "All rooms? / all rooms yes",
+          "status": "auto_accept"
+        }
+      }
+    }
+  }
+]
