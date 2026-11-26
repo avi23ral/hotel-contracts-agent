@@ -1,0 +1,189 @@
+{
+  "hotel": {
+    "name": "Villa Thalassa",
+    "destination": "Chania, Crete",
+    "country": "Greece",
+    "supplier_email": "contracts@villathalassa.example",
+    "hotel_id": "H003",
+    "giata_id": "G-200912"
+  },
+  "contract_start": "2027-05-01",
+  "contract_end": "2027-10-31",
+  "currency": "EUR",
+  "rate_type": "net",
+  "pricing_basis": "per_room_per_night",
+  "rooms": [
+    {
+      "code": "DBL",
+      "name": "Double Room",
+      "min_adults": 1,
+      "max_adults": 2,
+      "max_children": 1,
+      "max_occupancy": 3,
+      "inventory": "free_sale"
+    },
+    {
+      "code": "SUI",
+      "name": "Garden Suite",
+      "min_adults": 1,
+      "max_adults": 3,
+      "max_children": 1,
+      "max_occupancy": 4,
+      "inventory": "free_sale"
+    }
+  ],
+  "seasons": [
+    {
+      "name": "Low",
+      "date_from": "2027-05-01",
+      "date_to": "2027-06-14",
+      "min_stay_nights": 3
+    },
+    {
+      "name": "Mid",
+      "date_from": "2027-06-15",
+      "date_to": "2027-07-14",
+      "min_stay_nights": 3
+    },
+    {
+      "name": "High",
+      "date_from": "2027-07-15",
+      "date_to": "2027-08-31",
+      "min_stay_nights": 5
+    },
+    {
+      "name": "Shoulder",
+      "date_from": "2027-09-01",
+      "date_to": "2027-10-31",
+      "min_stay_nights": 3
+    }
+  ],
+  "rates": [
+    {
+      "season": "Low",
+      "room_code": "DBL",
+      "board": "BB",
+      "price": 90
+    },
+    {
+      "season": "Low",
+      "room_code": "DBL",
+      "board": "HB",
+      "price": 120
+    },
+    {
+      "season": "Low",
+      "room_code": "SUI",
+      "board": "BB",
+      "price": 150
+    },
+    {
+      "season": "Low",
+      "room_code": "SUI",
+      "board": "HB",
+      "price": 180
+    },
+    {
+      "season": "Mid",
+      "room_code": "DBL",
+      "board": "BB",
+      "price": 112
+    },
+    {
+      "season": "Mid",
+      "room_code": "DBL",
+      "board": "HB",
+      "price": 142
+    },
+    {
+      "season": "Mid",
+      "room_code": "SUI",
+      "board": "BB",
+      "price": 188
+    },
+    {
+      "season": "Mid",
+      "room_code": "SUI",
+      "board": "HB",
+      "price": 218
+    },
+    {
+      "season": "High",
+      "room_code": "DBL",
+      "board": "BB",
+      "price": 144
+    },
+    {
+      "season": "High",
+      "room_code": "DBL",
+      "board": "HB",
+      "price": 174
+    },
+    {
+      "season": "High",
+      "room_code": "SUI",
+      "board": "BB",
+      "price": 240
+    },
+    {
+      "season": "High",
+      "room_code": "SUI",
+      "board": "HB",
+      "price": 270
+    },
+    {
+      "season": "Shoulder",
+      "room_code": "DBL",
+      "board": "BB",
+      "price": 99
+    },
+    {
+      "season": "Shoulder",
+      "room_code": "DBL",
+      "board": "HB",
+      "price": 129
+    },
+    {
+      "season": "Shoulder",
+      "room_code": "SUI",
+      "board": "BB",
+      "price": 165
+    },
+    {
+      "season": "Shoulder",
+      "room_code": "SUI",
+      "board": "HB",
+      "price": 195
+    }
+  ],
+  "release_days": null,
+  "cancellation": [
+    {
+      "days_from": 31,
+      "charge_pct": 0
+    },
+    {
+      "days_from": 15,
+      "days_to": 30,
+      "charge_pct": 50
+    },
+    {
+      "days_from": 0,
+      "days_to": 14,
+      "charge_pct": 100
+    }
+  ],
+  "special_offers": [],
+  "child_policy": [
+    {
+      "age_from": 0,
+      "age_to": 1.99,
+      "discount_pct": 100
+    },
+    {
+      "age_from": 2,
+      "age_to": 11.99,
+      "discount_pct": 50
+    }
+  ]
+}

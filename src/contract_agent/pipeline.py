@@ -127,9 +127,11 @@ def keep_types(out: LLMExtraction | None, allowed: set[str] | None) -> LLMExtrac
 
 
 def run_pipeline(doc: SourceDoc, model: str = EXTRACT_MODEL, passes: int = 2,
-                 focus: str | None = None, allowed_types: set[str] | None = None):
+                 focus: str | None = None, allowed_types: set[str] | None = None,
+                 context: str | None = None):
+    """context: retrieved reference text (step 5). Evidence quotes may come from it too."""
     with ThreadPoolExecutor(max_workers=passes) as pool:
-        futures = [pool.submit(call_model, doc, model, focus) for _ in range(passes)]
+        futures = [pool.submit(call_model, doc, model, focus, context) for _ in range(passes)]
         results = []
         for f in futures:
             try:
@@ -144,7 +146,7 @@ def run_pipeline(doc: SourceDoc, model: str = EXTRACT_MODEL, passes: int = 2,
     if b is not None:
         b = keep_types(normalise(b), allowed_types)
     issues = validate(a.contract, a.change_set)
-    meta = build_meta(doc.text, a, b, issues)
+    meta = build_meta(doc.text + ("\n" + context if context else ""), a, b, issues)
     result = ExtractionResult(source_file=doc.path, intent=a.intent, contract=a.contract,
                               change_set=a.change_set, field_meta=meta, issues=issues)
     usage = {"model": model, "passes": len(results),

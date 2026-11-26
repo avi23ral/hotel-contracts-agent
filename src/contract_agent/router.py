@@ -28,7 +28,9 @@ from .ingest import SourceDoc
 from .intent import IntentResult, Label, classify
 from .llm import EXTRACT_MODEL
 from .pipeline import run_pipeline
-from .schema import ARI_CHANGES, PROMO_CHANGES, ChangeSet, ExtractionResult, Intent
+from .rag import Retrieved, Store, retrieve
+from .confidence import THRESHOLDS
+from .schema import ARI_CHANGES, PROMO_CHANGES, ChangeSet, ExtractionResult, FieldMeta, Intent, Status
 
 PATHS = {
     Label.ari_update: ("ari", ARI_CHANGES),
@@ -41,17 +43,20 @@ class Routed(BaseModel):
     routes: list[str]                       # e.g. ["ari", "promotion"], ["new_contract"], ["ignore"]
     result: ExtractionResult | None = None  # merged across paths
     calls: list[dict] = []                  # every model call: model, tokens, seconds, step
+    retrieved: Retrieved | None = None      # step 5: what RAG fetched for an amendment
     seconds: float = 0.0
 
 
-def route_doc(doc: SourceDoc, model: str = EXTRACT_MODEL) -> Routed:
+def route_doc(doc: SourceDoc, model: str = EXTRACT_MODEL, store: Store | None = None,
+              passes: int = 2) -> Routed:
+    """store: if given, amendments get the existing contract + playbook rules (step 5 RAG)."""
     t0 = time.time()
     intent, calls = classify(doc.text)
     calls = [{**c, "step": "intent"} for c in calls]
     labels = set(intent.labels)
 
     if Label.new_contract in labels:
-        res, usage = run_pipeline(doc, model=model)
+        res, usage = run_pipeline(doc, model=model, passes=passes)
         calls.append({**usage, "step": "extract:new_contract"})
         return Routed(intent=intent, routes=["new_contract"], result=res, calls=calls,
                       seconds=round(time.time() - t0, 1))
@@ -60,13 +65,28 @@ def route_doc(doc: SourceDoc, model: str = EXTRACT_MODEL) -> Routed:
     if not paths:
         return Routed(intent=intent, routes=["ignore"], calls=calls, seconds=round(time.time() - t0, 1))
 
+    found = retrieve(store, doc.text) if store else None
+    context = found.as_context() if found and found.hotel_id else None
     parts = []
-    for focus, allowed in paths:   # each path: its own focused, two-pass, checked extraction
-        res, usage = run_pipeline(doc, model=model, focus=focus, allowed_types=allowed)
+    for focus, allowed in paths:   # each path: its own focused, checked extraction
+        res, usage = run_pipeline(doc, model=model, focus=focus, allowed_types=allowed,
+                                  passes=passes, context=context)
         calls.append({**usage, "step": f"extract:{focus}"})
         parts.append(res)
-    return Routed(intent=intent, routes=[f for f, _ in paths], result=merge(doc, parts), calls=calls,
-                  seconds=round(time.time() - t0, 1))
+    result = merge(doc, parts)
+    if found and found.hotel_id and result.change_set:
+        # the hotel comes from our property master, not from how the sender wrote its name
+        h = store.contracts[found.hotel_id].hotel
+        result.change_set.hotel_name, result.change_set.hotel_id = h.name, h.hotel_id
+        sure = found.hotel_match in ("email domain", "name match")
+        conf = 0.97 if sure else 0.6       # a text-score-only match always goes to a human
+        result.field_meta["hotel_name"] = FieldMeta(
+            confidence=conf, status=Status.auto_accept if conf >= THRESHOLDS["other"] else Status.needs_review,
+            evidence=f"property master {h.hotel_id}, matched by {found.hotel_match}", category="other",
+            threshold=THRESHOLDS["other"], evidence_found=True,
+            reasons=[] if sure else ["hotel matched by text similarity only"])
+    return Routed(intent=intent, routes=[f for f, _ in paths], result=result, calls=calls,
+                  retrieved=found, seconds=round(time.time() - t0, 1))
 
 
 def merge(doc: SourceDoc, parts: list[ExtractionResult]) -> ExtractionResult:

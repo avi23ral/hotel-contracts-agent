@@ -1,0 +1,125 @@
+[
+  {
+    "hotel_id": "H001",
+    "giata_id": "G-100231",
+    "name": "Hotel Sol de Marina",
+    "aliases": [
+      "Sol de Marina"
+    ],
+    "destination": "Alcúdia, Mallorca",
+    "country": "Spain",
+    "email_domain": "soldemarina.example",
+    "contacts": [
+      "Marta Ferrer",
+      "M. Ferrer"
+    ]
+  },
+  {
+    "hotel_id": "H002",
+    "giata_id": "G-200877",
+    "name": "Aegean Breeze Resort",
+    "aliases": [
+      "Aegean Breeze"
+    ],
+    "destination": "Kos",
+    "country": "Greece",
+    "email_domain": "aegeanbreeze.example",
+    "contacts": [
+      "Eleni Papadaki",
+      "Kostas"
+    ]
+  },
+  {
+    "hotel_id": "H003",
+    "giata_id": "G-200912",
+    "name": "Villa Thalassa",
+    "aliases": [],
+    "destination": "Chania, Crete",
+    "country": "Greece",
+    "email_domain": "villathalassa.example",
+    "contacts": [
+      "Nikos"
+    ]
+  },
+  {
+    "hotel_id": "H004",
+    "giata_id": "G-100877",
+    "name": "Hotel Mirador",
+    "aliases": [
+      "Mirador"
+    ],
+    "destination": "Puerto de la Cruz, Tenerife",
+    "country": "Spain",
+    "email_domain": "hotelmirador.example",
+    "contacts": [
+      "Ana"
+    ]
+  },
+  {
+    "hotel_id": "H005",
+    "giata_id": "G-300114",
+    "name": "Costa Azul Beach",
+    "aliases": [
+      "Costa Azul"
+    ],
+    "destination": "Albufeira, Algarve",
+    "country": "Portugal",
+    "email_domain": "costaazulbeach.example",
+    "contacts": []
+  },
+  {
+    "hotel_id": "H006",
+    "giata_id": "G-400556",
+    "name": "Hotel Riviera Blu",
+    "aliases": [
+      "Riviera Blu"
+    ],
+    "destination": "Sorrento",
+    "country": "Italy",
+    "email_domain": "rivierablu.example",
+    "contacts": [
+      "Paolo",
+      "Giulia"
+    ]
+  },
+  {
+    "hotel_id": "H007",
+    "giata_id": "G-500301",
+    "name": "Alpenhof Lodge",
+    "aliases": [
+      "Alpenhof"
+    ],
+    "destination": "Mayrhofen, Tyrol",
+    "country": "Austria",
+    "email_domain": "alpenhof.example",
+    "contacts": []
+  },
+  {
+    "hotel_id": "H008",
+    "giata_id": "G-200455",
+    "name": "Hotel Olivia",
+    "aliases": [
+      "Olivia"
+    ],
+    "destination": "Corfu",
+    "country": "Greece",
+    "email_domain": "olivia.example",
+    "contacts": [
+      "Irene"
+    ]
+  },
+  {
+    "hotel_id": "H009",
+    "giata_id": "G-100990",
+    "name": "Hotel Marina Sol",
+    "aliases": [
+      "Marina Sol"
+    ],
+    "destination": "Benidorm",
+    "country": "Spain",
+    "email_domain": "marinasol.example",
+    "contacts": [
+      "Jordi Puig"
+    ]
+  }
+]

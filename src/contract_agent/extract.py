@@ -83,10 +83,20 @@ FOCUS = {
 }
 
 
-def call_model(doc: SourceDoc, model: str = EXTRACT_MODEL, focus: str | None = None) -> tuple[LLMExtraction, dict]:
+CONTEXT_NOTE = (
+    "Reference material from our system follows: the hotel's existing contract (the parts relevant "
+    "to this message) and house rules from our playbook. Use it to complete the changes: room codes, "
+    "the year, and conditions an offer change inherits from the existing offer. The message wins "
+    "wherever it states something explicitly. For a value taken from the existing contract, quote the "
+    "reference text exactly as evidence and set derived=true.")
+
+
+def call_model(doc: SourceDoc, model: str = EXTRACT_MODEL, focus: str | None = None,
+               context: str | None = None) -> tuple[LLMExtraction, dict]:
     """One extraction pass. Returns the raw model output and token usage.
 
-    focus narrows an amendment to one router path ("ari" or "promotion")."""
+    focus narrows an amendment to one router path ("ari" or "promotion").
+    context is retrieved reference material (step 5, RAG)."""
     client = get_client()
     # Strict structured outputs (messages.parse) rejected this schema: "compiled
     # grammar is too large". So we use a non-strict tool call and validate
@@ -96,6 +106,7 @@ def call_model(doc: SourceDoc, model: str = EXTRACT_MODEL, focus: str | None = N
         max_tokens=16000,
         system=SYSTEM,
         messages=[{"role": "user", "content": f"Source channel: {doc.channel}\n\n<source>\n{doc.text}\n</source>"
+                   + (f"\n\n{CONTEXT_NOTE}\n\n{context}" if context else "")
                    + (f"\n\n{FOCUS[focus]}" if focus else "")}],
         tools=[{"name": "record_extraction",
                 "description": "Record the structured extraction for this source.",

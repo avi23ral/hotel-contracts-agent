@@ -1,0 +1,187 @@
+{
+  "hotel": {
+    "name": "Aegean Breeze Resort",
+    "destination": "Kos",
+    "country": "Greece",
+    "supplier_email": "sales@aegeanbreeze.example",
+    "hotel_id": "H002",
+    "giata_id": "G-200877"
+  },
+  "contract_start": "2027-05-15",
+  "contract_end": "2027-10-15",
+  "currency": "EUR",
+  "rate_type": "commissionable",
+  "commission_pct": 18.0,
+  "pricing_basis": "per_person_per_night",
+  "rooms": [
+    {
+      "code": "STD",
+      "name": "Standard Double",
+      "min_adults": 2,
+      "max_adults": 3,
+      "max_children": 1,
+      "max_occupancy": 3,
+      "inventory": "allotment",
+      "allotment": 8
+    },
+    {
+      "code": "JSU",
+      "name": "Junior Suite",
+      "min_adults": 2,
+      "max_adults": 3,
+      "max_children": 2,
+      "max_occupancy": 4,
+      "inventory": "allotment",
+      "allotment": 3
+    }
+  ],
+  "seasons": [
+    {
+      "name": "A",
+      "date_from": "2027-05-15",
+      "date_to": "2027-06-30",
+      "min_stay_nights": 3
+    },
+    {
+      "name": "B",
+      "date_from": "2027-07-01",
+      "date_to": "2027-08-31",
+      "min_stay_nights": 5
+    },
+    {
+      "name": "C",
+      "date_from": "2027-09-01",
+      "date_to": "2027-10-15",
+      "min_stay_nights": 3
+    }
+  ],
+  "rates": [
+    {
+      "season": "A",
+      "room_code": "STD",
+      "board": "HB",
+      "price": 62.0
+    },
+    {
+      "season": "B",
+      "room_code": "STD",
+      "board": "HB",
+      "price": 84.0
+    },
+    {
+      "season": "C",
+      "room_code": "STD",
+      "board": "HB",
+      "price": 66.0
+    },
+    {
+      "season": "A",
+      "room_code": "JSU",
+      "board": "HB",
+      "price": 92.0
+    },
+    {
+      "season": "B",
+      "room_code": "JSU",
+      "board": "HB",
+      "price": 112.0
+    },
+    {
+      "season": "C",
+      "room_code": "JSU",
+      "board": "HB",
+      "price": 96.0
+    },
+    {
+      "season": "A",
+      "room_code": "STD",
+      "board": "AI",
+      "price": 87.0
+    },
+    {
+      "season": "B",
+      "room_code": "STD",
+      "board": "AI",
+      "price": 109.0
+    },
+    {
+      "season": "C",
+      "room_code": "STD",
+      "board": "AI",
+      "price": 91.0
+    },
+    {
+      "season": "A",
+      "room_code": "JSU",
+      "board": "AI",
+      "price": 117.0
+    },
+    {
+      "season": "B",
+      "room_code": "JSU",
+      "board": "AI",
+      "price": 137.0
+    },
+    {
+      "season": "C",
+      "room_code": "JSU",
+      "board": "AI",
+      "price": 121.0
+    }
+  ],
+  "child_policy": [
+    {
+      "age_from": 0.0,
+      "age_to": 5.99,
+      "discount_pct": 100.0
+    },
+    {
+      "age_from": 6.0,
+      "age_to": 13.99,
+      "discount_pct": 50.0
+    }
+  ],
+  "release_days": 10,
+  "cancellation": [
+    {
+      "days_from": 21,
+      "charge_pct": 0.0
+    },
+    {
+      "days_from": 8,
+      "days_to": 20,
+      "charge_pct": 30.0
+    },
+    {
+      "days_from": 0,
+      "days_to": 7,
+      "charge_pct": 100.0
+    }
+  ],
+  "special_offers": [
+    {
+      "type": "free_nights",
+      "stay_nights": 7,
+      "pay_nights": 6,
+      "stay_from": "2027-05-15",
+      "stay_to": "2027-06-30",
+      "boards": [],
+      "combinable": false
+    },
+    {
+      "type": "free_nights",
+      "stay_nights": 7,
+      "pay_nights": 6,
+      "stay_from": "2027-09-01",
+      "stay_to": "2027-10-15",
+      "boards": [],
+      "combinable": false
+    }
+  ],
+  "local_tax": {
+    "included_in_rate": false,
+    "amount": 4.0,
+    "basis": "per_room_per_night"
+  },
+  "payment_terms": "50% deposit 30 days before arrival, balance 7 days after check-out"
+}

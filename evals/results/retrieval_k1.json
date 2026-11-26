@@ -1,0 +1,593 @@
+{
+  "summary": {
+    "cases": 31,
+    "k": 1,
+    "bm25_only": false,
+    "hotel_accuracy": 1.0,
+    "wrong_hotel": 0,
+    "abstained": 1,
+    "section_recall_at_k": 0.88,
+    "matched_by": {
+      "bm25": 4,
+      "email domain": 1,
+      "name match": 25,
+      "none (ambiguous)": 1
+    }
+  },
+  "rows": [
+    {
+      "id": "r_i03",
+      "gold_hotel": "H001",
+      "got_hotel": "H001",
+      "how": "name match",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": [
+        "offers",
+        "rooms"
+      ],
+      "got_sections": [
+        "rooms"
+      ],
+      "sections_ok": false,
+      "rules": [
+        "playbook:Hotel identity",
+        "playbook:Room names to our codes"
+      ]
+    },
+    {
+      "id": "r_i04",
+      "gold_hotel": "H003",
+      "got_hotel": "H003",
+      "how": "name match",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": [
+        "rates"
+      ],
+      "got_sections": [
+        "rates"
+      ],
+      "sections_ok": true,
+      "rules": [
+        "playbook:Default commercial terms",
+        "playbook:Rate changes"
+      ]
+    },
+    {
+      "id": "r_i05",
+      "gold_hotel": "H004",
+      "got_hotel": "H004",
+      "how": "name match",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": [
+        "rooms"
+      ],
+      "got_sections": [
+        "rooms"
+      ],
+      "sections_ok": true,
+      "rules": [
+        "playbook:Stop sales and re-opens",
+        "playbook:Release and allotment"
+      ]
+    },
+    {
+      "id": "r_i06",
+      "gold_hotel": "H005",
+      "got_hotel": "H005",
+      "how": "name match",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": [
+        "rooms"
+      ],
+      "got_sections": [
+        "rooms"
+      ],
+      "sections_ok": true,
+      "rules": [
+        "playbook:Stop sales and re-opens",
+        "playbook:Hotel identity"
+      ]
+    },
+    {
+      "id": "r_i07",
+      "gold_hotel": "H005",
+      "got_hotel": "H005",
+      "how": "name match",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": [
+        "rooms"
+      ],
+      "got_sections": [
+        "rooms"
+      ],
+      "sections_ok": true,
+      "rules": [
+        "playbook:Stop sales and re-opens"
+      ]
+    },
+    {
+      "id": "r_i08",
+      "gold_hotel": "H006",
+      "got_hotel": "H006",
+      "how": "name match",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": [
+        "rooms"
+      ],
+      "got_sections": [
+        "rooms"
+      ],
+      "sections_ok": true,
+      "rules": [
+        "playbook:Release and allotment",
+        "playbook:Room names to our codes"
+      ]
+    },
+    {
+      "id": "r_i09",
+      "gold_hotel": "H001",
+      "got_hotel": "H001",
+      "how": "name match",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": [
+        "seasons"
+      ],
+      "got_sections": [
+        "seasons"
+      ],
+      "sections_ok": true,
+      "rules": [
+        "playbook:Hotel identity",
+        "playbook:Offer changes inherit the existing offer"
+      ]
+    },
+    {
+      "id": "r_i10",
+      "gold_hotel": "H001",
+      "got_hotel": "H001",
+      "how": "bm25",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": [
+        "rates"
+      ],
+      "got_sections": [
+        "rates"
+      ],
+      "sections_ok": true,
+      "rules": [
+        "playbook:Rate changes",
+        "playbook:Board codes"
+      ]
+    },
+    {
+      "id": "r_i11",
+      "gold_hotel": "H007",
+      "got_hotel": "H007",
+      "how": "name match",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": [
+        "rooms"
+      ],
+      "got_sections": [
+        "rooms"
+      ],
+      "sections_ok": true,
+      "rules": [
+        "playbook:Stop sales and re-opens",
+        "playbook:Hotel identity"
+      ]
+    },
+    {
+      "id": "r_i12",
+      "gold_hotel": "H008",
+      "got_hotel": "H008",
+      "how": "name match",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": [
+        "rooms"
+      ],
+      "got_sections": [
+        "rooms"
+      ],
+      "sections_ok": true,
+      "rules": [
+        "playbook:Release and allotment",
+        "playbook:Stop sales and re-opens"
+      ]
+    },
+    {
+      "id": "r_i13",
+      "gold_hotel": "H002",
+      "got_hotel": "H002",
+      "how": "name match",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": [
+        "rates"
+      ],
+      "got_sections": [
+        "rates"
+      ],
+      "sections_ok": true,
+      "rules": [
+        "playbook:Board codes",
+        "playbook:Dates without a year"
+      ]
+    },
+    {
+      "id": "r_i14",
+      "gold_hotel": "H004",
+      "got_hotel": "H004",
+      "how": "name match",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": null,
+      "got_sections": [
+        "children"
+      ],
+      "sections_ok": null,
+      "rules": [
+        "playbook:Offer changes inherit the existing offer",
+        "playbook:Stop sales and re-opens"
+      ]
+    },
+    {
+      "id": "r_i15",
+      "gold_hotel": "H002",
+      "got_hotel": "H002",
+      "how": "name match",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": null,
+      "got_sections": [
+        "offers"
+      ],
+      "sections_ok": null,
+      "rules": [
+        "playbook:Offer changes inherit the existing offer",
+        "playbook:Rate changes"
+      ]
+    },
+    {
+      "id": "r_i16",
+      "gold_hotel": "H004",
+      "got_hotel": "H004",
+      "how": "name match",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": null,
+      "got_sections": [
+        "rooms"
+      ],
+      "sections_ok": null,
+      "rules": [
+        "playbook:Hotel identity",
+        "playbook:Room names to our codes"
+      ]
+    },
+    {
+      "id": "r_i17",
+      "gold_hotel": "H008",
+      "got_hotel": "H008",
+      "how": "name match",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": [
+        "offers"
+      ],
+      "got_sections": [
+        "offers"
+      ],
+      "sections_ok": true,
+      "rules": [
+        "playbook:Offer changes inherit the existing offer",
+        "playbook:Stop sales and re-opens"
+      ]
+    },
+    {
+      "id": "r_i18",
+      "gold_hotel": "H005",
+      "got_hotel": "H005",
+      "how": "name match",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": null,
+      "got_sections": [
+        "rooms"
+      ],
+      "sections_ok": null,
+      "rules": [
+        "playbook:Board codes",
+        "playbook:Release and allotment"
+      ]
+    },
+    {
+      "id": "r_i19",
+      "gold_hotel": "H006",
+      "got_hotel": "H006",
+      "how": "name match",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": [
+        "rooms"
+      ],
+      "got_sections": [
+        "rooms"
+      ],
+      "sections_ok": true,
+      "rules": [
+        "playbook:Room names to our codes",
+        "playbook:Stop sales and re-opens"
+      ]
+    },
+    {
+      "id": "r_i20",
+      "gold_hotel": "H003",
+      "got_hotel": "H003",
+      "how": "name match",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": [
+        "rates"
+      ],
+      "got_sections": [
+        "rooms"
+      ],
+      "sections_ok": false,
+      "rules": [
+        "playbook:Default commercial terms",
+        "playbook:Release and allotment"
+      ]
+    },
+    {
+      "id": "r_i29",
+      "gold_hotel": "H003",
+      "got_hotel": "H003",
+      "how": "name match",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": [
+        "rates"
+      ],
+      "got_sections": [
+        "rates"
+      ],
+      "sections_ok": true,
+      "rules": [
+        "playbook:Board codes",
+        "playbook:Room names to our codes"
+      ]
+    },
+    {
+      "id": "r_i30",
+      "gold_hotel": "H007",
+      "got_hotel": "H007",
+      "how": "name match",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": null,
+      "got_sections": [
+        "children"
+      ],
+      "sections_ok": null,
+      "rules": [
+        "playbook:Release and allotment",
+        "playbook:Board codes"
+      ]
+    },
+    {
+      "id": "r_i31",
+      "gold_hotel": "H008",
+      "got_hotel": "H008",
+      "how": "name match",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": [
+        "rooms"
+      ],
+      "got_sections": [
+        "offers"
+      ],
+      "sections_ok": false,
+      "rules": [
+        "playbook:Dates without a year",
+        "playbook:Stop sales and re-opens"
+      ]
+    },
+    {
+      "id": "r_h01",
+      "gold_hotel": "H005",
+      "got_hotel": "H005",
+      "how": "name match",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": [
+        "rooms"
+      ],
+      "got_sections": [
+        "rooms"
+      ],
+      "sections_ok": true,
+      "rules": [
+        "playbook:Stop sales and re-opens",
+        "playbook:Hotel identity"
+      ]
+    },
+    {
+      "id": "r_h06",
+      "gold_hotel": "H005",
+      "got_hotel": "H005",
+      "how": "name match",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": [
+        "rates"
+      ],
+      "got_sections": [
+        "rates"
+      ],
+      "sections_ok": true,
+      "rules": [
+        "playbook:Room names to our codes",
+        "playbook:Rate changes"
+      ]
+    },
+    {
+      "id": "r_h07",
+      "gold_hotel": "H006",
+      "got_hotel": "H006",
+      "how": "name match",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": [
+        "rooms"
+      ],
+      "got_sections": [
+        "rooms"
+      ],
+      "sections_ok": true,
+      "rules": [
+        "playbook:Hotel identity",
+        "playbook:Room names to our codes"
+      ]
+    },
+    {
+      "id": "r_h08",
+      "gold_hotel": "H002",
+      "got_hotel": "H002",
+      "how": "name match",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": [
+        "rooms"
+      ],
+      "got_sections": [
+        "rooms"
+      ],
+      "sections_ok": true,
+      "rules": [
+        "playbook:Release and allotment",
+        "playbook:Hotel identity"
+      ]
+    },
+    {
+      "id": "r_h11",
+      "gold_hotel": "H006",
+      "got_hotel": "H006",
+      "how": "bm25",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": [
+        "rooms"
+      ],
+      "got_sections": [
+        "rooms"
+      ],
+      "sections_ok": true,
+      "rules": [
+        "playbook:Stop sales and re-opens",
+        "playbook:Release and allotment"
+      ]
+    },
+    {
+      "id": "r01",
+      "gold_hotel": "H009",
+      "got_hotel": "H009",
+      "how": "email domain",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": [
+        "rooms"
+      ],
+      "got_sections": [
+        "rooms"
+      ],
+      "sections_ok": true,
+      "rules": [
+        "playbook:Room names to our codes",
+        "playbook:Hotel identity"
+      ]
+    },
+    {
+      "id": "r02",
+      "gold_hotel": "H009",
+      "got_hotel": "H009",
+      "how": "name match",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": [
+        "offers"
+      ],
+      "got_sections": [
+        "offers"
+      ],
+      "sections_ok": true,
+      "rules": [
+        "playbook:Offer changes inherit the existing offer",
+        "playbook:Hotel identity"
+      ]
+    },
+    {
+      "id": "r03",
+      "gold_hotel": "H001",
+      "got_hotel": "H001",
+      "how": "bm25",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": [
+        "rooms"
+      ],
+      "got_sections": [
+        "rooms"
+      ],
+      "sections_ok": true,
+      "rules": [
+        "playbook:Room names to our codes",
+        "playbook:Stop sales and re-opens"
+      ]
+    },
+    {
+      "id": "r04",
+      "gold_hotel": null,
+      "got_hotel": null,
+      "how": "none (ambiguous)",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": null,
+      "got_sections": [],
+      "sections_ok": null,
+      "rules": [
+        "playbook:Stop sales and re-opens",
+        "playbook:Room names to our codes"
+      ]
+    },
+    {
+      "id": "r05",
+      "gold_hotel": "H002",
+      "got_hotel": "H002",
+      "how": "bm25",
+      "hotel_ok": true,
+      "wrong_hotel": false,
+      "gold_sections": [
+        "rates"
+      ],
+      "got_sections": [
+        "rates"
+      ],
+      "sections_ok": true,
+      "rules": [
+        "playbook:Board codes"
+      ]
+    }
+  ]
+}

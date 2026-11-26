@@ -170,6 +170,7 @@ PROMO_CHANGES = {"offer_added", "offer_changed", "offer_ended"}
 
 class ChangeSet(BaseModel):
     hotel_name: str
+    hotel_id: str | None = None         # set from the property master after retrieval, never by the model
     changes: list[Change]
 
 
