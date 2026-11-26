@@ -119,9 +119,17 @@ def build_meta(source_text: str, a: LLMExtraction, b: LLMExtraction | None, issu
     return meta
 
 
-def run_pipeline(doc: SourceDoc, model: str = EXTRACT_MODEL, passes: int = 2):
+def keep_types(out: LLMExtraction | None, allowed: set[str] | None) -> LLMExtraction | None:
+    """Safety net for router paths: drop changes that belong to the other path."""
+    if out is not None and allowed and out.change_set:
+        out.change_set.changes = [c for c in out.change_set.changes if c.change_type in allowed]
+    return out
+
+
+def run_pipeline(doc: SourceDoc, model: str = EXTRACT_MODEL, passes: int = 2,
+                 focus: str | None = None, allowed_types: set[str] | None = None):
     with ThreadPoolExecutor(max_workers=passes) as pool:
-        futures = [pool.submit(call_model, doc, model) for _ in range(passes)]
+        futures = [pool.submit(call_model, doc, model, focus) for _ in range(passes)]
         results = []
         for f in futures:
             try:
@@ -132,9 +140,9 @@ def run_pipeline(doc: SourceDoc, model: str = EXTRACT_MODEL, passes: int = 2):
         raise results[0]
     a, usage_a = results[0]
     b, usage_b = (results[1] if len(results) > 1 and not isinstance(results[1], Exception) else (None, {}))
-    a = normalise(a)
+    a = keep_types(normalise(a), allowed_types)
     if b is not None:
-        b = normalise(b)
+        b = keep_types(normalise(b), allowed_types)
     issues = validate(a.contract, a.change_set)
     meta = build_meta(doc.text, a, b, issues)
     result = ExtractionResult(source_file=doc.path, intent=a.intent, contract=a.contract,

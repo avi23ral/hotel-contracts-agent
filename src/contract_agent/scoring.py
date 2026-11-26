@@ -31,7 +31,7 @@ def canonical_season(name: Any) -> str:
 def _change_key(x: dict) -> str:
     ct = x.get("change_type")
     offer = x.get("offer") or {}
-    if ct in ("offer_added", "offer_changed") and offer.get("type"):
+    if ct in ("offer_added", "offer_changed", "offer_ended") and offer.get("type"):
         return f"{ct}|{offer['type']}"
     return f"{ct}|{x.get('date_from')}"
 
