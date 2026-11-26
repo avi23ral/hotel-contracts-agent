@@ -1,4 +1,10 @@
-"""Flatten a Contract into static offer rows.
+"""Flatten a Contract into hotel-only offer rows.
+
+These rows are a cached, derived view, NOT the master record. The master
+record is the Contract (the hotel's contracted rates and availability). A
+dynamic packager prices it live alongside flights. We keep the rows because
+they are what a reviewer and a test can check line by line, and because one
+wrong contract field fans out into many wrong rows.
 
 One row = hotel x room x board x adult count x season date band.
 Children and special offers multiply this further, which is why real
@@ -11,7 +17,7 @@ from pathlib import Path
 
 from pydantic import BaseModel
 
-from .schema import Contract
+from .schema import Contract, FieldMeta
 
 
 class OfferRow(BaseModel):
@@ -27,9 +33,21 @@ class OfferRow(BaseModel):
     currency: str
     rate_type: str
     offer_tags: str
+    hotel_id: str | None = None
+    source_contract_id: str | None = None
+    lowest_field_confidence: float | None = None   # weakest field this row depends on
 
 
-def to_offer_rows(c: Contract) -> list[OfferRow]:
+def _lowest(meta: dict[str, FieldMeta] | None, prefixes: list[str]) -> float | None:
+    if not meta:
+        return None
+    hits = [m.confidence for p, m in meta.items()
+            if "[" not in p.split(".")[0] or any(p == x or p.startswith(x + ".") for x in prefixes)]
+    return min(hits) if hits else None
+
+
+def to_offer_rows(c: Contract, field_meta: dict[str, FieldMeta] | None = None,
+                  source_contract_id: str | None = None) -> list[OfferRow]:
     seasons = {s.name: s for s in c.seasons}
     rooms = {r.code: r for r in c.rooms}
     tags = ";".join(sorted({o.type for o in c.special_offers}))
@@ -45,6 +63,10 @@ def to_offer_rows(c: Contract) -> list[OfferRow]:
                 min_stay_nights=season.min_stay_nights,
                 price_per_night=round(per_room, 2), currency=c.currency,
                 rate_type=c.rate_type, offer_tags=tags,
+                hotel_id=c.hotel.hotel_id, source_contract_id=source_contract_id,
+                lowest_field_confidence=_lowest(field_meta, [
+                    f"rates[{rate.season}|{room.code}|{rate.board}]", f"rooms[{room.code}]",
+                    f"seasons[{season.name}]"]),
             ))
     return rows
 

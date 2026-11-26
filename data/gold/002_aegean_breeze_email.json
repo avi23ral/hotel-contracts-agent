@@ -24,6 +24,7 @@
         "max_adults": 3,
         "max_children": 1,
         "max_occupancy": 3,
+        "inventory": "allotment",
         "allotment": 8
       },
       {
@@ -33,6 +34,7 @@
         "max_adults": 3,
         "max_children": 2,
         "max_occupancy": 4,
+        "inventory": "allotment",
         "allotment": 3
       }
     ],

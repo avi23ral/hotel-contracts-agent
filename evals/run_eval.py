@@ -1,7 +1,15 @@
-"""Run the extractor on every input and score it against gold.
+"""Run the step 3 pipeline on every input and score it against gold.
 
-Usage:  python evals/run_eval.py [--model claude-opus-5-5] [--only 002]
-Writes evals/results/<timestamp>_<model>.json so runs can be compared over time.
+Usage:
+  python evals/run_eval.py [--model claude-opus-5-5] [--only 002]
+  python evals/run_eval.py --rescore evals/results/<old run>.json   # old predictions, current scorer
+
+Writes evals/results/<timestamp>_<model>.json, then calibration.py draws the
+calibration chart from it.
+
+Besides F1, it reports what the confidence score is FOR: how many fields a
+human has to look at (review load) and how many wrong fields slip through
+unreviewed (escapes), for the step 2 policy and the step 3 policy.
 """
 import argparse
 import json
@@ -12,23 +20,77 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
-from contract_agent.extract import extract_file  # noqa: E402
+from contract_agent.confidence import COST_WEIGHTS, THRESHOLDS, category  # noqa: E402
+from contract_agent.extract import baseline_status, extract_file  # noqa: E402
 from contract_agent.llm import EXTRACT_MODEL  # noqa: E402
-from contract_agent.schema import GoldLabel  # noqa: E402
+from contract_agent.schema import ChangeSet, Contract, GoldLabel, Status  # noqa: E402
 from contract_agent.scoring import score_fields  # noqa: E402
+
+SECONDS_PER_FLAGGED_FIELD = 30      # Avi's assumption, see build plan comments
+MANUAL_MINUTES_PER_CONTRACT = 180   # research: 2-4 hours per manual load
+
+
+def golds(only: str):
+    for gold_path in sorted((ROOT / "data/gold").glob("*.json")):
+        if only in gold_path.stem:
+            yield GoldLabel.model_validate_json(gold_path.read_text())
+
+
+def rescore(path: Path):
+    """Score saved predictions with the current scorer (isolates scorer fixes)."""
+    old = {r["file"]: r for r in json.loads(path.read_text()) if "prediction" in r}
+    f1s = []
+    for gold in golds(""):
+        pred = old[gold.source_file]["prediction"]
+        if gold.contract:
+            s = score_fields(Contract.model_validate(pred["contract"]), gold.contract)
+        else:
+            s = score_fields(ChangeSet.model_validate(pred["change_set"]), gold.change_set)
+        # Fields added to the schema after that run can't be held against it.
+        new = lambda p: p.endswith(".inventory")  # noqa: E731
+        s.correct = [p for p in s.correct if not new(p)]
+        s.missing = [p for p in s.missing if not new(p)]
+        s.wrong = [w for w in s.wrong if not new(w[0])]
+        f1s.append(s.f1)
+        print(f"{gold.source_file:38} old F1={old[gold.source_file]['f1']:.3f}  rescored F1={s.f1:.3f}  "
+              f"wrong={len(s.wrong)} missing={len(s.missing)} extra={len(s.extra)}")
+        for p, pv, gv in s.wrong:
+            print(f"    WRONG {p}: got {pv!r}, expected {gv!r}")
+        for p in s.missing:
+            print(f"    MISSING {p}")
+    print(f"\nRESCORED MEAN F1 {sum(f1s) / len(f1s):.3f}")
+
+
+def policy_summary(fields: list[dict], key: str, n_docs: int) -> dict:
+    """Review load vs escapes for one auto-accept policy."""
+    flagged = [f for f in fields if f[key] != "auto_accept"]
+    accepted = [f for f in fields if f[key] == "auto_accept"]
+    escapes = [f for f in accepted if f["outcome"] != "correct"]
+    caught = [f for f in flagged if f["outcome"] != "correct"]
+    n_wrong = sum(f["outcome"] != "correct" for f in fields)
+    minutes = len(flagged) * SECONDS_PER_FLAGGED_FIELD / 60 / max(n_docs, 1)
+    return {
+        "fields": len(fields), "flagged": len(flagged),
+        "review_load_pct": round(100 * len(flagged) / max(len(fields), 1), 1),
+        "wrong_fields": n_wrong, "caught": len(caught), "escapes": len(escapes),
+        "weighted_escapes": sum(COST_WEIGHTS[f["category"]] for f in escapes),
+        "escape_paths": [f"{f['file'][:3]} {f['path']}" for f in escapes],
+        "review_minutes_per_contract": round(minutes, 1),
+        "time_saved_pct": round(100 * (1 - minutes / MANUAL_MINUTES_PER_CONTRACT), 1),
+    }
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", default=EXTRACT_MODEL)
     ap.add_argument("--only", default="", help="substring filter on file name")
+    ap.add_argument("--rescore", type=Path, help="re-score a saved results file and exit")
     args = ap.parse_args()
+    if args.rescore:
+        return rescore(args.rescore)
 
-    rows = []
-    for gold_path in sorted((ROOT / "data/gold").glob("*.json")):
-        if args.only not in gold_path.stem:
-            continue
-        gold = GoldLabel.model_validate_json(gold_path.read_text())
+    rows, fields = [], []
+    for gold in golds(args.only):
         t0 = time.time()
         try:
             pred, usage = extract_file(ROOT / "data/inputs" / gold.source_file, model=args.model)
@@ -40,28 +102,64 @@ def main():
         target_pred = pred.contract if gold.contract else pred.change_set
         target_gold = gold.contract or gold.change_set
         s = score_fields(target_pred, target_gold)
+        correct, extra = set(s.correct), set(s.extra)
+        for path, m in pred.field_meta.items():
+            fields.append({
+                "file": gold.source_file, "path": path, "category": m.category,
+                "outcome": "correct" if path in correct else "extra" if path in extra else "wrong",
+                "confidence": m.confidence, "model_confidence": m.model_confidence,
+                "step3": m.status.value, "baseline": baseline_status(m.model_confidence).value
+                if m.model_confidence is not None else "auto_accept",   # step 2: no note = nobody looked
+                "evidence_found": m.evidence_found, "agrees": m.agrees, "reasons": m.reasons,
+            })
         rows.append({
             "file": gold.source_file, "difficulty": gold.difficulty,
             "intent_ok": pred.intent == gold.intent, "pred_intent": pred.intent.value,
             "precision": round(s.precision, 3), "recall": round(s.recall, 3), "f1": round(s.f1, 3),
             "n_correct": len(s.correct), "wrong": s.wrong, "missing": s.missing, "extra": s.extra,
+            "issues": [i.model_dump() for i in pred.issues],
             "seconds": round(secs, 1), **usage,
             "prediction": pred.model_dump(mode="json", exclude_none=True),
         })
+        flagged = sum(m.status != Status.auto_accept for m in pred.field_meta.values())
         print(f"{gold.source_file:38} intent={'OK ' if pred.intent == gold.intent else 'BAD'} "
               f"P={s.precision:.2f} R={s.recall:.2f} F1={s.f1:.2f} "
-              f"wrong={len(s.wrong)} missing={len(s.missing)} extra={len(s.extra)} {secs:.0f}s")
+              f"wrong={len(s.wrong)} missing={len(s.missing)} extra={len(s.extra)} "
+              f"flagged={flagged}/{len(pred.field_meta)} {secs:.0f}s")
         for path, pv, gv in s.wrong[:10]:
             print(f"    WRONG {path}: got {pv!r}, expected {gv!r}")
+        for i in pred.issues:
+            print(f"    {i.severity.upper():7} {i.rule}: {i.message}")
 
     ok = [r for r in rows if "error" not in r]
+    summary = {}
     if ok:
-        print(f"\nMEAN F1 {sum(r['f1'] for r in ok) / len(ok):.3f} | intent acc "
-              f"{sum(r['intent_ok'] for r in ok)}/{len(ok)} | tokens in/out "
-              f"{sum(r['input_tokens'] for r in ok)}/{sum(r['output_tokens'] for r in ok)}")
-    out = ROOT / "evals/results" / f"{datetime.now():%Y%m%d_%H%M%S}_{args.model}.json"
+        n = len(ok)
+        summary = {
+            "mean_f1": round(sum(r["f1"] for r in ok) / n, 3),
+            "intent_acc": f"{sum(r['intent_ok'] for r in ok)}/{n}",
+            "tokens_in": sum(r["input_tokens"] for r in ok), "tokens_out": sum(r["output_tokens"] for r in ok),
+            "quote_not_found_pct": round(100 * sum(f["evidence_found"] is False for f in fields) / len(fields), 1),
+            "no_evidence_pct": round(100 * sum(f["evidence_found"] is None for f in fields) / len(fields), 1),
+            "missing_fields": sum(len(r["missing"]) for r in ok),
+            "thresholds": THRESHOLDS,
+            "policies": {"step2_model_conf_0.8": policy_summary(fields, "baseline", n),
+                         "step3_combined_per_field": policy_summary(fields, "step3", n)},
+        }
+        print(f"\nMEAN F1 {summary['mean_f1']:.3f} | intent acc {summary['intent_acc']} | "
+              f"tokens in/out {summary['tokens_in']}/{summary['tokens_out']} (2 passes)")
+        print(f"quotes not found in source: {summary['quote_not_found_pct']}% of fields | "
+              f"no quote: {summary['no_evidence_pct']}% | fields missed entirely: {summary['missing_fields']}")
+        for name, p in summary["policies"].items():
+            print(f"{name:28} review {p['flagged']}/{p['fields']} ({p['review_load_pct']}%), "
+                  f"wrong {p['wrong_fields']}: caught {p['caught']}, escaped {p['escapes']} "
+                  f"(weighted {p['weighted_escapes']}), ~{p['review_minutes_per_contract']} min/contract")
+            for e in p["escape_paths"]:
+                print(f"    ESCAPE {e}")
+    stamp = f"{datetime.now():%Y%m%d_%H%M%S}_{args.model}"
+    out = ROOT / "evals/results" / f"{stamp}.json"
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(json.dumps(rows, indent=2, default=str))
+    out.write_text(json.dumps({"summary": summary, "rows": rows, "fields": fields}, indent=2, default=str))
     print(f"saved {out.relative_to(ROOT)}")
 
 
