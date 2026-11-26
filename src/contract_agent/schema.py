@@ -124,6 +124,14 @@ class LocalTax(BaseModel):
     basis: Literal["per_person_per_night", "per_room_per_night"] | None = None
 
 
+class StopSale(BaseModel):
+    """Dates a room can't be sold (availability layer, kept apart from rates)."""
+    room_codes: list[str] = []          # empty = all rooms
+    date_from: date
+    date_to: date
+    note: str | None = None
+
+
 class Contract(BaseModel):
     hotel: Hotel
     contract_start: date
@@ -141,6 +149,7 @@ class Contract(BaseModel):
     special_offers: list[SpecialOffer] = []
     local_tax: LocalTax | None = None
     payment_terms: str | None = None
+    stop_sales: list[StopSale] = []       # step 7: closed dates applied from approved amendments
     # Cross-field checks live in validators.py (soft flags, not exceptions).
 
 

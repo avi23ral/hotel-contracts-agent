@@ -1,0 +1,151 @@
+{
+  "per_input": [
+    {
+      "input": "001_sol_de_marina_contract.pdf",
+      "kind": "contract",
+      "hotel_id": "H001",
+      "fields": 212,
+      "queued": 22,
+      "accepted_as_is": 21,
+      "corrected": 1,
+      "review_minutes": 11.0,
+      "field_f1_before": 0.995,
+      "field_f1_after": 1.0,
+      "still_wrong_after_review": [],
+      "version": {
+        "hotel_id": "H001",
+        "version": 1,
+        "applied": [
+          "full contract loaded"
+        ],
+        "manual": []
+      },
+      "offer_rows_before": {
+        "gold_rows": 84,
+        "rows_right": 84,
+        "extra_rows": 0,
+        "pct": 100.0
+      },
+      "offer_rows_after": {
+        "gold_rows": 84,
+        "rows_right": 84,
+        "extra_rows": 0,
+        "pct": 100.0
+      }
+    },
+    {
+      "input": "002_aegean_breeze_email.eml",
+      "kind": "contract",
+      "hotel_id": "H002",
+      "fields": 111,
+      "queued": 27,
+      "accepted_as_is": 27,
+      "corrected": 0,
+      "review_minutes": 13.5,
+      "field_f1_before": 1.0,
+      "field_f1_after": 1.0,
+      "still_wrong_after_review": [],
+      "version": {
+        "hotel_id": "H002",
+        "version": 1,
+        "applied": [
+          "full contract loaded"
+        ],
+        "manual": []
+      },
+      "offer_rows_before": {
+        "gold_rows": 24,
+        "rows_right": 24,
+        "extra_rows": 0,
+        "pct": 100.0
+      },
+      "offer_rows_after": {
+        "gold_rows": 24,
+        "rows_right": 24,
+        "extra_rows": 0,
+        "pct": 100.0
+      }
+    },
+    {
+      "input": "003_sol_de_marina_chat.txt",
+      "kind": "amendment",
+      "hotel_id": "H001",
+      "fields": 25,
+      "queued": 11,
+      "accepted_as_is": 10,
+      "corrected": 1,
+      "review_minutes": 5.5,
+      "field_f1_before": 0.98,
+      "field_f1_after": 1.0,
+      "still_wrong_after_review": [],
+      "version": {
+        "hotel_id": "H001",
+        "version": 2,
+        "applied": [
+          "stop sale DSV 2027-08-10 to 2027-08-17",
+          "offer changed: early_booking",
+          "offer added: discount"
+        ],
+        "manual": []
+      },
+      "offers_and_stop_sales_match_gold": true,
+      "applied": [
+        "stop sale DSV 2027-08-10 to 2027-08-17",
+        "offer changed: early_booking",
+        "offer added: discount"
+      ],
+      "manual": []
+    }
+  ],
+  "assumptions": {
+    "seconds_per_queued_field": 30
+  },
+  "exports": [
+    {
+      "hotel_id": "H001",
+      "version": 2,
+      "rows": 84,
+      "stop_sales": 1,
+      "offers": [
+        "early_booking",
+        "discount"
+      ],
+      "files": [
+        "offers_H001_v2.csv",
+        "offers_H001_v2.jsonl",
+        "stop_sales_H001_v2.csv"
+      ],
+      "pending_items_not_included": []
+    },
+    {
+      "hotel_id": "H002",
+      "version": 1,
+      "rows": 24,
+      "stop_sales": 0,
+      "offers": [
+        "free_nights",
+        "free_nights"
+      ],
+      "files": [
+        "offers_H002_v1.csv",
+        "offers_H002_v1.jsonl",
+        "stop_sales_H002_v1.csv"
+      ],
+      "pending_items_not_included": []
+    }
+  ],
+  "corrections_logged": 2,
+  "corrections_by_category": {
+    "other": 2
+  },
+  "summary": {
+    "queued_fields": 60,
+    "total_fields": 348,
+    "review_minutes_per_contract": 12.2,
+    "manual_minutes_per_contract": 180,
+    "offer_rows_right_before": "108/108",
+    "offer_rows_right_after": "108/108",
+    "still_wrong_after_review": 0,
+    "usd": 0.0
+  }
+}

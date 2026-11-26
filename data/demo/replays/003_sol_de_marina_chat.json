@@ -1,0 +1,455 @@
+{
+ "source_file": "003_sol_de_marina_chat.txt",
+ "channel": "chat",
+ "source_text": "[20/11/2026, 09:12] Marta Ferrer (Sol de Marina): Morning Tom! hope ur well 😊\n[20/11/2026, 09:13] Tom Hughes: Hi Marta, all good thanks. What's up?\n[20/11/2026, 09:15] Marta Ferrer (Sol de Marina): Few things for next summer. First – we're full on sea view rooms 10 to 17 August, a wedding group took them. pls close sales for those dates\n[20/11/2026, 09:15] Tom Hughes: Sea view only, or the standard doubles too?\n[20/11/2026, 09:16] Marta Ferrer (Sol de Marina): only sea view. standards are fine\n[20/11/2026, 09:18] Marta Ferrer (Sol de Marina): Second, the early booking 10% – management agreed to extend it to end of Feb (28th) instead of end Jan. same conditions\n[20/11/2026, 09:19] Tom Hughes: Great, that'll help. Anything else?\n[20/11/2026, 09:22] Marta Ferrer (Sol de Marina): yes!! new one for october: 15% off half board for stays 1-31 Oct, for bookings made from 1st September. can't combine with the early booking\n[20/11/2026, 09:23] Tom Hughes: All rooms?\n[20/11/2026, 09:23] Marta Ferrer (Sol de Marina): all rooms yes\n[20/11/2026, 09:24] Tom Hughes: Perfect, I'll get these loaded. Btw are you coming to WTM?\n[20/11/2026, 09:26] Marta Ferrer (Sol de Marina): sadly not this year 😩 next time!\n",
+ "kind": "amendment",
+ "hotel_id": "H001",
+ "hotel_match": "name match",
+ "intent": {
+  "labels": [
+   "ari_update",
+   "promotion"
+  ],
+  "confidence": null,
+  "reasoning": null
+ },
+ "routes": [
+  "ari",
+  "promotion"
+ ],
+ "retrieved": {
+  "hotel_id": "H001",
+  "hotel_match": "name match",
+  "hotel_margin": 50.0,
+  "chunks": [
+   {
+    "hotel_id": "H001",
+    "section": "identity",
+    "text": "Hotel Sol de Marina (H001, GIATA G-100231), Alcúdia, Mallorca, Spain. Contract 2027-05-01 to 2027-10-31, net EUR per_room_per_night."
+   },
+   {
+    "hotel_id": "H001",
+    "section": "rooms",
+    "text": "Rooms, room types, inventory, allotment, release, stop sale availability: DBL = Double Standard, 1-2 adults, max 1 children, allotment, allotment 10; DSV = Double Sea View, 1-2 adults, max 1 children, allotment, allotment 4; FAM = Family Room, 2-4 adults, max 2 children, allotment, allotment 6. Release 14 days."
+   },
+   {
+    "hotel_id": "H001",
+    "section": "offers",
+    "text": "Special offers, promotions, discounts: early booking offer, 10% discount, book by 2027-01-31, stays 2027-05-01 to 2027-10-31, boards all, not combinable with other offers"
+   },
+   {
+    "hotel_id": "H001",
+    "section": "rates",
+    "text": "Rates, prices, supplements per board (EUR, per_room_per_night): DBL Double Standard: Low BB 95, Mid BB 120, High BB 155, Shoulder BB 105, Low HB 125, Mid HB 150, High HB 185, Shoulder HB 135, Low AI 195, Mid AI 220, High AI 255, Shoulder AI 205 | DSV Double Sea View: Low BB 110, Mid BB 135, High BB 170, Shoulder BB 120, Low HB 140, Mid HB 165, High HB 200, Shoulder HB 150, Low AI 210, Mid AI 235, High AI 270, Shoulder AI 220 | FAM Family Room: Low BB 150, Mid BB 185, High BB 240, Shoulder BB 165, Low HB 200, Mid HB 235, High HB 290, Shoulder HB 215, Low AI 310, Mid AI 345, High AI 400, Shoulder AI 325"
+   }
+  ],
+  "rules": [
+   {
+    "hotel_id": null,
+    "section": "playbook:Hotel identity",
+    "text": "## Hotel identity\nMatch the hotel by the sender's email domain first, then by name, then by contact person. Names can be close (\"Hotel Sol de Marina\" and \"Hotel Marina Sol\" are different hotels). If the match is weak, flag it: getting the hotel wrong corrupts every field."
+   },
+   {
+    "hotel_id": null,
+    "section": "playbook:Room names to our codes",
+    "text": "## Room names to our codes\nMap the hotel's room wording to the room codes in that hotel's existing contract. If a name could match two rooms (for example \"sea view\" when there is a Double Sea View and a Sea View Suite), flag the field for review instead of guessing."
+   }
+  ]
+ },
+ "prediction": {
+  "source_file": "003_sol_de_marina_chat.txt",
+  "intent": "amendment",
+  "change_set": {
+   "hotel_name": "Hotel Sol de Marina",
+   "hotel_id": "H001",
+   "changes": [
+    {
+     "change_type": "stop_sale",
+     "room_codes": [
+      "DSV"
+     ],
+     "boards": [],
+     "date_from": "2027-08-10",
+     "date_to": "2027-08-17",
+     "note": "Sea view rooms full for wedding group; standard doubles remain open."
+    },
+    {
+     "change_type": "offer_changed",
+     "room_codes": [],
+     "boards": [],
+     "offer": {
+      "type": "early_booking",
+      "discount_pct": 10.0,
+      "book_by": "2027-02-28",
+      "stay_from": "2027-05-01",
+      "stay_to": "2027-10-31",
+      "boards": [],
+      "combinable": false
+     },
+     "note": "Early booking 10% extended to end of February (book by 2027-02-28); other conditions unchanged from existing contract."
+    },
+    {
+     "change_type": "offer_added",
+     "room_codes": [],
+     "boards": [],
+     "offer": {
+      "type": "discount",
+      "discount_pct": 15.0,
+      "book_from": "2027-09-01",
+      "stay_from": "2027-10-01",
+      "stay_to": "2027-10-31",
+      "boards": [
+       "HB"
+      ]
+     },
+     "note": "15% off half board for stays 1-31 October, for bookings made from 1 September. Cannot be combined with the early booking offer."
+    }
+   ]
+  },
+  "field_meta": {
+   "changes[stop_sale|2027-08-10].change_type": {
+    "confidence": 0.85,
+    "evidence": "we're full on sea view rooms 10 to 17 August, a wedding group took them. pls close sales for those dates",
+    "status": "auto_accept",
+    "category": "other",
+    "threshold": 0.75,
+    "model_confidence": 0.85,
+    "evidence_found": true,
+    "derived": false,
+    "flags": [],
+    "reasons": []
+   },
+   "changes[stop_sale|2027-08-10].room_codes": {
+    "confidence": 0.85,
+    "evidence": "only sea view. standards are fine",
+    "status": "auto_accept",
+    "category": "other",
+    "threshold": 0.75,
+    "model_confidence": 0.85,
+    "evidence_found": true,
+    "derived": false,
+    "flags": [],
+    "reasons": []
+   },
+   "changes[stop_sale|2027-08-10].boards": {
+    "confidence": 0.85,
+    "evidence": "we're full on sea view rooms 10 to 17 August, a wedding group took them. pls close sales for those dates",
+    "status": "auto_accept",
+    "category": "board",
+    "threshold": 0.8,
+    "model_confidence": 0.85,
+    "evidence_found": true,
+    "derived": false,
+    "flags": [],
+    "reasons": []
+   },
+   "changes[stop_sale|2027-08-10].date_from": {
+    "confidence": 0.85,
+    "evidence": "Contract 2027-05-01 to 2027-10-31",
+    "status": "needs_review",
+    "category": "dates",
+    "threshold": 0.9,
+    "model_confidence": 0.85,
+    "evidence_found": true,
+    "value_in_quote": false,
+    "derived": true,
+    "flags": [],
+    "reasons": []
+   },
+   "changes[stop_sale|2027-08-10].date_to": {
+    "confidence": 0.85,
+    "evidence": "Contract 2027-05-01 to 2027-10-31",
+    "status": "needs_review",
+    "category": "dates",
+    "threshold": 0.9,
+    "model_confidence": 0.85,
+    "evidence_found": true,
+    "value_in_quote": false,
+    "derived": true,
+    "flags": [],
+    "reasons": []
+   },
+   "changes[offer_changed|early_booking].change_type": {
+    "confidence": 0.9,
+    "evidence": "the early booking 10% – management agreed to extend it to end of Feb (28th) instead of end Jan",
+    "status": "auto_accept",
+    "category": "other",
+    "threshold": 0.75,
+    "model_confidence": 0.9,
+    "evidence_found": true,
+    "derived": false,
+    "flags": [],
+    "reasons": []
+   },
+   "changes[offer_changed|early_booking].room_codes": {
+    "confidence": 0.9,
+    "evidence": "the early booking 10% – management agreed to extend it to end of Feb (28th) instead of end Jan",
+    "status": "auto_accept",
+    "category": "other",
+    "threshold": 0.75,
+    "model_confidence": 0.9,
+    "evidence_found": true,
+    "derived": false,
+    "flags": [],
+    "reasons": []
+   },
+   "changes[offer_changed|early_booking].boards": {
+    "confidence": 0.9,
+    "evidence": "the early booking 10% – management agreed to extend it to end of Feb (28th) instead of end Jan",
+    "status": "auto_accept",
+    "category": "board",
+    "threshold": 0.8,
+    "model_confidence": 0.9,
+    "evidence_found": true,
+    "derived": false,
+    "flags": [],
+    "reasons": []
+   },
+   "changes[offer_changed|early_booking].offer.type": {
+    "confidence": 0.9,
+    "evidence": "the early booking 10% – management agreed to extend it to end of Feb (28th) instead of end Jan",
+    "status": "auto_accept",
+    "category": "other",
+    "threshold": 0.75,
+    "model_confidence": 0.9,
+    "evidence_found": true,
+    "derived": false,
+    "flags": [],
+    "reasons": []
+   },
+   "changes[offer_changed|early_booking].offer.discount_pct": {
+    "confidence": 0.9,
+    "evidence": "early booking offer, 10% discount",
+    "status": "needs_review",
+    "category": "price",
+    "threshold": 0.93,
+    "model_confidence": 0.9,
+    "evidence_found": true,
+    "value_in_quote": true,
+    "derived": true,
+    "flags": [],
+    "reasons": []
+   },
+   "changes[offer_changed|early_booking].offer.book_by": {
+    "confidence": 0.9,
+    "evidence": "the early booking 10% – management agreed to extend it to end of Feb (28th) instead of end Jan",
+    "status": "auto_accept",
+    "category": "dates",
+    "threshold": 0.9,
+    "model_confidence": 0.9,
+    "evidence_found": true,
+    "value_in_quote": true,
+    "derived": false,
+    "flags": [],
+    "reasons": []
+   },
+   "changes[offer_changed|early_booking].offer.stay_from": {
+    "confidence": 0.85,
+    "evidence": "stays 2027-05-01 to 2027-10-31",
+    "status": "needs_review",
+    "category": "dates",
+    "threshold": 0.9,
+    "model_confidence": 0.85,
+    "evidence_found": true,
+    "value_in_quote": true,
+    "derived": true,
+    "flags": [],
+    "reasons": []
+   },
+   "changes[offer_changed|early_booking].offer.stay_to": {
+    "confidence": 0.85,
+    "evidence": "stays 2027-05-01 to 2027-10-31",
+    "status": "needs_review",
+    "category": "dates",
+    "threshold": 0.9,
+    "model_confidence": 0.85,
+    "evidence_found": true,
+    "value_in_quote": true,
+    "derived": true,
+    "flags": [],
+    "reasons": []
+   },
+   "changes[offer_changed|early_booking].offer.boards": {
+    "confidence": 0.85,
+    "evidence": "boards all, not combinable with other offers",
+    "status": "auto_accept",
+    "category": "board",
+    "threshold": 0.8,
+    "model_confidence": 0.85,
+    "evidence_found": true,
+    "derived": true,
+    "flags": [],
+    "reasons": []
+   },
+   "changes[offer_changed|early_booking].offer.combinable": {
+    "confidence": 0.85,
+    "evidence": "boards all, not combinable with other offers",
+    "status": "auto_accept",
+    "category": "other",
+    "threshold": 0.75,
+    "model_confidence": 0.85,
+    "evidence_found": true,
+    "derived": true,
+    "flags": [],
+    "reasons": []
+   },
+   "changes[offer_added|discount].change_type": {
+    "confidence": 0.9,
+    "evidence": "15% off half board for stays 1-31 Oct",
+    "status": "auto_accept",
+    "category": "other",
+    "threshold": 0.75,
+    "model_confidence": 0.9,
+    "evidence_found": true,
+    "derived": false,
+    "flags": [],
+    "reasons": []
+   },
+   "changes[offer_added|discount].room_codes": {
+    "confidence": 0.9,
+    "evidence": "15% off half board for stays 1-31 Oct",
+    "status": "auto_accept",
+    "category": "other",
+    "threshold": 0.75,
+    "model_confidence": 0.9,
+    "evidence_found": true,
+    "derived": false,
+    "flags": [],
+    "reasons": []
+   },
+   "changes[offer_added|discount].boards": {
+    "confidence": 0.9,
+    "evidence": "15% off half board for stays 1-31 Oct",
+    "status": "auto_accept",
+    "category": "board",
+    "threshold": 0.8,
+    "model_confidence": 0.9,
+    "evidence_found": true,
+    "derived": false,
+    "flags": [],
+    "reasons": []
+   },
+   "changes[offer_added|discount].offer.type": {
+    "confidence": 0.9,
+    "evidence": "15% off half board for stays 1-31 Oct",
+    "status": "auto_accept",
+    "category": "other",
+    "threshold": 0.75,
+    "model_confidence": 0.9,
+    "evidence_found": true,
+    "derived": false,
+    "flags": [],
+    "reasons": []
+   },
+   "changes[offer_added|discount].offer.discount_pct": {
+    "confidence": 0.9,
+    "evidence": "15% off half board for stays 1-31 Oct",
+    "status": "needs_review",
+    "category": "price",
+    "threshold": 0.93,
+    "model_confidence": 0.9,
+    "evidence_found": true,
+    "value_in_quote": true,
+    "derived": false,
+    "flags": [],
+    "reasons": []
+   },
+   "changes[offer_added|discount].offer.book_from": {
+    "confidence": 0.7,
+    "evidence": "for bookings made from 1st September",
+    "status": "needs_review",
+    "category": "dates",
+    "threshold": 0.9,
+    "model_confidence": 0.7,
+    "evidence_found": true,
+    "value_in_quote": true,
+    "derived": true,
+    "flags": [],
+    "reasons": []
+   },
+   "changes[offer_added|discount].offer.stay_from": {
+    "confidence": 0.8,
+    "evidence": "for stays 1-31 Oct",
+    "status": "needs_review",
+    "category": "dates",
+    "threshold": 0.9,
+    "model_confidence": 0.8,
+    "evidence_found": true,
+    "value_in_quote": true,
+    "derived": true,
+    "flags": [],
+    "reasons": []
+   },
+   "changes[offer_added|discount].offer.stay_to": {
+    "confidence": 0.8,
+    "evidence": "for stays 1-31 Oct",
+    "status": "needs_review",
+    "category": "dates",
+    "threshold": 0.9,
+    "model_confidence": 0.8,
+    "evidence_found": true,
+    "value_in_quote": true,
+    "derived": true,
+    "flags": [],
+    "reasons": []
+   },
+   "changes[offer_added|discount].offer.boards": {
+    "confidence": 0.9,
+    "evidence": "15% off half board for stays 1-31 Oct",
+    "status": "auto_accept",
+    "category": "board",
+    "threshold": 0.8,
+    "model_confidence": 0.9,
+    "evidence_found": true,
+    "derived": false,
+    "flags": [],
+    "reasons": []
+   },
+   "hotel_name": {
+    "confidence": 0.5,
+    "status": "needs_review",
+    "category": "other",
+    "threshold": 0.75,
+    "derived": false,
+    "flags": [],
+    "reasons": [
+     "no supporting quote"
+    ]
+   }
+  },
+  "issues": []
+ },
+ "calls": [
+  {
+   "model": "claude-haiku-5-5",
+   "seconds": 1.71,
+   "input_tokens": 1461,
+   "output_tokens": 133,
+   "step": "intent"
+  },
+  {
+   "model": "claude-haiku-5-5",
+   "passes": 1,
+   "second_pass_ok": false,
+   "second_pass_intent": null,
+   "input_tokens": 7254,
+   "output_tokens": 1114,
+   "stop_reason": "tool_use",
+   "step": "extract:ari"
+  },
+  {
+   "model": "claude-haiku-5-5",
+   "passes": 1,
+   "second_pass_ok": false,
+   "second_pass_intent": null,
+   "input_tokens": 7245,
+   "output_tokens": 2641,
+   "stop_reason": "tool_use",
+   "step": "extract:promotion"
+  }
+ ],
+ "usd": 0.00354,
+ "seconds": 15.5,
+ "mode": "replay",
+ "model": "claude-haiku-5-5"
+}
