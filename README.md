@@ -13,12 +13,15 @@ Plan: see the "Hotel contract-to-offer agent: build plan" doc in the project.
 - `data/gold/`: hand-labelled expected outputs
 - `data/offers/gold_offers.csv`: offer rows generated from the gold contracts
 - `src/contract_agent/extract.py`: one Claude call, structured output, evidence notes per field
+- `src/contract_agent/intent.py`: step 4 intent detection (multi-label, Haiku, rules baseline, cascade)
+- `src/contract_agent/router.py`: routes each intent to its pipeline (new contract / ARI / promotion / ignore)
 - `src/contract_agent/pipeline.py`: step 3 flow: two passes, normalise, validate, check evidence, score
 - `src/contract_agent/evidence.py`: checks each quote is really in the source and holds the value
 - `src/contract_agent/validators.py`: deterministic business rules (seasons, cancellation, prices...)
 - `src/contract_agent/confidence.py`: combined confidence score, per-field thresholds, cost weights
 - `src/contract_agent/scoring.py`: field-by-field comparison against gold
 - `evals/run_eval.py`: eval runner, saves results to `evals/results/` (`--rescore` re-scores an old run)
+- `evals/run_intent_eval.py`: intent eval on `data/intents/messages.jsonl` (rules vs Haiku vs Opus vs cascade)
 - `evals/calibration.py`: calibration chart and threshold trade-off (`evals/results/calibration.png`)
 - `scripts/`: `make_pdf_contract.py` builds the PDF, `build_gold.py` writes the gold JSON
 - `notes/`: concept notes for interviews
@@ -28,7 +31,8 @@ Plan: see the "Hotel contract-to-offer agent: build plan" doc in the project.
 pip install -r requirements.txt
 cp .env.example .env        # then paste your key after HOTEL_AGENT_API_KEY=
 python -m pytest -q         # offline checks, no key needed
-python evals/run_eval.py    # runs Claude on all inputs and scores against gold
+python evals/run_eval.py    # routes and extracts all inputs, scores against gold (--direct skips the router)
+python evals/run_intent_eval.py --repeats 2   # intent detection eval
 python evals/calibration.py # chart from all saved step 3 runs
 ```
 
@@ -36,3 +40,4 @@ python evals/calibration.py # chart from all saved step 3 runs
 - [x] Step 1: schema, 3 synthetic inputs, gold labels, offer rows
 - [x] Step 2: baseline extractor and eval harness (first run: mean F1 0.675, intent 3/3)
 - [x] Step 3: evidence checks, validators, per-field confidence and calibration (see notes/03)
+- [x] Step 4: intent detection, router (ARI vs promotions), model cascade (see notes/04)

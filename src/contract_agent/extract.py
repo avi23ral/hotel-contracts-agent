@@ -41,7 +41,8 @@ contracts, emails and chats into structured records.
 
 Rules:
 - intent: "new_contract" if the source sets out full terms for a hotel; "amendment" if it \
-changes terms of an existing contract (stop sales, offer changes, rate changes); \
+changes terms of an existing contract (stop sales and re-opens, rate changes, allotment, \
+release or min-stay changes, special offers added, changed or ended); \
 "not_a_contract" otherwise. Fill only contract OR change_set to match.
 - In email threads, the latest agreed terms win. Ignore counter-offers that were not accepted.
 - Use these room codes: Double Standard=DBL, Double Sea View=DSV, Family Room=FAM, \
@@ -72,8 +73,20 @@ Be honest with confidence: use below 0.9 whenever you had to infer, convert or c
 - Return your answer by calling the record_extraction tool exactly once."""
 
 
-def call_model(doc: SourceDoc, model: str = EXTRACT_MODEL) -> tuple[LLMExtraction, dict]:
-    """One extraction pass. Returns the raw model output and token usage."""
+FOCUS = {
+    "ari": "Focus: extract ONLY availability, rate and inventory changes (stop_sale, open_sale, "
+           "rate_change, allotment_change, release_change, min_stay_change). Ignore special offers: "
+           "another step handles them.",
+    "promotion": "Focus: extract ONLY special-offer changes (offer_added, offer_changed, offer_ended). "
+                 "Ignore stop sales, rate changes and other availability changes: another step "
+                 "handles them.",
+}
+
+
+def call_model(doc: SourceDoc, model: str = EXTRACT_MODEL, focus: str | None = None) -> tuple[LLMExtraction, dict]:
+    """One extraction pass. Returns the raw model output and token usage.
+
+    focus narrows an amendment to one router path ("ari" or "promotion")."""
     client = get_client()
     # Strict structured outputs (messages.parse) rejected this schema: "compiled
     # grammar is too large". So we use a non-strict tool call and validate
@@ -82,7 +95,8 @@ def call_model(doc: SourceDoc, model: str = EXTRACT_MODEL) -> tuple[LLMExtractio
         model=model,
         max_tokens=16000,
         system=SYSTEM,
-        messages=[{"role": "user", "content": f"Source channel: {doc.channel}\n\n<source>\n{doc.text}\n</source>"}],
+        messages=[{"role": "user", "content": f"Source channel: {doc.channel}\n\n<source>\n{doc.text}\n</source>"
+                   + (f"\n\n{FOCUS[focus]}" if focus else "")}],
         tools=[{"name": "record_extraction",
                 "description": "Record the structured extraction for this source.",
                 "input_schema": LLMExtraction.model_json_schema()}],

@@ -148,8 +148,11 @@ class Contract(BaseModel):
 
 class Change(BaseModel):
     change_type: Literal[
-        "stop_sale", "rate_change", "offer_added", "offer_changed",
-        "allotment_change", "release_change",
+        # ARI (availability, rates, inventory): most post-contract traffic
+        "stop_sale", "open_sale", "rate_change", "allotment_change", "release_change",
+        "min_stay_change",
+        # promotions: their own versioned layer
+        "offer_added", "offer_changed", "offer_ended",
     ]
     room_codes: list[str] = []          # empty = all rooms
     boards: list[BoardCode] = []        # empty = all boards
@@ -158,6 +161,11 @@ class Change(BaseModel):
     new_price: float | None = None
     offer: SpecialOffer | None = None
     note: str | None = None
+
+
+ARI_CHANGES = {"stop_sale", "open_sale", "rate_change", "allotment_change", "release_change",
+               "min_stay_change"}
+PROMO_CHANGES = {"offer_added", "offer_changed", "offer_ended"}
 
 
 class ChangeSet(BaseModel):

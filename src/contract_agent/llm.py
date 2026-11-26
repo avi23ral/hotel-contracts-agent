@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 # Model choice is a config value so evals can compare models (cost vs quality).
 EXTRACT_MODEL = os.getenv("HOTEL_AGENT_MODEL", "claude-opus-5-5")
-FAST_MODEL = os.getenv("HOTEL_AGENT_FAST_MODEL", "claude-haiku-5-5")  # for intent detection (step 4)
+FAST_MODEL = os.getenv("HOTEL_AGENT_FAST_MODEL", "claude-haiku-5-5")  # intent detection (step 4)
 
 
 def _load_dotenv(path: Path = ROOT / ".env") -> dict[str, str]:

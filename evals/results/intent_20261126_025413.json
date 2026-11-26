@@ -1,0 +1,1310 @@
+[
+  {
+    "repeat": 0,
+    "summary": [
+      {
+        "classifier": "rules",
+        "accuracy": 0.727,
+        "per_label": {
+          "new_contract": {
+            "precision": 0.75,
+            "recall": 1.0
+          },
+          "ari_update": {
+            "precision": 0.75,
+            "recall": 0.75
+          },
+          "promotion": {
+            "precision": 0.89,
+            "recall": 0.8
+          },
+          "not_a_contract": {
+            "precision": 0.69,
+            "recall": 0.64
+          }
+        },
+        "missed_ari": [
+          "i20",
+          "i29",
+          "h06",
+          "h07"
+        ],
+        "errors": [
+          {
+            "id": "i13",
+            "gold": [
+              "ari_update"
+            ],
+            "pred": [
+              "new_contract"
+            ],
+            "note": "supplement change is a rate change"
+          },
+          {
+            "id": "i16",
+            "gold": [
+              "promotion"
+            ],
+            "pred": [
+              "not_a_contract"
+            ],
+            "note": "offer ended"
+          },
+          {
+            "id": "i20",
+            "gold": [
+              "ari_update",
+              "promotion"
+            ],
+            "pred": [
+              "promotion"
+            ],
+            "note": "mixed, informal"
+          },
+          {
+            "id": "i28",
+            "gold": [
+              "not_a_contract"
+            ],
+            "pred": [
+              "ari_update"
+            ],
+            "note": "our counter-offer, nothing agreed yet"
+          },
+          {
+            "id": "i29",
+            "gold": [
+              "ari_update"
+            ],
+            "pred": [
+              "not_a_contract"
+            ],
+            "note": "agreement concludes the negotiation: this is the rate change"
+          },
+          {
+            "id": "h02",
+            "gold": [
+              "not_a_contract"
+            ],
+            "pred": [
+              "promotion"
+            ],
+            "note": "hard: mentions an offer, but it's a question from a third party"
+          },
+          {
+            "id": "h03",
+            "gold": [
+              "not_a_contract"
+            ],
+            "pred": [
+              "ari_update"
+            ],
+            "note": "hard: tentative, nothing to load yet"
+          },
+          {
+            "id": "h05",
+            "gold": [
+              "promotion"
+            ],
+            "pred": [
+              "ari_update"
+            ],
+            "note": "hard: worded as a rate reduction but has a booking window, so it's a promotion"
+          },
+          {
+            "id": "h06",
+            "gold": [
+              "ari_update"
+            ],
+            "pred": [
+              "not_a_contract"
+            ],
+            "note": "hard: worded like a promo but it's a permanent rate change"
+          },
+          {
+            "id": "h07",
+            "gold": [
+              "ari_update"
+            ],
+            "pred": [
+              "not_a_contract"
+            ],
+            "note": "hard: Italian, stop sale sea view rooms"
+          },
+          {
+            "id": "h10",
+            "gold": [
+              "not_a_contract"
+            ],
+            "pred": [
+              "ari_update"
+            ],
+            "note": "hard: 'closed' but a facility, not rooms"
+          },
+          {
+            "id": "h12",
+            "gold": [
+              "not_a_contract"
+            ],
+            "pred": [
+              "ari_update"
+            ],
+            "note": "hard: our own confirmation, nothing new"
+          }
+        ],
+        "escalated": 0,
+        "usd_per_1000_msgs": 0.0,
+        "p50_seconds": 0.0,
+        "confusion": [
+          {
+            "gold": "ari_update",
+            "pred": "ari_update",
+            "n": 13
+          },
+          {
+            "gold": "ari_update",
+            "pred": "new_contract",
+            "n": 1
+          },
+          {
+            "gold": "ari_update",
+            "pred": "not_a_contract",
+            "n": 3
+          },
+          {
+            "gold": "ari_update+promotion",
+            "pred": "ari_update+promotion",
+            "n": 2
+          },
+          {
+            "gold": "ari_update+promotion",
+            "pred": "promotion",
+            "n": 1
+          },
+          {
+            "gold": "new_contract",
+            "pred": "new_contract",
+            "n": 3
+          },
+          {
+            "gold": "not_a_contract",
+            "pred": "ari_update",
+            "n": 4
+          },
+          {
+            "gold": "not_a_contract",
+            "pred": "not_a_contract",
+            "n": 9
+          },
+          {
+            "gold": "not_a_contract",
+            "pred": "promotion",
+            "n": 1
+          },
+          {
+            "gold": "promotion",
+            "pred": "ari_update",
+            "n": 1
+          },
+          {
+            "gold": "promotion",
+            "pred": "not_a_contract",
+            "n": 1
+          },
+          {
+            "gold": "promotion",
+            "pred": "promotion",
+            "n": 5
+          }
+        ]
+      },
+      {
+        "classifier": "small (claude-haiku-5-5)",
+        "accuracy": 0.955,
+        "per_label": {
+          "new_contract": {
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "ari_update": {
+            "precision": 0.95,
+            "recall": 0.95
+          },
+          "promotion": {
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "not_a_contract": {
+            "precision": 0.93,
+            "recall": 0.93
+          }
+        },
+        "missed_ari": [
+          "h11"
+        ],
+        "errors": [
+          {
+            "id": "h11",
+            "gold": [
+              "ari_update"
+            ],
+            "pred": [
+              "not_a_contract"
+            ],
+            "note": "hard: out-of-office that carries a real stop sale"
+          },
+          {
+            "id": "h12",
+            "gold": [
+              "not_a_contract"
+            ],
+            "pred": [
+              "ari_update"
+            ],
+            "note": "hard: our own confirmation, nothing new"
+          }
+        ],
+        "escalated": 0,
+        "usd_per_1000_msgs": 0.154,
+        "p50_seconds": 1.37,
+        "confusion": [
+          {
+            "gold": "ari_update",
+            "pred": "ari_update",
+            "n": 16
+          },
+          {
+            "gold": "ari_update",
+            "pred": "not_a_contract",
+            "n": 1
+          },
+          {
+            "gold": "ari_update+promotion",
+            "pred": "ari_update+promotion",
+            "n": 3
+          },
+          {
+            "gold": "new_contract",
+            "pred": "new_contract",
+            "n": 3
+          },
+          {
+            "gold": "not_a_contract",
+            "pred": "ari_update",
+            "n": 1
+          },
+          {
+            "gold": "not_a_contract",
+            "pred": "not_a_contract",
+            "n": 13
+          },
+          {
+            "gold": "promotion",
+            "pred": "promotion",
+            "n": 7
+          }
+        ]
+      },
+      {
+        "classifier": "big (claude-opus-5-5)",
+        "accuracy": 1.0,
+        "per_label": {
+          "new_contract": {
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "ari_update": {
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "promotion": {
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "not_a_contract": {
+            "precision": 1.0,
+            "recall": 1.0
+          }
+        },
+        "missed_ari": [],
+        "errors": [],
+        "escalated": 0,
+        "usd_per_1000_msgs": 5.884,
+        "p50_seconds": 1.9,
+        "confusion": [
+          {
+            "gold": "ari_update",
+            "pred": "ari_update",
+            "n": 17
+          },
+          {
+            "gold": "ari_update+promotion",
+            "pred": "ari_update+promotion",
+            "n": 3
+          },
+          {
+            "gold": "new_contract",
+            "pred": "new_contract",
+            "n": 3
+          },
+          {
+            "gold": "not_a_contract",
+            "pred": "not_a_contract",
+            "n": 14
+          },
+          {
+            "gold": "promotion",
+            "pred": "promotion",
+            "n": 7
+          }
+        ]
+      },
+      {
+        "classifier": "cascade (small, then big if unsure)",
+        "accuracy": 0.977,
+        "per_label": {
+          "new_contract": {
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "ari_update": {
+            "precision": 0.95,
+            "recall": 1.0
+          },
+          "promotion": {
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "not_a_contract": {
+            "precision": 1.0,
+            "recall": 0.93
+          }
+        },
+        "missed_ari": [],
+        "errors": [
+          {
+            "id": "h12",
+            "gold": [
+              "not_a_contract"
+            ],
+            "pred": [
+              "ari_update"
+            ],
+            "note": "hard: our own confirmation, nothing new"
+          }
+        ],
+        "escalated": 2,
+        "usd_per_1000_msgs": 0.42,
+        "p50_seconds": 1.38,
+        "confusion": [
+          {
+            "gold": "ari_update",
+            "pred": "ari_update",
+            "n": 17
+          },
+          {
+            "gold": "ari_update+promotion",
+            "pred": "ari_update+promotion",
+            "n": 3
+          },
+          {
+            "gold": "new_contract",
+            "pred": "new_contract",
+            "n": 3
+          },
+          {
+            "gold": "not_a_contract",
+            "pred": "ari_update",
+            "n": 1
+          },
+          {
+            "gold": "not_a_contract",
+            "pred": "not_a_contract",
+            "n": 13
+          },
+          {
+            "gold": "promotion",
+            "pred": "promotion",
+            "n": 7
+          }
+        ]
+      }
+    ],
+    "confidences": {
+      "i01": {
+        "small": 0.97,
+        "big": 0.95,
+        "small_reasoning": "The hotel has sent a full signed accommodation agreement for summer 2027 with room types, seasons, rates, child policies, allocation, cancellation terms and an early booking offer. This is full new contract terms, so new_contract only."
+      },
+      "i02": {
+        "small": 0.9,
+        "big": 0.93,
+        "small_reasoning": "The hotel's sales manager confirms agreed terms after negotiation: Season B rates of 84 and 112 HB, other prices as in the original proposal, and a 10-day release, and asks for the signed contract. This is a full set of new commercial terms for the hotel's summer 2027 season, so it is a new contract only."
+      },
+      "i03": {
+        "small": 0.93,
+        "big": 0.95,
+        "small_reasoning": "Marta from the hotel asks to close sea view rooms for 10-17 August (stop sale, ari_update), extends the early booking 10% promotion to 28 Feb, and adds a new 15% October half-board promotion. Both the stop sale and the promotions are hotel-stated terms, so the message carries ari_update and promotion."
+      },
+      "i04": {
+        "small": 0.93,
+        "big": 0.97,
+        "small_reasoning": "The hotel states it is increasing the Double Room HB rate by EUR 6 per night for arrivals from 1 July 2027, with other rates unchanged. This is a rate change under an existing contract, so it is an ARI update."
+      },
+      "i05": {
+        "small": 0.95,
+        "big": 0.97,
+        "small_reasoning": "The hotel (Ana) asks us to stop selling all rooms for 3-6 June, which is a stop sale under an existing contract, an availability change. Tom's reply is an acknowledgement from the operator, not a new label source."
+      },
+      "i06": {
+        "small": 0.95,
+        "big": 0.97,
+        "small_reasoning": "The hotel asks to close Junior Suites for specific arrival dates while Standards stay open. That is a stop sale, which is an availability change under an existing contract, so it is ari_update."
+      },
+      "i07": {
+        "small": 0.95,
+        "big": 0.96,
+        "small_reasoning": "The hotel tells us the group cancelled and that the Junior Suites can be reopened for sale for 14/08 to 21/08. That reverses an earlier stop sale, which is an availability change under an existing contract."
+      },
+      "i08": {
+        "small": 0.93,
+        "big": 0.97,
+        "small_reasoning": "The hotel states it will reduce the Sea View allotment from 6 to 4 per night from 1 September and change release periods to 21 days for September and October. These are allotment and release changes under an existing arrangement, so they fall under ari_update."
+      },
+      "i09": {
+        "small": 0.9,
+        "big": 0.95,
+        "small_reasoning": "The hotel contact states a change to minimum-stay rules for High season Saturday arrivals under an existing arrangement, which is an ARI change (minimum-stay change). It is not full new terms or a promotion."
+      },
+      "i10": {
+        "small": 0.9,
+        "big": 0.95,
+        "small_reasoning": "The hotel is correcting a rate for an existing contract's Family Room BB in mid season from 158 to 185. This is a rate correction under an existing contract, so it is an ARI update."
+      },
+      "i11": {
+        "small": 0.93,
+        "big": 0.97,
+        "small_reasoning": "The hotel asks us to close sales for 28 Dec to 2 Jan because it is fully booked. That is a stop sale under an existing arrangement, which falls under ari_update."
+      },
+      "i12": {
+        "small": 0.92,
+        "big": 0.95,
+        "small_reasoning": "The hotel (Irene) states that Hotel Olivia moves from allotment to free sale starting next Monday at the same rates. This is an availability/inventory change under an existing arrangement, matching ari_update's explicit mention of moving between allotment and free sale."
+      },
+      "i13": {
+        "small": 0.9,
+        "big": 0.95,
+        "small_reasoning": "The hotel (Kostas, Aegean Breeze) states that the all-inclusive supplement increases to 28 per person from May, with everything else unchanged, which is a rate/supplement change under an existing contract. It is not full new terms and not a promotion."
+      },
+      "i14": {
+        "small": 0.93,
+        "big": 0.97,
+        "small_reasoning": "The hotel is offering a 20% discount on all room types for 1-15 May 2027 with a booking window until 25 April, which is a special offer, so it is a promotion. It is not a new contract or an availability/rate change."
+      },
+      "i15": {
+        "small": 0.9,
+        "big": 0.95,
+        "small_reasoning": "The hotel is stating a special offer (stay 14 pay 12 nights) valid for new bookings in shoulder season, which is a promotion. It contains no full contract terms, availability changes, or rate corrections."
+      },
+      "i16": {
+        "small": 0.93,
+        "big": 0.95,
+        "small_reasoning": "The hotel says its 20% last-minute offer is finished and asks for it to be removed from tomorrow, so this is a promotion ending. The operator's reply only acknowledges it, so there is no new label for that."
+      },
+      "i17": {
+        "small": 0.95,
+        "big": 0.97,
+        "small_reasoning": "The hotel is extending an existing early booking discount of 12% until 15 March on the same terms, which is a promotion change. It is not new contract terms or an availability/rate update."
+      },
+      "i18": {
+        "small": 0.93,
+        "big": 0.95,
+        "small_reasoning": "The hotel is offering a kids-stay-free deal for June stays with a booking deadline, which is a special offer being added. It is a promotion, not full new contract terms or an availability change."
+      },
+      "i19": {
+        "small": 0.95,
+        "big": 0.97,
+        "small_reasoning": "The hotel asks to stop sale on Double Sea View for 20-24 July, which is an inventory change under an existing contract, and announces a 10% discount for 7+ nights in October, which is a promotion. Both intents are stated by the hotel."
+      },
+      "i20": {
+        "small": 0.9,
+        "big": 0.93,
+        "small_reasoning": "The hotel contact Nikos states a rate reduction of 10 euros on all rooms for September, which is an ARI rate change under an existing arrangement, and also adds a honeymoon offer with a free bottle and 5% discount, which is a promotion. Both intents are present, so both labels apply."
+      },
+      "i21": {
+        "small": 0.95,
+        "big": 0.96,
+        "small_reasoning": "The hotel sends full commercial terms for winter 2027/28 including room types, seasonal rates, child policy and cancellation policy, asking for signature. This is a complete new contract with no other intents present."
+      },
+      "i22": {
+        "small": 0.97,
+        "big": 0.98,
+        "small_reasoning": "The hotel is sending an invoice for August stays with a payment due date. This is billing admin with no contract terms, rate changes, or promotions, so it is not a contract."
+      },
+      "i23": {
+        "small": 0.95,
+        "big": 0.97,
+        "small_reasoning": "The hotel is announcing a new spa facility with no commercial terms, rates, availability changes, or promotions. This is marketing only, so it is not a contract."
+      },
+      "i24": {
+        "small": 0.97,
+        "big": 0.98,
+        "small_reasoning": "The hotel is asking the operator to confirm guest names for an existing booking ahead of check-in. This is booking admin with no contract terms, rate changes, or promotions."
+      },
+      "i25": {
+        "small": 0.97,
+        "big": 0.98,
+        "small_reasoning": "This is an out-of-office automatic reply with no commercial terms, rate changes, or promotions. It is not a contract or an intent to change availability."
+      },
+      "i26": {
+        "small": 0.95,
+        "big": 0.96,
+        "small_reasoning": "The hotel is reporting a guest complaint about bar noise and a room move for booking SB-75510. This is booking admin and a complaint, with no contract terms, rate changes, or promotions."
+      },
+      "i27": {
+        "small": 0.93,
+        "big": 0.97,
+        "small_reasoning": "The sender is the tour operator (SunnyBreaks Contracting) asking the hotel to send a 2028 proposal. Nothing has been stated or agreed by the hotel, so it is only our own request."
+      },
+      "i28": {
+        "small": 0.9,
+        "big": 0.93,
+        "small_reasoning": "The sender is the operator (Tom) countering a proposed rate increase with +3 EUR instead of +6, and nothing has been agreed yet. Per the rules, a counter-offer nobody has agreed to is not_a_contract, and it is the operator's own request."
+      },
+      "i29": {
+        "small": 0.85,
+        "big": 0.9,
+        "small_reasoning": "The hotel (Nikos, Villa Thalassa) states an agreed change of +3 from 1 July on the Double half board rate, which is a rate change under an existing contract, so it is an ARI update. It is not full new terms, so new_contract does not apply."
+      },
+      "i30": {
+        "small": 0.93,
+        "big": 0.93,
+        "small_reasoning": "The hotel is announcing a time-limited percentage discount on stays for a set booking window, which is a promotion being added. It does not supply full contract terms or an availability/rate change under an existing contract."
+      },
+      "i31": {
+        "small": 0.9,
+        "big": 0.95,
+        "small_reasoning": "The hotel states it will be closed 1-20 November for renovation, with no arrivals or stays possible. That is a closure under an existing contract, which falls under ari_update."
+      },
+      "i32": {
+        "small": 0.9,
+        "big": 0.93,
+        "small_reasoning": "The hotel forwards a wine supplier price list about house red bottle prices from 1 March. This is F&B pricing with no room rates, availability, contract terms, or promotions under our contract, so it is not a contract-related intent."
+      },
+      "h01": {
+        "small": 0.93,
+        "big": 0.85,
+        "small_reasoning": "The hotel retracts its earlier stop sale request and states all rooms are open again, which is a change to availability under an existing contract (re-opening sales). This is an ari_update, not a new contract or promotion."
+      },
+      "h02": {
+        "small": 0.8,
+        "big": 0.93,
+        "small_reasoning": "The sender, a travel agent, is asking whether an existing 10% early booking discount applies to their booking. This is a booking query, not a hotel stating or agreeing new terms, promotion changes, or ARI updates, so it is not a contract or offer change."
+      },
+      "h03": {
+        "small": 0.8,
+        "big": 0.72,
+        "small_reasoning": "The hotel says it will probably close in November for works, but the decision is pending next week and nothing is confirmed. Since no closure is agreed or stated as fact, this is not an ARI update yet, so it falls under not_a_contract."
+      },
+      "h04": {
+        "small": 0.85,
+        "big": 0.85,
+        "small_reasoning": "The hotel is complaining that the operator's site sells a Double Room cheaper than the hotel's own website in August and asks for a check. No rates, stop sales, or agreed changes are stated, so nothing in the message is a commercial term or availability change the hotel has agreed to."
+      },
+      "h05": {
+        "small": 0.9,
+        "big": 0.88,
+        "small_reasoning": "The hotel is announcing a time-limited 15% discount on May stays for bookings made until Sunday, which is a special offer being added. It is a promotion, not new contract terms or an availability/rate change under an existing contract."
+      },
+      "h06": {
+        "small": 0.85,
+        "big": 0.85,
+        "small_reasoning": "The hotel states a permanent rate change for an existing room type (Junior Suite HB from 230 to 210 from 1 June). That is a rate change under an existing contract, so it is an ARI update, not full new terms or a promotion since it is described as permanent rather than an offer."
+      },
+      "h07": {
+        "small": 0.93,
+        "big": 0.95,
+        "small_reasoning": "The hotel (Giulia, Hotel Riviera Blu) asks the operator to close sales for sea-view rooms for 10-12 July, which is a stop sale under an existing arrangement. That is an availability change, so it is an ari_update."
+      },
+      "h08": {
+        "small": 0.85,
+        "big": 0.88,
+        "small_reasoning": "The hotel contact Kostas states that the release period is now 7 days, approved by management. That is a change to allotment release terms under an existing contract, so it is an ari_update. The rest is chit-chat."
+      },
+      "h09": {
+        "small": 0.9,
+        "big": 0.95,
+        "small_reasoning": "The message is an invoice transmission with a footer promotional line. The invoice itself is not a contract, and the footer 'book direct and save 10%' is boilerplate marketing rather than a specific promotion being added or changed under our contract, so it is not_a_contract."
+      },
+      "h10": {
+        "small": 0.6,
+        "big": 0.85,
+        "small_reasoning": "The hotel states its kids club will be closed during October, which is a facility closure rather than availability, rate, or inventory under a contract, and no offer or full terms are present. Closures of facilities are not listed as ari_update or promotion, so this falls under not_a_contract."
+      },
+      "h11": {
+        "small": 0.6,
+        "big": 0.85,
+        "small_reasoning": "The message is an out-of-office auto-reply, which is not a contract. It does mention a stop sale on rooms for 1-3 August, but that is incidental within an automatic reply, not a clear commercial instruction from the hotel meant as a contracting update. Classifying as not_a_contract, though the stop sale mention creates some ambiguity."
+      },
+      "h12": {
+        "small": 0.9,
+        "big": 0.8,
+        "small_reasoning": "The hotel-side sender (Tom Hughes, SunnyBreaks Contracting) confirms that a stop sale for 3-6 June has been loaded. This is a change to availability under an existing arrangement, so it is an ARI update."
+      }
+    }
+  },
+  {
+    "repeat": 1,
+    "summary": [
+      {
+        "classifier": "rules",
+        "accuracy": 0.727,
+        "per_label": {
+          "new_contract": {
+            "precision": 0.75,
+            "recall": 1.0
+          },
+          "ari_update": {
+            "precision": 0.75,
+            "recall": 0.75
+          },
+          "promotion": {
+            "precision": 0.89,
+            "recall": 0.8
+          },
+          "not_a_contract": {
+            "precision": 0.69,
+            "recall": 0.64
+          }
+        },
+        "missed_ari": [
+          "i20",
+          "i29",
+          "h06",
+          "h07"
+        ],
+        "errors": [
+          {
+            "id": "i13",
+            "gold": [
+              "ari_update"
+            ],
+            "pred": [
+              "new_contract"
+            ],
+            "note": "supplement change is a rate change"
+          },
+          {
+            "id": "i16",
+            "gold": [
+              "promotion"
+            ],
+            "pred": [
+              "not_a_contract"
+            ],
+            "note": "offer ended"
+          },
+          {
+            "id": "i20",
+            "gold": [
+              "ari_update",
+              "promotion"
+            ],
+            "pred": [
+              "promotion"
+            ],
+            "note": "mixed, informal"
+          },
+          {
+            "id": "i28",
+            "gold": [
+              "not_a_contract"
+            ],
+            "pred": [
+              "ari_update"
+            ],
+            "note": "our counter-offer, nothing agreed yet"
+          },
+          {
+            "id": "i29",
+            "gold": [
+              "ari_update"
+            ],
+            "pred": [
+              "not_a_contract"
+            ],
+            "note": "agreement concludes the negotiation: this is the rate change"
+          },
+          {
+            "id": "h02",
+            "gold": [
+              "not_a_contract"
+            ],
+            "pred": [
+              "promotion"
+            ],
+            "note": "hard: mentions an offer, but it's a question from a third party"
+          },
+          {
+            "id": "h03",
+            "gold": [
+              "not_a_contract"
+            ],
+            "pred": [
+              "ari_update"
+            ],
+            "note": "hard: tentative, nothing to load yet"
+          },
+          {
+            "id": "h05",
+            "gold": [
+              "promotion"
+            ],
+            "pred": [
+              "ari_update"
+            ],
+            "note": "hard: worded as a rate reduction but has a booking window, so it's a promotion"
+          },
+          {
+            "id": "h06",
+            "gold": [
+              "ari_update"
+            ],
+            "pred": [
+              "not_a_contract"
+            ],
+            "note": "hard: worded like a promo but it's a permanent rate change"
+          },
+          {
+            "id": "h07",
+            "gold": [
+              "ari_update"
+            ],
+            "pred": [
+              "not_a_contract"
+            ],
+            "note": "hard: Italian, stop sale sea view rooms"
+          },
+          {
+            "id": "h10",
+            "gold": [
+              "not_a_contract"
+            ],
+            "pred": [
+              "ari_update"
+            ],
+            "note": "hard: 'closed' but a facility, not rooms"
+          },
+          {
+            "id": "h12",
+            "gold": [
+              "not_a_contract"
+            ],
+            "pred": [
+              "ari_update"
+            ],
+            "note": "hard: our own confirmation, nothing new"
+          }
+        ],
+        "escalated": 0,
+        "usd_per_1000_msgs": 0.0,
+        "p50_seconds": 0.0,
+        "confusion": [
+          {
+            "gold": "ari_update",
+            "pred": "ari_update",
+            "n": 13
+          },
+          {
+            "gold": "ari_update",
+            "pred": "new_contract",
+            "n": 1
+          },
+          {
+            "gold": "ari_update",
+            "pred": "not_a_contract",
+            "n": 3
+          },
+          {
+            "gold": "ari_update+promotion",
+            "pred": "ari_update+promotion",
+            "n": 2
+          },
+          {
+            "gold": "ari_update+promotion",
+            "pred": "promotion",
+            "n": 1
+          },
+          {
+            "gold": "new_contract",
+            "pred": "new_contract",
+            "n": 3
+          },
+          {
+            "gold": "not_a_contract",
+            "pred": "ari_update",
+            "n": 4
+          },
+          {
+            "gold": "not_a_contract",
+            "pred": "not_a_contract",
+            "n": 9
+          },
+          {
+            "gold": "not_a_contract",
+            "pred": "promotion",
+            "n": 1
+          },
+          {
+            "gold": "promotion",
+            "pred": "ari_update",
+            "n": 1
+          },
+          {
+            "gold": "promotion",
+            "pred": "not_a_contract",
+            "n": 1
+          },
+          {
+            "gold": "promotion",
+            "pred": "promotion",
+            "n": 5
+          }
+        ]
+      },
+      {
+        "classifier": "small (claude-haiku-5-5)",
+        "accuracy": 0.955,
+        "per_label": {
+          "new_contract": {
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "ari_update": {
+            "precision": 0.95,
+            "recall": 0.95
+          },
+          "promotion": {
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "not_a_contract": {
+            "precision": 0.93,
+            "recall": 0.93
+          }
+        },
+        "missed_ari": [
+          "h11"
+        ],
+        "errors": [
+          {
+            "id": "h11",
+            "gold": [
+              "ari_update"
+            ],
+            "pred": [
+              "not_a_contract"
+            ],
+            "note": "hard: out-of-office that carries a real stop sale"
+          },
+          {
+            "id": "h12",
+            "gold": [
+              "not_a_contract"
+            ],
+            "pred": [
+              "ari_update"
+            ],
+            "note": "hard: our own confirmation, nothing new"
+          }
+        ],
+        "escalated": 0,
+        "usd_per_1000_msgs": 0.154,
+        "p50_seconds": 1.38,
+        "confusion": [
+          {
+            "gold": "ari_update",
+            "pred": "ari_update",
+            "n": 16
+          },
+          {
+            "gold": "ari_update",
+            "pred": "not_a_contract",
+            "n": 1
+          },
+          {
+            "gold": "ari_update+promotion",
+            "pred": "ari_update+promotion",
+            "n": 3
+          },
+          {
+            "gold": "new_contract",
+            "pred": "new_contract",
+            "n": 3
+          },
+          {
+            "gold": "not_a_contract",
+            "pred": "ari_update",
+            "n": 1
+          },
+          {
+            "gold": "not_a_contract",
+            "pred": "not_a_contract",
+            "n": 13
+          },
+          {
+            "gold": "promotion",
+            "pred": "promotion",
+            "n": 7
+          }
+        ]
+      },
+      {
+        "classifier": "big (claude-opus-5-5)",
+        "accuracy": 1.0,
+        "per_label": {
+          "new_contract": {
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "ari_update": {
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "promotion": {
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "not_a_contract": {
+            "precision": 1.0,
+            "recall": 1.0
+          }
+        },
+        "missed_ari": [],
+        "errors": [],
+        "escalated": 0,
+        "usd_per_1000_msgs": 5.933,
+        "p50_seconds": 1.9,
+        "confusion": [
+          {
+            "gold": "ari_update",
+            "pred": "ari_update",
+            "n": 17
+          },
+          {
+            "gold": "ari_update+promotion",
+            "pred": "ari_update+promotion",
+            "n": 3
+          },
+          {
+            "gold": "new_contract",
+            "pred": "new_contract",
+            "n": 3
+          },
+          {
+            "gold": "not_a_contract",
+            "pred": "not_a_contract",
+            "n": 14
+          },
+          {
+            "gold": "promotion",
+            "pred": "promotion",
+            "n": 7
+          }
+        ]
+      },
+      {
+        "classifier": "cascade (small, then big if unsure)",
+        "accuracy": 0.977,
+        "per_label": {
+          "new_contract": {
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "ari_update": {
+            "precision": 0.95,
+            "recall": 1.0
+          },
+          "promotion": {
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "not_a_contract": {
+            "precision": 1.0,
+            "recall": 0.93
+          }
+        },
+        "missed_ari": [],
+        "errors": [
+          {
+            "id": "h12",
+            "gold": [
+              "not_a_contract"
+            ],
+            "pred": [
+              "ari_update"
+            ],
+            "note": "hard: our own confirmation, nothing new"
+          }
+        ],
+        "escalated": 1,
+        "usd_per_1000_msgs": 0.299,
+        "p50_seconds": 1.39,
+        "confusion": [
+          {
+            "gold": "ari_update",
+            "pred": "ari_update",
+            "n": 17
+          },
+          {
+            "gold": "ari_update+promotion",
+            "pred": "ari_update+promotion",
+            "n": 3
+          },
+          {
+            "gold": "new_contract",
+            "pred": "new_contract",
+            "n": 3
+          },
+          {
+            "gold": "not_a_contract",
+            "pred": "ari_update",
+            "n": 1
+          },
+          {
+            "gold": "not_a_contract",
+            "pred": "not_a_contract",
+            "n": 13
+          },
+          {
+            "gold": "promotion",
+            "pred": "promotion",
+            "n": 7
+          }
+        ]
+      }
+    ],
+    "confidences": {
+      "i01": {
+        "small": 0.95,
+        "big": 0.96,
+        "small_reasoning": "The hotel has sent a full signed accommodation agreement for summer 2027 with room types, seasons, rates, child pricing, allocation, cancellation policy, and an early booking offer. This is full new commercial terms, so new_contract only; the early booking offer is part of the contract and the rule says label new_contract only when full new terms are present."
+      },
+      "i02": {
+        "small": 0.9,
+        "big": 0.93,
+        "small_reasoning": "The hotel (Eleni Papadaki, Aegean Breeze) confirms agreed terms after a negotiation thread: Season B rates of 84 and 112 HB, other prices as in the first mail, and release reduced to 10 days, with a request for the signed contract. This is full commercial terms for a hotel and season, so it is a new contract."
+      },
+      "i03": {
+        "small": 0.93,
+        "big": 0.95,
+        "small_reasoning": "The hotel (Marta Ferrer, Sol de Marina) asks to close sales for sea view rooms 10-17 August, which is an ari_update stop sale. She also states the early booking 10% promotion is extended to 28 Feb, and a new October 15% half board promotion is added, which are promotions."
+      },
+      "i04": {
+        "small": 0.93,
+        "big": 0.97,
+        "small_reasoning": "The hotel states it will increase the Double Room HB rate by EUR 6 per night for arrivals from 1 July 2027, with other rates unchanged. This is a rate change under an existing contract, so it is an ARI update and not a new contract or promotion."
+      },
+      "i05": {
+        "small": 0.95,
+        "big": 0.97,
+        "small_reasoning": "The hotel (Ana) asks us to stop selling all rooms for 3-6 June, which is a stop sale under an existing contract, an availability change. Tom's reply is an acknowledgement of that same change, so it adds no new intent."
+      },
+      "i06": {
+        "small": 0.95,
+        "big": 0.97,
+        "small_reasoning": "The hotel asks us to close Junior Suites for specific arrival dates while Standard rooms stay open. That is a stop sale, which is an availability change under an existing contract, so it falls under ari_update."
+      },
+      "i07": {
+        "small": 0.95,
+        "big": 0.95,
+        "small_reasoning": "The hotel says the group cancelled and the Junior Suites can be reopened for sale for 14/08 to 21/08. This reverses an earlier stop sale, so it is an availability change under an existing contract."
+      },
+      "i08": {
+        "small": 0.93,
+        "big": 0.97,
+        "small_reasoning": "The hotel states it will reduce the Sea View room allotment from 6 to 4 per night from 1 September and change release periods to 21 days for September and October. These are changes to inventory and release terms under an existing contract, so this is an ARI update, not new full terms or a promotion."
+      },
+      "i09": {
+        "small": 0.93,
+        "big": 0.95,
+        "small_reasoning": "The hotel contact states a change to minimum-stay rules under the existing contract for High season, applying to Saturday arrivals. That is a minimum-stay change, which is an ARI update."
+      },
+      "i10": {
+        "small": 0.93,
+        "big": 0.95,
+        "small_reasoning": "The hotel is correcting a rate for an existing contract: the Family Room BB Mid season rate should be 185 instead of 158. This is a rate correction under an existing contract, so it is an ari_update."
+      },
+      "i11": {
+        "small": 0.9,
+        "big": 0.97,
+        "small_reasoning": "The hotel asks us to close sales for 28 Dec to 2 Jan because it is fully booked. That is a stop sale, an availability change under an existing arrangement, so ari_update."
+      },
+      "i12": {
+        "small": 0.93,
+        "big": 0.95,
+        "small_reasoning": "The hotel (Irene) states that Hotel Olivia moves from allotment to free sale from next Monday with rates unchanged. This is a change to inventory under an existing arrangement, matching the ari_update definition of moving between allotment and free sale."
+      },
+      "i13": {
+        "small": 0.9,
+        "big": 0.95,
+        "small_reasoning": "The hotel (Kostas, Aegean Breeze) states that the all-inclusive supplement rises to 28 per person from May, with other terms unchanged. This is a supplement change under an existing contract, which is an ARI update, not a new contract or a promotion."
+      },
+      "i14": {
+        "small": 0.93,
+        "big": 0.97,
+        "small_reasoning": "The hotel is announcing a time-limited percentage discount on rooms for specific May 2027 arrivals, which is a promotion. It is not full new contract terms or an availability/rate change under an existing contract."
+      },
+      "i15": {
+        "small": 0.9,
+        "big": 0.95,
+        "small_reasoning": "The hotel is announcing a stay-14-pay-12 offer for shoulder season on new bookings. That is a special offer with a stated discount structure, so it fits promotion only."
+      },
+      "i16": {
+        "small": 0.9,
+        "big": 0.95,
+        "small_reasoning": "The hotel says its 20% last-minute offer is finished and asks for it to be removed from tomorrow, so a special offer is being ended. That is a promotion change; the operator's 'ok will do' reply is not a new commercial term."
+      },
+      "i17": {
+        "small": 0.93,
+        "big": 0.97,
+        "small_reasoning": "The hotel is extending an existing early booking discount of 12% until 15 March on the same terms. This is a promotion change (extension of an early booking offer)."
+      },
+      "i18": {
+        "small": 0.93,
+        "big": 0.95,
+        "small_reasoning": "The hotel is offering a kids-stay-free deal for June stays with a booking deadline, which is a special offer being added. It is not full new contract terms, nor an availability or rate change."
+      },
+      "i19": {
+        "small": 0.95,
+        "big": 0.97,
+        "small_reasoning": "The hotel asks us to stop sale on Double Sea View 20-24 July, which is an ari_update, and announces a new 10% discount for 7+ nights in October booked by 31 August, which is a promotion. Both are stated by the hotel, so both labels apply."
+      },
+      "i20": {
+        "small": 0.9,
+        "big": 0.93,
+        "small_reasoning": "The hotel (Nikos, Villa Thalassa) states a rate reduction of 10 euros on all rooms for September, which is an ARI rate change under an existing contract. They also add a new honeymoon promotion with a free bottle and 5% off for couples."
+      },
+      "i21": {
+        "small": 0.95,
+        "big": 0.95,
+        "small_reasoning": "The hotel sends full commercial terms for winter 2027/28 including room types, seasonal rates, child policy and cancellation policy, asking for signature. This is a complete new contract with no other intents."
+      },
+      "i22": {
+        "small": 0.97,
+        "big": 0.98,
+        "small_reasoning": "The hotel's accounts team is sending an invoice for August stays with a payment deadline. This is billing administration, with no availability, rate, promotion or contract terms stated or agreed."
+      },
+      "i23": {
+        "small": 0.95,
+        "big": 0.97,
+        "small_reasoning": "The hotel is announcing a new spa and wellness centre as marketing. It contains no rates, seasons, stop sales, availability changes or promotional offers, so it is not a contract."
+      },
+      "i24": {
+        "small": 0.95,
+        "big": 0.97,
+        "small_reasoning": "The hotel is asking the operator to confirm guest names for an existing booking, which is booking admin with no contract terms, rates, availability changes, or promotions. This falls under not_a_contract."
+      },
+      "i25": {
+        "small": 0.97,
+        "big": 0.98,
+        "small_reasoning": "This is an out-of-office auto-reply with no commercial terms, rate changes, or promotions stated or agreed. It carries no contract intent, so it falls under not_a_contract."
+      },
+      "i26": {
+        "small": 0.95,
+        "big": 0.95,
+        "small_reasoning": "The hotel is reporting a guest complaint about noise and a room move at no extra cost. No contract terms, rates, availability changes, or promotions are stated or agreed, so it is booking admin/complaint handling."
+      },
+      "i27": {
+        "small": 0.95,
+        "big": 0.97,
+        "small_reasoning": "The sender is the tour operator (SunnyBreaks Contracting) asking the hotel to send a 2028 proposal. Nothing has been stated or agreed by the hotel, so it is only our own request."
+      },
+      "i28": {
+        "small": 0.9,
+        "big": 0.93,
+        "small_reasoning": "The sender is the tour operator (Tom) countering a proposed rate increase with +3 EUR; nothing has been agreed yet, and it is not from the hotel. Per the rules, our own counter-offers with nothing agreed are not_a_contract."
+      },
+      "i29": {
+        "small": 0.85,
+        "big": 0.9,
+        "small_reasoning": "The hotel (Nikos, Villa Thalassa) states agreement to a +3 change on the Double HB rate from 1 July, which is a rate change under an existing contract, so it is an ARI update. It is not full new commercial terms, and it is not a promotion."
+      },
+      "i30": {
+        "small": 0.92,
+        "big": 0.95,
+        "small_reasoning": "The hotel is announcing a time-limited 25% discount on stays in a set window for bookings made in a specific period, which is a promotion being added. It does not include full contract terms or availability/rate changes to an existing contract."
+      },
+      "i31": {
+        "small": 0.9,
+        "big": 0.95,
+        "small_reasoning": "The hotel states it will be closed 1-20 November with no arrivals or stays possible. That is a closure under an existing contract, which falls under ari_update."
+      },
+      "i32": {
+        "small": 0.9,
+        "big": 0.93,
+        "small_reasoning": "The hotel forwards a wine supplier price list with house red at EUR 14 per bottle. This is food and beverage pricing, not room availability, rates, promotions, or contract terms, so none of the contract intents apply."
+      },
+      "h01": {
+        "small": 0.93,
+        "big": 0.85,
+        "small_reasoning": "The hotel is retracting its earlier stop sale and stating that all rooms are open again, which reopens inventory under an existing contract. That is an availability change, so it is an ari_update."
+      },
+      "h02": {
+        "small": 0.8,
+        "big": 0.93,
+        "small_reasoning": "The sender, a travel agent, is asking whether an existing 10% early booking promotion still applies to a specific booking. No new terms, availability changes, or offer being added, changed, or ended by the hotel are stated, so it is a booking admin query rather than a promotion or ARI update."
+      },
+      "h03": {
+        "small": 0.8,
+        "big": 0.7,
+        "small_reasoning": "The hotel says they will probably close in November for works, but the decision is pending and not yet confirmed. Nothing is agreed or stated as a firm change, so no closure label applies; this is not an actionable ARI update or contract."
+      },
+      "h04": {
+        "small": 0.85,
+        "big": 0.85,
+        "small_reasoning": "The hotel is complaining that the operator's site sells its Double Room cheaper than the hotel's own website for August and asks for a check. No rate, stop sale, or promotion has been stated or agreed by the hotel, so none of the commercial labels apply."
+      },
+      "h05": {
+        "small": 0.9,
+        "big": 0.85,
+        "small_reasoning": "The hotel announces a time-limited 15% discount on May stays for bookings made this week, which is a special offer being added. It is a promotion, not new contract terms or an availability/rate change under an existing contract."
+      },
+      "h06": {
+        "small": 0.85,
+        "big": 0.85,
+        "small_reasoning": "The hotel states a permanent rate change for the Junior Suite half-board rate from 1 June, dropping it from 230 to 210 on all bookings. That is a rate change under an existing contract, so it is an ari_update, not a new contract or a promotion since it is permanent rather than a time-limited offer."
+      },
+      "h07": {
+        "small": 0.95,
+        "big": 0.95,
+        "small_reasoning": "The hotel contact (Giulia) asks the operator to close sales for sea-view rooms for 10-12 July, which is a stop sale, an availability change under an existing contract. Nothing else is present."
+      },
+      "h08": {
+        "small": 0.85,
+        "big": 0.85,
+        "small_reasoning": "The hotel contact Kostas states that the release period is now 7 days, approved by management, which is a change to allotment release terms under an existing contract. The rest is social chatter, so this is an ari_update."
+      },
+      "h09": {
+        "small": 0.85,
+        "big": 0.95,
+        "small_reasoning": "The message is an invoice transmission with an attached amount, plus a footer marketing line about a direct-booking discount. The invoice is booking admin, not a contract, and the footer is not a formal promotion offered as commercial terms to the operator, so it is not_a_contract."
+      },
+      "h10": {
+        "small": 0.7,
+        "big": 0.85,
+        "small_reasoning": "The hotel states its kids club will be closed during October, which is a facility closure rather than rates, availability, or inventory under a contract. This does not match new terms, ARI, or a promotion, so it falls under not_a_contract."
+      },
+      "h11": {
+        "small": 0.6,
+        "big": 0.85,
+        "small_reasoning": "The message is an out-of-office auto-reply, which is not a contract. It mentions a stop sale, but it is in an out-of-office reply, so the ARI change is incidental; the rules say out-of-office replies are not_a_contract and not_a_contract never appears with other labels. Still, the stop sale is a hotel-stated availability change, so there is ambiguity; the dominant intent is an auto-reply."
+      },
+      "h12": {
+        "small": 0.9,
+        "big": 0.8,
+        "small_reasoning": "The hotel-side sender confirms a stop sale for 3-6 June has been loaded, which is an inventory change under an existing contract. This is an ari_update."
+      }
+    }
+  }
+]

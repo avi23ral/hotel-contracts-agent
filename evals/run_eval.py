@@ -1,7 +1,8 @@
 """Run the step 3 pipeline on every input and score it against gold.
 
 Usage:
-  python evals/run_eval.py [--model claude-opus-5-5] [--only 002]
+  python evals/run_eval.py [--model claude-opus-5-5] [--only 002] [--direct]
+  (default: through the step 4 router; --direct skips intent detection, as in step 3)
   python evals/run_eval.py --rescore evals/results/<old run>.json   # old predictions, current scorer
 
 Writes evals/results/<timestamp>_<model>.json, then calibration.py draws the
@@ -22,6 +23,24 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from contract_agent.confidence import COST_WEIGHTS, THRESHOLDS, category  # noqa: E402
 from contract_agent.extract import baseline_status, extract_file  # noqa: E402
+from contract_agent.ingest import load_source  # noqa: E402
+from contract_agent.router import route_doc  # noqa: E402
+from contract_agent.schema import Intent  # noqa: E402
+
+PRICES = {"claude-haiku-5-5": (0.10, 0.50), "claude-opus-5-5": (4.00, 20.00)}   # $ per 1M in/out
+ROUTE_INTENT = {"new_contract": Intent.new_contract, "ari": Intent.amendment,
+                "promotion": Intent.amendment, "ignore": Intent.not_a_contract}
+
+
+def routed(path: Path, model: str):
+    r = route_doc(load_source(path), model=model)
+    usage = {"model": model, "routes": r.routes, "intent_labels": [x.value for x in r.intent.labels],
+             "input_tokens": sum(c["input_tokens"] for c in r.calls),
+             "output_tokens": sum(c["output_tokens"] for c in r.calls),
+             "usd": round(sum((c["input_tokens"] * PRICES[c["model"]][0] + c["output_tokens"]
+                               * PRICES[c["model"]][1]) / 1e6 for c in r.calls), 4),
+             "calls": r.calls}
+    return r.result, ROUTE_INTENT[r.routes[0]], usage
 from contract_agent.llm import EXTRACT_MODEL  # noqa: E402
 from contract_agent.schema import ChangeSet, Contract, GoldLabel, Status  # noqa: E402
 from contract_agent.scoring import score_fields  # noqa: E402
@@ -85,6 +104,7 @@ def main():
     ap.add_argument("--model", default=EXTRACT_MODEL)
     ap.add_argument("--only", default="", help="substring filter on file name")
     ap.add_argument("--rescore", type=Path, help="re-score a saved results file and exit")
+    ap.add_argument("--direct", action="store_true", help="skip the router (step 3 behaviour)")
     args = ap.parse_args()
     if args.rescore:
         return rescore(args.rescore)
@@ -93,12 +113,19 @@ def main():
     for gold in golds(args.only):
         t0 = time.time()
         try:
-            pred, usage = extract_file(ROOT / "data/inputs" / gold.source_file, model=args.model)
+            if args.direct:
+                pred, usage = extract_file(ROOT / "data/inputs" / gold.source_file, model=args.model)
+                pred_intent = pred.intent
+            else:
+                pred, pred_intent, usage = routed(ROOT / "data/inputs" / gold.source_file, args.model)
         except Exception as e:  # record failures, don't hide them
             rows.append({"file": gold.source_file, "error": repr(e)})
             print(f"{gold.source_file}: ERROR {e!r}")
             continue
         secs = time.time() - t0
+        if pred is None:   # router said "not a contract": nothing extracted
+            from contract_agent.schema import ExtractionResult
+            pred = ExtractionResult(source_file=gold.source_file, intent=pred_intent)
         target_pred = pred.contract if gold.contract else pred.change_set
         target_gold = gold.contract or gold.change_set
         s = score_fields(target_pred, target_gold)
@@ -114,7 +141,7 @@ def main():
             })
         rows.append({
             "file": gold.source_file, "difficulty": gold.difficulty,
-            "intent_ok": pred.intent == gold.intent, "pred_intent": pred.intent.value,
+            "intent_ok": pred_intent == gold.intent, "pred_intent": pred_intent.value,
             "precision": round(s.precision, 3), "recall": round(s.recall, 3), "f1": round(s.f1, 3),
             "n_correct": len(s.correct), "wrong": s.wrong, "missing": s.missing, "extra": s.extra,
             "issues": [i.model_dump() for i in pred.issues],
@@ -122,7 +149,8 @@ def main():
             "prediction": pred.model_dump(mode="json", exclude_none=True),
         })
         flagged = sum(m.status != Status.auto_accept for m in pred.field_meta.values())
-        print(f"{gold.source_file:38} intent={'OK ' if pred.intent == gold.intent else 'BAD'} "
+        print(f"{gold.source_file:38} intent={'OK ' if pred_intent == gold.intent else 'BAD'} "
+              f"routes={'+'.join(usage.get('routes', ['direct']))} "
               f"P={s.precision:.2f} R={s.recall:.2f} F1={s.f1:.2f} "
               f"wrong={len(s.wrong)} missing={len(s.missing)} extra={len(s.extra)} "
               f"flagged={flagged}/{len(pred.field_meta)} {secs:.0f}s")
@@ -139,6 +167,7 @@ def main():
             "mean_f1": round(sum(r["f1"] for r in ok) / n, 3),
             "intent_acc": f"{sum(r['intent_ok'] for r in ok)}/{n}",
             "tokens_in": sum(r["input_tokens"] for r in ok), "tokens_out": sum(r["output_tokens"] for r in ok),
+            "usd": round(sum(r.get("usd", 0) for r in ok), 3),
             "quote_not_found_pct": round(100 * sum(f["evidence_found"] is False for f in fields) / len(fields), 1),
             "no_evidence_pct": round(100 * sum(f["evidence_found"] is None for f in fields) / len(fields), 1),
             "missing_fields": sum(len(r["missing"]) for r in ok),
@@ -147,7 +176,7 @@ def main():
                          "step3_combined_per_field": policy_summary(fields, "step3", n)},
         }
         print(f"\nMEAN F1 {summary['mean_f1']:.3f} | intent acc {summary['intent_acc']} | "
-              f"tokens in/out {summary['tokens_in']}/{summary['tokens_out']} (2 passes)")
+              f"tokens in/out {summary['tokens_in']}/{summary['tokens_out']} (2 passes) | ${summary['usd']}")
         print(f"quotes not found in source: {summary['quote_not_found_pct']}% of fields | "
               f"no quote: {summary['no_evidence_pct']}% | fields missed entirely: {summary['missing_fields']}")
         for name, p in summary["policies"].items():
