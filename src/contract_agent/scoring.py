@@ -46,6 +46,7 @@ LIST_KEYS = {
     "changes": _change_key,
 }
 SKIP = {"name", "supplier_email", "payment_terms", "note", "destination"}  # free text: judged later, not exact-matched
+ALWAYS_SKIP = {"hotel_id", "giata_id"}   # set by our property master, not extracted, so not scored
 CANON_VALUES = {"season": canonical_season}   # leaf values normalised before comparison
 
 
@@ -55,7 +56,7 @@ def flatten(obj: Any, prefix: str = "") -> dict[str, Any]:
     out: dict[str, Any] = {}
     if isinstance(obj, dict):
         for k, v in obj.items():
-            if k in SKIP and prefix:   # keep top-level hotel name etc. out of exact match
+            if (k in SKIP and prefix) or k in ALWAYS_SKIP:   # keep top-level hotel name etc. out of exact match
                 continue
             if k in CANON_VALUES and isinstance(v, str):
                 v = CANON_VALUES[k](v)

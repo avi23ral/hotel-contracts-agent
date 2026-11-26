@@ -1,0 +1,31 @@
+{"id": "r_i03", "intent_id": "i03", "hotel_id": "H001", "sections": ["offers", "rooms"]}
+{"id": "r_i04", "intent_id": "i04", "hotel_id": "H003", "sections": ["rates"]}
+{"id": "r_i05", "intent_id": "i05", "hotel_id": "H004", "sections": ["rooms"]}
+{"id": "r_i06", "intent_id": "i06", "hotel_id": "H005", "sections": ["rooms"]}
+{"id": "r_i07", "intent_id": "i07", "hotel_id": "H005", "sections": ["rooms"]}
+{"id": "r_i08", "intent_id": "i08", "hotel_id": "H006", "sections": ["rooms"]}
+{"id": "r_i09", "intent_id": "i09", "hotel_id": "H001", "sections": ["seasons"]}
+{"id": "r_i10", "intent_id": "i10", "hotel_id": "H001", "sections": ["rates"]}
+{"id": "r_i11", "intent_id": "i11", "hotel_id": "H007", "sections": ["rooms"]}
+{"id": "r_i12", "intent_id": "i12", "hotel_id": "H008", "sections": ["rooms"]}
+{"id": "r_i13", "intent_id": "i13", "hotel_id": "H002", "sections": ["rates"]}
+{"id": "r_i14", "intent_id": "i14", "hotel_id": "H004", "sections": null}
+{"id": "r_i15", "intent_id": "i15", "hotel_id": "H002", "sections": null}
+{"id": "r_i16", "intent_id": "i16", "hotel_id": "H004", "sections": null}
+{"id": "r_i17", "intent_id": "i17", "hotel_id": "H008", "sections": ["offers"]}
+{"id": "r_i18", "intent_id": "i18", "hotel_id": "H005", "sections": null}
+{"id": "r_i19", "intent_id": "i19", "hotel_id": "H006", "sections": ["rooms"]}
+{"id": "r_i20", "intent_id": "i20", "hotel_id": "H003", "sections": ["rates"]}
+{"id": "r_i29", "intent_id": "i29", "hotel_id": "H003", "sections": ["rates"]}
+{"id": "r_i30", "intent_id": "i30", "hotel_id": "H007", "sections": null}
+{"id": "r_i31", "intent_id": "i31", "hotel_id": "H008", "sections": ["rooms"]}
+{"id": "r_h01", "intent_id": "h01", "hotel_id": "H005", "sections": ["rooms"]}
+{"id": "r_h06", "intent_id": "h06", "hotel_id": "H005", "sections": ["rates"]}
+{"id": "r_h07", "intent_id": "h07", "hotel_id": "H006", "sections": ["rooms"]}
+{"id": "r_h08", "intent_id": "h08", "hotel_id": "H002", "sections": ["rooms"]}
+{"id": "r_h11", "intent_id": "h11", "hotel_id": "H006", "sections": ["rooms"]}
+{"id": "r01", "text": "From: Jordi Puig <reservas@marinasol.example>\nSubject: cierre\n\nPlease close Double Sea View 5-9 August.", "hotel_id": "H009", "sections": ["rooms"], "note": "decoy hotel, identified by email domain"}
+{"id": "r02", "text": "Hola Tom, Marina Sol here. The 15% early booking is extended to end of February, rest the same.", "hotel_id": "H009", "sections": ["offers"], "note": "decoy name close to Sol de Marina"}
+{"id": "r03", "text": "[01/07/2027, 10:00] Marta: hi Tom, close sea view rooms 1-4 Sept pls", "hotel_id": "H001", "sections": ["rooms"], "note": "only a contact first name"}
+{"id": "r04", "text": "Please stop sale Double Room 10-12 June. Thanks", "hotel_id": null, "sections": null, "note": "no identifying information: should abstain, not guess"}
+{"id": "r05", "text": "Greetings from Kos! The AI supplement goes up by 3 euro from June.", "hotel_id": "H002", "sections": ["rates"], "note": "destination only"}

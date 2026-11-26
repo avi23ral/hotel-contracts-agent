@@ -1,0 +1,198 @@
+{
+  "hotel": {
+    "name": "Hotel Marina Sol",
+    "destination": "Benidorm",
+    "country": "Spain",
+    "supplier_email": "contracts@marinasol.example",
+    "hotel_id": "H009",
+    "giata_id": "G-100990"
+  },
+  "contract_start": "2027-05-01",
+  "contract_end": "2027-10-31",
+  "currency": "EUR",
+  "rate_type": "net",
+  "pricing_basis": "per_room_per_night",
+  "rooms": [
+    {
+      "code": "DBL",
+      "name": "Double Room",
+      "min_adults": 1,
+      "max_adults": 2,
+      "max_children": 1,
+      "max_occupancy": 3,
+      "inventory": "free_sale"
+    },
+    {
+      "code": "DSV",
+      "name": "Double Sea View",
+      "min_adults": 1,
+      "max_adults": 2,
+      "max_children": 1,
+      "max_occupancy": 3,
+      "inventory": "free_sale"
+    }
+  ],
+  "seasons": [
+    {
+      "name": "Low",
+      "date_from": "2027-05-01",
+      "date_to": "2027-06-14",
+      "min_stay_nights": 3
+    },
+    {
+      "name": "Mid",
+      "date_from": "2027-06-15",
+      "date_to": "2027-07-14",
+      "min_stay_nights": 3
+    },
+    {
+      "name": "High",
+      "date_from": "2027-07-15",
+      "date_to": "2027-08-31",
+      "min_stay_nights": 5
+    },
+    {
+      "name": "Shoulder",
+      "date_from": "2027-09-01",
+      "date_to": "2027-10-31",
+      "min_stay_nights": 3
+    }
+  ],
+  "rates": [
+    {
+      "season": "Low",
+      "room_code": "DBL",
+      "board": "BB",
+      "price": 70
+    },
+    {
+      "season": "Low",
+      "room_code": "DBL",
+      "board": "HB",
+      "price": 100
+    },
+    {
+      "season": "Low",
+      "room_code": "DSV",
+      "board": "BB",
+      "price": 85
+    },
+    {
+      "season": "Low",
+      "room_code": "DSV",
+      "board": "HB",
+      "price": 115
+    },
+    {
+      "season": "Mid",
+      "room_code": "DBL",
+      "board": "BB",
+      "price": 88
+    },
+    {
+      "season": "Mid",
+      "room_code": "DBL",
+      "board": "HB",
+      "price": 118
+    },
+    {
+      "season": "Mid",
+      "room_code": "DSV",
+      "board": "BB",
+      "price": 106
+    },
+    {
+      "season": "Mid",
+      "room_code": "DSV",
+      "board": "HB",
+      "price": 136
+    },
+    {
+      "season": "High",
+      "room_code": "DBL",
+      "board": "BB",
+      "price": 112
+    },
+    {
+      "season": "High",
+      "room_code": "DBL",
+      "board": "HB",
+      "price": 142
+    },
+    {
+      "season": "High",
+      "room_code": "DSV",
+      "board": "BB",
+      "price": 136
+    },
+    {
+      "season": "High",
+      "room_code": "DSV",
+      "board": "HB",
+      "price": 166
+    },
+    {
+      "season": "Shoulder",
+      "room_code": "DBL",
+      "board": "BB",
+      "price": 77
+    },
+    {
+      "season": "Shoulder",
+      "room_code": "DBL",
+      "board": "HB",
+      "price": 107
+    },
+    {
+      "season": "Shoulder",
+      "room_code": "DSV",
+      "board": "BB",
+      "price": 94
+    },
+    {
+      "season": "Shoulder",
+      "room_code": "DSV",
+      "board": "HB",
+      "price": 124
+    }
+  ],
+  "release_days": null,
+  "cancellation": [
+    {
+      "days_from": 31,
+      "charge_pct": 0
+    },
+    {
+      "days_from": 15,
+      "days_to": 30,
+      "charge_pct": 50
+    },
+    {
+      "days_from": 0,
+      "days_to": 14,
+      "charge_pct": 100
+    }
+  ],
+  "special_offers": [
+    {
+      "type": "early_booking",
+      "discount_pct": 15,
+      "book_by": "2027-01-31",
+      "stay_from": "2027-05-01",
+      "stay_to": "2027-10-31",
+      "combinable": true
+    }
+  ],
+  "child_policy": [
+    {
+      "age_from": 0,
+      "age_to": 1.99,
+      "discount_pct": 100
+    },
+    {
+      "age_from": 2,
+      "age_to": 11.99,
+      "discount_pct": 50
+    }
+  ]
+}

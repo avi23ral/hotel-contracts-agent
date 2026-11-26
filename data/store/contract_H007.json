@@ -1,0 +1,141 @@
+{
+  "hotel": {
+    "name": "Alpenhof Lodge",
+    "destination": "Mayrhofen, Tyrol",
+    "country": "Austria",
+    "supplier_email": "contracts@alpenhof.example",
+    "hotel_id": "H007",
+    "giata_id": "G-500301"
+  },
+  "contract_start": "2027-12-15",
+  "contract_end": "2028-04-10",
+  "currency": "EUR",
+  "rate_type": "net",
+  "pricing_basis": "per_room_per_night",
+  "rooms": [
+    {
+      "code": "DBL",
+      "name": "Double Room",
+      "min_adults": 1,
+      "max_adults": 2,
+      "max_children": 1,
+      "max_occupancy": 3,
+      "inventory": "free_sale"
+    },
+    {
+      "code": "JSU",
+      "name": "Junior Suite",
+      "min_adults": 1,
+      "max_adults": 2,
+      "max_children": 2,
+      "max_occupancy": 4,
+      "inventory": "free_sale"
+    }
+  ],
+  "seasons": [
+    {
+      "name": "Xmas",
+      "date_from": "2027-12-15",
+      "date_to": "2028-01-06",
+      "min_stay_nights": 7
+    },
+    {
+      "name": "Peak",
+      "date_from": "2028-01-07",
+      "date_to": "2028-02-29",
+      "min_stay_nights": 7
+    },
+    {
+      "name": "Mid",
+      "date_from": "2028-03-01",
+      "date_to": "2028-03-25",
+      "min_stay_nights": 4
+    },
+    {
+      "name": "Low",
+      "date_from": "2028-03-26",
+      "date_to": "2028-04-10",
+      "min_stay_nights": 3
+    }
+  ],
+  "rates": [
+    {
+      "season": "Xmas",
+      "room_code": "DBL",
+      "board": "HB",
+      "price": 180
+    },
+    {
+      "season": "Xmas",
+      "room_code": "JSU",
+      "board": "HB",
+      "price": 240
+    },
+    {
+      "season": "Peak",
+      "room_code": "DBL",
+      "board": "HB",
+      "price": 218
+    },
+    {
+      "season": "Peak",
+      "room_code": "JSU",
+      "board": "HB",
+      "price": 292
+    },
+    {
+      "season": "Mid",
+      "room_code": "DBL",
+      "board": "HB",
+      "price": 270
+    },
+    {
+      "season": "Mid",
+      "room_code": "JSU",
+      "board": "HB",
+      "price": 366
+    },
+    {
+      "season": "Low",
+      "room_code": "DBL",
+      "board": "HB",
+      "price": 195
+    },
+    {
+      "season": "Low",
+      "room_code": "JSU",
+      "board": "HB",
+      "price": 261
+    }
+  ],
+  "release_days": null,
+  "cancellation": [
+    {
+      "days_from": 30,
+      "charge_pct": 0
+    },
+    {
+      "days_from": 8,
+      "days_to": 29,
+      "charge_pct": 50
+    },
+    {
+      "days_from": 0,
+      "days_to": 7,
+      "charge_pct": 100
+    }
+  ],
+  "special_offers": [],
+  "child_policy": [
+    {
+      "age_from": 0,
+      "age_to": 1.99,
+      "discount_pct": 100
+    },
+    {
+      "age_from": 2,
+      "age_to": 11.99,
+      "discount_pct": 50
+    }
+  ]
+}
