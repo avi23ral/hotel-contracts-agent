@@ -102,8 +102,15 @@ def test_spend_guard_adds_up():
     assert abs(rs.spent_today() - 0.03) < 1e-9
 
 
-def test_demo_app_renders_a_replay_without_errors():
+def test_demo_app_lands_on_samples_and_runs_one_end_to_end():
     from streamlit.testing.v1 import AppTest
     at = AppTest.from_file(str(ROOT / "app/demo_app.py"), default_timeout=60).run()
     assert not at.exception
-    assert any("Review" in s.value for s in at.subheader)
+    assert any("Pick a message" in s.value for s in at.subheader)       # landing page, no login
+    at.button(key="s003_sol_de_marina_chat.txt").click().run()
+    assert not at.exception and any("Your turn" in m.value for m in at.markdown)
+    next(b for b in at.button if "Accept all" in b.label).click().run()
+    at.text_input[-1].input("false").run()
+    next(b for b in at.button if b.label == "Save correction" and not b.disabled).click().run()
+    next(b for b in at.button if b.label.startswith("Approve")).click().run()
+    assert not at.exception and any("contract version 1" in m.value for m in at.markdown)
