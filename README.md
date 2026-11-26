@@ -58,37 +58,37 @@ python evals/calibration.py # chart from all saved step 3 runs
 
 ## Demo: try it in your browser
 
-![Review queue](docs/screenshots/review_queue.png)
+![Demo landing page](docs/screenshots/landing.png)
 
-**On your laptop** (about 2 minutes):
+The demo opens on three one-click samples: a WhatsApp chat, an email thread and a PDF contract. Each replays a saved run of the agent through every stage:
+- what kind of message it is, and which hotel
+- what it looked up
+- every field, with its confidence and source quote
+- a short list for a person to check
+- approval, and the offer file to download
+
+It needs no sign-in, no password and no API key, and costs nothing. The **How well it works** tab has the results (see `docs/results.md`).
+
+**On your laptop:**
 ```
 git clone https://github.com/avi23ral/hotel-contracts-agent.git
 cd hotel-contracts-agent
 pip install -r requirements.txt
 streamlit run app/demo_app.py
 ```
-Your browser opens at http://localhost:8501.
-- **Replay a sample** (the default): pick the PDF contract, the email thread or the WhatsApp chat. You see the intent, the route, what was looked up, every field with its confidence and source quote, and the review queue. Accept or correct the flagged fields, approve, and download the offer file. No API key and no cost.
-- **Run live**: put your key in `.env` (see `.env.example`), switch the mode, then paste an email or chat or upload a PDF. It uses Haiku with one pass, at about 1 cent a message.
 
-**A shareable link, free (Streamlit Community Cloud).** Nothing is deployed yet; these are the steps for when you want it:
-1. Sign in at https://share.streamlit.io with your GitHub account.
-2. Click "Create app", then choose this repo, branch `main` and file `app/demo_app.py`.
-3. Under Advanced settings, then Secrets, add:
-   ```
-   HOTEL_AGENT_API_KEY = "sk-ant-..."
-   DEMO_PASSWORD = "pick-one"
-   DEMO_DAILY_USD = "1.0"
-   ```
-   Without `HOTEL_AGENT_API_KEY`, live mode is simply switched off and the link is replay only, which is safe to send to anyone.
-4. Deploy. You get a link like `https://<name>.streamlit.app` to put in an email or a CV.
+**As a public link (free, Streamlit Community Cloud):**
+1. Go to https://share.streamlit.io and sign in with GitHub.
+2. Create an app from this repo: branch `main`, main file `app/demo_app.py`, with a custom subdomain if you like.
+3. Deploy. With no secrets set, the link is replay-only, which is the safe choice for emailing.
 
-Safety for a public link:
-- Replay mode never calls the API.
-- Live mode needs the password and stops at the daily cap.
-- The key lives only in the host's secrets.
-- The cap is kept in a local file that resets when the free host restarts the app, so also set a monthly spend limit on the API key in the Anthropic Console. That is the hard stop.
-- If the repo is public, anyone can read the code. It contains only synthetic data, and `.env` is never committed.
+**Optional live mode**, where visitors paste their own text, adds these secrets in the app's settings:
+```
+HOTEL_AGENT_API_KEY = "sk-ant-..."
+DEMO_PASSWORD = "pick-one"     # visitors need this to run live
+DEMO_DAILY_USD = "1.0"         # soft daily cap; it resets if the app restarts
+```
+Also set a monthly spend limit on that API key in the Anthropic Console. That is the hard stop.
 
 ## Progress
 - [x] Step 1: schema, 3 synthetic inputs, gold labels, offer rows
@@ -98,3 +98,4 @@ Safety for a public link:
 - [x] Step 5: RAG over existing contracts and the playbook, retrieval eval (see notes/05)
 - [x] Step 6: ReAct resolver for ambiguous fields, with tools and a resolver eval (see notes/06)
 - [x] Step 7: review screen, contract versions, offer file export, correction log, demo app (see notes/07)
+- [x] Step 8: eval report and interview story (see notes/08), guided public demo
